@@ -3,7 +3,6 @@
  * This file contains the foundation classes for component-based and event-driven programming.
  *
  * @author zz@flyzz.net
- * @link http://www.flyzz.net
  * @copyright Copyright 2014 flyzz.net
  */
 
