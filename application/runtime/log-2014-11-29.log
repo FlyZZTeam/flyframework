@@ -1,0 +1,1244 @@
+[DEBUG] [application] - 2014-11-29 01:28:57 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:28:57 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 01:28:57 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 01:28:57 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 01:28:57 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 01:28:57 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 01:28:57 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:28:57 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 01:28:57 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 01:28:57 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 01:28:57 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 01:28:57 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 01:28:57 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 01:28:57 --> Severity: Warning  --> Missing argument 1 for IndexController::indexAction(), called in /Users/geet/www/fly/framework/system/core/Controller.php on line 79 and defined /Users/geet/www/fly/framework/application/controllers/IndexController.php 11
+[DEBUG] [application] - 2014-11-29 01:37:57 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:37:57 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 01:37:57 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 01:37:57 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 01:37:57 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 01:37:57 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 01:37:57 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:37:57 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 01:37:57 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 01:37:57 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 01:37:57 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 01:37:57 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 01:37:57 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 01:37:57 --> Severity: Warning  --> Missing argument 1 for IndexController::actionIndex(), called in /Users/geet/www/fly/framework/system/core/Controller.php on line 79 and defined /Users/geet/www/fly/framework/application/controllers/IndexController.php 11
+[DEBUG] [application] - 2014-11-29 01:38:00 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:00 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:00 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 01:38:00 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:00 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 01:38:00 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 01:38:00 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:00 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:00 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 01:38:00 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:00 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:00 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 01:38:00 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 01:38:00 --> Severity: Warning  --> Missing argument 1 for IndexController::actionIndex(), called in /Users/geet/www/fly/framework/system/core/Controller.php on line 79 and defined /Users/geet/www/fly/framework/application/controllers/IndexController.php 11
+[DEBUG] [application] - 2014-11-29 01:38:15 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:15 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:15 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 01:38:15 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:15 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 01:38:15 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 01:38:15 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:15 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:15 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 01:38:15 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:15 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:15 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 01:38:20 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:20 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:20 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 01:38:20 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:20 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 01:38:20 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 01:38:20 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:20 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:20 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 01:38:20 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:20 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:20 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 01:38:23 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:23 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:23 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 01:38:23 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:23 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 01:38:23 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 01:38:23 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:23 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:23 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 01:38:23 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:23 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:23 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 01:38:25 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:25 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:25 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 01:38:25 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:25 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 01:38:25 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 01:38:25 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 01:38:25 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 01:38:25 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 01:38:25 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:25 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 01:38:25 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:35:11 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:11 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:11 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:11 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:11 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:11 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:12 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:12 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:12 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:12 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:12 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:12 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 11:35:12 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 11:35:12 --> 404 Page Not Found --> welcome
+[DEBUG] [application] - 2014-11-29 11:35:15 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:15 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:15 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:15 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:15 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:16 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:16 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:16 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:16 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:16 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:16 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:16 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 11:35:16 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 11:35:16 --> 404 Page Not Found --> welcome
+[DEBUG] [application] - 2014-11-29 11:35:18 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:18 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:18 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:18 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:18 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:19 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:19 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:19 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:19 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:19 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:19 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:19 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 11:35:19 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 11:35:19 --> 404 Page Not Found --> welcome
+[DEBUG] [application] - 2014-11-29 11:35:22 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:22 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:22 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:22 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:22 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:22 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:22 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:22 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:22 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:22 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:22 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:22 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 11:35:22 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 11:35:22 --> 404 Page Not Found --> welcome
+[DEBUG] [application] - 2014-11-29 11:35:24 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:24 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:24 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:24 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:24 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:24 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:24 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:24 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:24 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:24 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:24 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:24 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 11:35:24 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 11:35:24 --> 404 Page Not Found --> welcome
+[DEBUG] [application] - 2014-11-29 11:35:26 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:26 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:26 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:26 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:26 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:26 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:26 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:26 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:26 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:26 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:26 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:26 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 11:35:26 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 11:35:26 --> 404 Page Not Found --> welcome
+[DEBUG] [application] - 2014-11-29 11:35:30 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:30 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:30 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:30 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:30 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:30 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:30 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:30 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:30 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:30 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:30 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:30 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:35:34 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:34 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:34 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:34 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:34 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:34 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:34 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:34 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:34 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:34 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:34 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:34 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:35:36 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:36 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:36 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:35:36 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:36 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:35:36 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:35:36 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:35:36 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:35:36 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:35:36 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:36 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:35:36 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:38:33 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:38:33 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:38:33 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:38:33 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:38:33 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:38:33 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:38:33 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:38:33 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:38:34 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:38:34 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:38:34 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:38:34 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:41:32 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:32 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:32 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:41:32 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:32 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:41:32 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:41:32 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:32 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:32 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:41:32 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:32 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:32 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:41:39 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:39 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:39 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:41:39 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:39 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:41:39 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:41:39 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:39 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:39 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:41:39 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:39 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:39 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:41:44 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:44 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:44 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:41:44 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:44 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:41:44 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:41:44 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:44 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:44 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:41:44 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:44 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:44 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:41:46 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:46 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:46 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:41:46 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:46 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:41:46 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:41:46 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:41:46 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:41:46 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:41:46 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:46 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:41:46 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:42:05 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:05 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:05 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:42:05 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:05 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:42:05 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:42:05 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:05 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:05 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:42:05 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:05 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:05 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:42:07 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:07 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:07 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:42:07 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:07 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:42:07 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:42:07 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:07 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:07 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:42:07 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:07 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:07 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:42:23 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:23 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:23 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:42:23 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:23 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:42:23 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:42:23 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:23 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:23 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:42:23 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:23 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:23 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:42:26 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:26 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:26 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:42:26 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:26 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:42:26 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:42:26 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:26 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:26 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:42:26 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:26 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:26 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:42:28 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:28 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:28 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:42:28 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:28 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:42:28 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:42:28 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:28 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:28 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:42:28 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:28 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:28 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:42:46 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:46 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:46 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:42:46 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:46 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:42:46 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:42:46 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:46 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:46 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:42:46 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:46 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:46 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:42:48 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:48 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:48 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:42:48 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:48 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:42:48 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:42:48 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:42:48 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:42:48 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:42:48 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:48 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:42:48 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:44:11 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:44:11 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:44:11 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:44:11 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:44:11 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:44:11 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:44:11 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:44:11 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:44:11 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:44:11 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:44:11 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:44:11 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 11:44:13 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:44:13 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 11:44:13 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 11:44:13 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 11:44:13 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 11:44:13 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 11:44:13 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 11:44:13 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 11:44:13 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 11:44:13 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 11:44:13 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 11:44:13 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 12:15:38 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:15:38 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 12:15:38 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 12:15:38 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:38 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 12:15:38 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 12:15:38 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:15:38 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 12:15:38 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 12:15:38 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:38 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:38 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 12:15:51 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:15:51 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 12:15:51 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 12:15:51 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:51 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 12:15:51 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 12:15:51 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:15:51 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 12:15:51 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 12:15:51 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:51 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:51 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 12:15:53 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:15:53 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 12:15:53 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 12:15:53 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:53 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 12:15:53 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 12:15:53 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:15:53 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 12:15:53 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 12:15:53 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:53 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 12:15:53 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 12:16:00 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:16:00 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 12:16:00 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 12:16:00 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 12:16:00 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 12:16:00 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 12:16:00 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 12:16:00 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 12:16:00 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 12:16:00 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 12:16:00 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 12:16:00 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 12:16:00 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 12:16:00 --> 404 Page Not Found --> indexssss
+[DEBUG] [application] - 2014-11-29 21:37:26 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:26 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:26 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:26 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:26 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:26 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:26 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:26 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:26 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:26 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:26 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:26 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 21:37:26 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 21:37:26 --> 404 Page Not Found --> indexssss
+[DEBUG] [application] - 2014-11-29 21:37:30 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:30 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:30 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:30 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:30 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:30 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:30 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:30 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:30 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:30 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:30 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:30 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 21:37:33 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:33 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:33 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:33 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:33 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:33 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:33 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:33 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:33 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:33 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:33 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:33 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 21:37:37 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:37 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:37 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:37 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:37 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:37 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:37 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:37 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:37 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:37 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:37 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:37 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 21:37:41 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:41 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:41 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:41 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:41 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:41 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:41 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:41 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:41 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:41 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:41 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:41 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 21:37:45 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:45 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:45 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:45 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:45 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:45 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:45 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:45 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:45 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:45 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:45 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:45 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 21:37:47 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:47 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:47 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:47 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:47 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:47 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:47 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:47 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:47 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:47 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:47 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:47 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 21:37:49 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:49 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:49 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:37:49 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:49 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:37:49 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:37:49 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:37:49 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:37:49 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:37:49 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:49 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:37:49 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 21:49:10 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:49:10 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 21:49:10 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 21:49:10 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 21:49:10 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 21:49:10 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 21:49:10 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 21:49:10 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 21:49:10 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 21:49:10 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 21:49:10 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 21:49:10 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:07:31 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:07:31 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:07:31 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:07:31 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:07:31 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:07:31 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:07:31 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:07:31 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:07:31 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:07:31 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:07:31 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:07:31 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:09:14 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:09:14 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:09:14 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:09:14 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:09:14 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:09:14 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:09:14 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:09:14 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:09:14 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:09:14 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:09:14 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:09:14 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:19:19 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:19:19 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:19:19 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:19:19 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:19:19 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:19:19 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:19:19 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:19:19 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:19:19 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:19:19 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:19:19 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:19:19 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:20:28 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:20:28 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:20:28 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:20:28 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:28 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:20:28 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:20:28 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:20:28 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:20:28 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:20:28 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:28 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:28 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:20:28 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:20:28 --> 404 Page Not Found --> index/do
+[DEBUG] [application] - 2014-11-29 22:20:30 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:20:30 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:20:30 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:20:31 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:31 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:20:31 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:20:31 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:20:31 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:20:31 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:20:31 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:31 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:31 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:20:31 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:20:31 --> 404 Page Not Found --> index/do
+[DEBUG] [application] - 2014-11-29 22:20:58 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:20:58 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:20:58 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:20:58 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:58 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:20:58 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:20:58 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:20:58 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:20:58 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:20:58 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:58 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:20:58 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:20:58 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:20:58 --> Severity: Notice  --> Undefined variable: ur /Users/geet/www/fly/framework/system/core/WebApplication.php 182
+[DEBUG] [application] - 2014-11-29 22:21:12 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:21:12 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:21:12 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:21:12 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:21:12 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:21:12 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:21:12 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:21:12 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:21:12 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:21:12 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:21:12 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:21:12 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:22:15 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:22:15 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:22:15 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:22:15 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:15 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:22:15 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:22:15 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:22:15 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:22:15 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:22:15 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:15 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:15 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:22:18 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:22:18 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:22:18 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:22:18 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:18 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:22:18 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:22:18 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:22:18 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:22:18 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:22:18 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:18 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:18 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:22:34 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:22:34 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:22:34 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:22:34 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:34 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:22:34 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:22:34 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:22:34 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:22:34 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:22:34 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:34 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:22:34 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:23:12 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:23:12 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:23:12 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:23:12 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:23:12 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:23:12 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:23:12 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:23:12 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:23:12 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:23:12 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:23:12 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:23:12 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:24:57 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:24:57 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:24:57 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:24:57 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:24:57 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:24:57 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:24:57 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:24:57 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:24:57 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:24:57 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:24:57 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:24:57 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:10 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:10 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:10 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:10 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:10 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:10 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:10 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:10 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:10 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:10 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:10 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:10 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:16 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:16 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:16 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:16 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:16 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:16 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:16 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:16 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:16 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:16 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:16 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:16 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:25:16 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:25:16 --> 404 Page Not Found --> index/dos
+[DEBUG] [application] - 2014-11-29 22:25:20 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:20 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:20 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:20 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:20 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:20 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:20 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:20 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:20 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:20 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:20 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:20 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:29 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:29 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:29 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:29 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:29 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:29 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:29 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:29 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:29 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:29 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:29 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:29 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:33 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:33 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:33 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:33 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:33 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:33 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:33 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:33 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:33 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:33 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:33 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:33 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:37 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:37 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:37 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:37 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:37 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:37 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:37 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:37 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:37 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:37 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:37 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:37 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:47 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:47 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:47 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:47 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:47 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:47 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:47 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:47 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:47 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:47 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:47 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:47 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:53 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:53 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:53 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:53 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:53 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:53 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:53 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:53 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:53 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:53 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:53 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:53 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:25:54 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:54 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:54 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:25:54 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:54 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:25:54 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:25:54 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:25:54 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:25:54 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:25:54 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:54 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:25:54 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:27:00 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:27:00 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:27:00 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:27:00 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:27:00 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:27:00 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:27:00 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:27:00 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:27:00 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:27:00 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:27:00 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:27:00 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:27:02 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:27:02 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:27:02 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:27:02 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:27:02 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:27:02 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:27:02 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:27:02 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:27:02 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:27:02 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:27:02 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:27:02 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:49:45 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:45 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:45 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:49:45 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:45 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:49:45 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:49:45 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:45 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:45 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:49:45 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:45 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:45 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:49:45 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:49:45 --> 404 Page Not Found --> admin
+[DEBUG] [application] - 2014-11-29 22:49:52 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:52 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:52 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:49:52 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:52 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:49:52 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:49:52 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:52 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:52 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:49:52 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:52 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:52 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:49:52 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:49:52 --> 404 Page Not Found --> admin
+[DEBUG] [application] - 2014-11-29 22:49:55 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:55 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:55 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:49:55 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:55 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:49:55 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:49:55 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:55 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:55 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:49:55 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:55 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:55 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:49:55 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:49:55 --> 404 Page Not Found --> admin
+[DEBUG] [application] - 2014-11-29 22:49:57 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:57 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:57 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:49:57 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:57 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:49:57 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:49:57 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:49:57 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:49:57 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:49:57 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:57 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:49:57 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 22:49:57 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:49:57 --> 404 Page Not Found --> admin
+[DEBUG] [application] - 2014-11-29 22:51:29 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:51:29 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:51:29 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:51:29 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:51:29 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:51:29 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:51:29 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:51:29 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:51:29 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:51:29 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:51:29 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:51:29 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [application] - 2014-11-29 22:51:51 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:51:51 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:51:51 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:51:51 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:51:51 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:51:51 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:51:51 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:51:51 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:51:51 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:51:51 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:51:51 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:51:51 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:51:51 --> Loading "app" module
+[DEBUG] [system.Module] - 2014-11-29 22:51:51 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:51:51 --> Severity: Notice  --> Undefined variable: router /Users/geet/www/fly/framework/system/core/WebApplication.php 205
+[ERROR] [application] - 2014-11-29 22:51:51 --> 404 Page Not Found --> app/index/index
+[ERROR] [application] - 2014-11-29 22:51:51 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/geet/www/fly/framework/system/core/ExceptionHandler.php:183) /Users/geet/www/fly/framework/system/core/Common.php 430
+[DEBUG] [application] - 2014-11-29 22:52:42 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:52:42 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:52:42 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:52:42 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:42 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:52:42 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:52:42 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:52:42 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:52:42 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:52:42 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:42 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:42 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:52:42 --> Loading "app" module
+[DEBUG] [system.Module] - 2014-11-29 22:52:42 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:52:42 --> 404 Page Not Found --> app/index/index
+[DEBUG] [application] - 2014-11-29 22:52:45 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:52:45 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:52:45 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:52:45 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:45 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:52:45 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:52:45 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:52:45 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:52:45 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:52:45 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:45 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:45 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:52:45 --> Loading "app" module
+[DEBUG] [system.Module] - 2014-11-29 22:52:45 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:52:45 --> 404 Page Not Found --> app/index/index
+[DEBUG] [application] - 2014-11-29 22:52:48 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:52:48 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:52:48 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:52:48 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:48 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:52:48 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:52:48 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:52:48 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:52:48 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:52:48 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:48 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:52:48 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:52:48 --> Loading "app" module
+[DEBUG] [system.Module] - 2014-11-29 22:52:48 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 22:52:48 --> 404 Page Not Found --> app/index/index
+[DEBUG] [application] - 2014-11-29 22:53:17 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:53:17 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:53:17 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:53:17 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:17 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:53:17 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:53:17 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:53:17 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:53:17 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:53:17 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:17 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:17 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:53:17 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:53:41 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:53:41 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:53:41 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:53:41 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:41 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:53:41 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:53:41 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:53:41 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:53:41 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:53:41 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:41 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:41 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:53:41 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:53:43 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:53:43 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:53:43 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:53:43 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:43 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:53:43 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:53:43 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:53:43 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:53:43 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:53:43 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:43 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:53:43 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:53:43 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:54:27 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:54:27 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:54:27 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:54:27 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:54:27 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:54:27 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:54:27 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:54:27 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:54:27 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:54:27 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:54:27 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:54:27 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:54:27 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:54:32 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:54:32 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:54:32 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:54:32 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:54:32 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:54:32 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:54:32 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:54:32 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:54:32 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:54:32 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:54:32 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:54:32 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:54:32 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:56:46 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:56:46 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:56:46 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:56:46 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:56:46 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:56:46 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:56:46 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:56:46 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:56:46 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:56:46 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:56:46 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:56:46 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:56:46 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:57:35 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:57:35 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:57:35 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:57:35 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:57:35 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:57:35 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:57:35 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:57:35 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:57:35 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:57:35 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:57:35 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:57:35 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:57:35 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:58:12 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:58:12 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:58:12 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:58:12 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:58:12 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:58:12 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:58:12 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:58:12 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:58:12 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:58:12 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:58:12 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:58:12 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:58:12 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 22:58:41 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:58:41 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 22:58:41 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 22:58:41 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 22:58:41 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 22:58:41 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 22:58:41 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 22:58:41 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 22:58:41 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 22:58:41 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 22:58:41 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 22:58:41 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 22:58:41 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 23:00:15 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:00:15 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:00:15 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:00:15 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:00:15 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:00:15 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:00:15 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:00:15 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:00:15 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:00:15 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:00:15 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:00:15 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:00:15 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 23:00:47 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:00:47 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:00:47 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:00:47 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:00:47 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:00:47 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:00:47 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:00:47 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:00:47 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:00:47 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:00:47 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:00:47 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:00:47 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 23:02:51 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:02:51 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:02:51 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:02:51 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:02:51 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:02:51 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:02:51 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:02:51 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:02:51 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:02:51 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:02:51 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:02:51 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:02:51 --> Loading "app" module
+[DEBUG] [system.Module] - 2014-11-29 23:02:51 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 23:02:51 --> Severity: Notice  --> Undefined variable: a /Users/geet/www/fly/framework/application/modules/admin/app/views/index/index.php 3
+[DEBUG] [application] - 2014-11-29 23:03:20 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:20 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:20 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:03:20 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:20 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:03:20 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:03:20 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:20 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:20 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:03:20 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:20 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:20 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:03:20 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 23:03:22 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:22 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:22 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:03:22 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:22 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:03:22 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:03:22 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:22 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:22 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:03:22 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:22 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:22 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:03:22 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 23:03:24 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:24 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:24 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:03:24 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:24 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:03:24 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:03:24 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:24 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:24 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:03:24 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:24 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:24 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:03:24 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 23:03:26 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:26 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:26 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:03:26 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:26 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:03:26 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:03:26 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:03:26 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:03:26 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:03:26 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:26 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:03:26 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:03:26 --> Loading "app" module
+[DEBUG] [application] - 2014-11-29 23:07:24 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:07:24 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:07:24 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:07:24 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:07:24 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:07:24 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:07:24 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:07:24 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:07:25 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:07:25 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:07:25 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:07:25 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 23:07:25 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 23:07:25 --> 404 Page Not Found --> appr
+[DEBUG] [application] - 2014-11-29 23:07:27 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:07:27 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:07:27 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:07:27 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:07:27 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:07:27 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:07:27 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:07:27 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:07:27 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:07:27 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:07:27 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:07:27 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 23:07:27 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 23:07:27 --> 404 Page Not Found --> appr
+[DEBUG] [application] - 2014-11-29 23:08:36 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:08:36 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:08:36 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:08:36 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:08:36 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:08:36 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:08:36 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:08:36 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:08:36 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:08:36 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:08:36 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:08:36 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 23:08:36 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 23:08:36 --> 404 Page Not Found --> appr
+[DEBUG] [application] - 2014-11-29 23:08:39 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:08:39 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:08:39 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:08:39 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:08:39 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:08:39 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:08:39 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:08:39 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:08:39 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:08:39 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:08:39 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:08:39 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.Module] - 2014-11-29 23:08:39 --> Loading "ExceptionHandler" application component
+[ERROR] [application] - 2014-11-29 23:08:39 --> 404 Page Not Found --> appr
+[DEBUG] [application] - 2014-11-29 23:10:01 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:10:01 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:10:01 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:10:01 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:10:01 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:10:01 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:10:01 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:10:01 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:10:01 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:10:01 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:10:01 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:10:01 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:10:01 --> Loading "appr" module
+[DEBUG] [application] - 2014-11-29 23:10:03 --> Application Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:10:03 --> Loading "Log" application component
+[DEBUG] [system.Module] - 2014-11-29 23:10:03 --> Loading "Utf8" application component
+[DEBUG] [application] - 2014-11-29 23:10:03 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-29 23:10:03 --> UTF-8 Support Enabled
+[DEBUG] [system.Module] - 2014-11-29 23:10:03 --> Loading "Hooks" application component
+[DEBUG] [application] - 2014-11-29 23:10:03 --> Hooks Class Initialized
+[DEBUG] [system.Module] - 2014-11-29 23:10:03 --> Loading "Router" application component
+[DEBUG] [system.Module] - 2014-11-29 23:10:03 --> Loading "Uri" application component
+[DEBUG] [application] - 2014-11-29 23:10:03 --> URI Class Initialized
+[DEBUG] [application] - 2014-11-29 23:10:03 --> Router Class Initialized
+[DEBUG] [application] - 2014-11-29 23:10:03 --> Config file loaded: /Users/geet/www/fly/framework/application/config/routes.php
+[DEBUG] [system.core.Module] - 2014-11-29 23:10:03 --> Loading "appr" module

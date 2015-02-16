@@ -1,0 +1,111 @@
+[DEBUG] [application] - 2014-11-05 09:33:33 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 09:33:33 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 09:33:33 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 09:33:33 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 09:33:37 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 09:33:37 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 09:33:37 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 09:33:37 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 09:35:26 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 09:35:26 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 09:35:26 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 09:35:26 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 09:35:26 --> Language Class Initialized
+[ERROR] [application] - 2014-11-05 09:35:26 --> Language file contains no data: language/english/fly_lang.php
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Warning  --> Missing argument 2 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Warning  --> Missing argument 3 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Warning  --> Missing argument 4 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Object of class Exceptions could not be converted to int /Users/geet/www/fly/framework/system/core/Application.php 254
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Object of class Exceptions could not be converted to int /Users/geet/www/fly/framework/system/core/Application.php 254
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Undefined variable: message /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Undefined variable: filepath /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Undefined variable: line /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Warning  --> Illegal offset type in isset or empty /Users/geet/www/fly/framework/system/core/ExceptionHandler.php 166
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Undefined variable: message /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Undefined variable: filepath /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Notice  --> Undefined variable: line /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: Warning  --> Illegal offset type in isset or empty /Users/geet/www/fly/framework/system/core/ExceptionHandler.php 93
+[ERROR] [application] - 2014-11-05 09:35:26 --> Severity: exception 'Exceptions' with message 'The configuration file can not be empty' in /Users/geet/www/fly/framework/index.php:37
+Stack trace:
+#0 {main}  -->   
+[DEBUG] [application] - 2014-11-05 10:09:14 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 10:09:14 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 10:09:14 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 10:09:14 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 10:09:14 --> Language Class Initialized
+[ERROR] [application] - 2014-11-05 10:09:14 --> Language file contains no data: language/english/fly_lang.php
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Warning  --> Missing argument 2 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Warning  --> Missing argument 3 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Warning  --> Missing argument 4 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Object of class Exceptions could not be converted to int /Users/geet/www/fly/framework/system/core/Application.php 254
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Object of class Exceptions could not be converted to int /Users/geet/www/fly/framework/system/core/Application.php 254
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Undefined variable: message /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Undefined variable: filepath /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Undefined variable: line /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Warning  --> Illegal offset type in isset or empty /Users/geet/www/fly/framework/system/core/ExceptionHandler.php 166
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Undefined variable: message /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Undefined variable: filepath /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Notice  --> Undefined variable: line /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: Warning  --> Illegal offset type in isset or empty /Users/geet/www/fly/framework/system/core/ExceptionHandler.php 93
+[ERROR] [application] - 2014-11-05 10:09:14 --> Severity: exception 'Exceptions' with message 'The configuration file can not be empty' in /Users/geet/www/fly/framework/index.php:37
+Stack trace:
+#0 {main}  -->   
+[DEBUG] [application] - 2014-11-05 10:09:56 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 10:09:56 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 10:09:56 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 10:09:56 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 13:39:33 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 13:39:33 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 13:39:33 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 13:39:33 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 15:19:23 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 15:19:23 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 15:19:23 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 15:19:23 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 15:19:23 --> Security Class Initialized
+[DEBUG] [application] - 2014-11-05 15:20:25 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 15:20:25 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 15:20:25 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 15:20:25 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 15:20:25 --> Security Class Initialized
+[DEBUG] [application] - 2014-11-05 15:20:25 --> XSS Filtering completed
+[DEBUG] [application] - 2014-11-05 15:21:34 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 15:21:34 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 15:21:34 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 15:21:34 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 15:21:34 --> Security Class Initialized
+[DEBUG] [application] - 2014-11-05 15:21:34 --> XSS Filtering completed
+[DEBUG] [application] - 2014-11-05 15:44:11 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 15:44:11 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 15:44:11 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 15:44:11 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:31 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:31 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:31 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 15:45:31 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:31 --> Config file loaded: /Users/geet/www/fly/framework/application/config/mimes.php
+[DEBUG] [application] - 2014-11-05 15:45:31 --> Output Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:54 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:54 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:54 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 15:45:54 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 15:45:54 --> Config file loaded: /Users/geet/www/fly/framework/application/config/mimes.php
+[DEBUG] [application] - 2014-11-05 15:45:54 --> Output Class Initialized
+[DEBUG] [application] - 2014-11-05 16:07:22 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 16:07:22 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 16:07:22 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 16:07:22 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 16:07:22 --> Config file loaded: /Users/geet/www/fly/framework/application/config/mimes.php
+[DEBUG] [application] - 2014-11-05 16:07:22 --> Output Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:38 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:38 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:38 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 17:46:38 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:38 --> Config file loaded: /Users/geet/www/fly/framework/application/config/mimes.php
+[DEBUG] [application] - 2014-11-05 17:46:38 --> Output Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:40 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:40 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:40 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-05 17:46:40 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-05 17:46:40 --> Config file loaded: /Users/geet/www/fly/framework/application/config/mimes.php
+[DEBUG] [application] - 2014-11-05 17:46:40 --> Output Class Initialized

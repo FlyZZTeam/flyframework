@@ -1,0 +1,262 @@
+[DEBUG] [application] - 2014-11-04 11:09:34 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 11:09:34 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 11:09:34 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 11:09:34 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 11:10:34 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 11:10:34 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 11:10:34 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 11:10:34 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 11:10:34 --> Severity: Notice  --> Undefined variable: a /Users/geet/www/fly/framework/system/core/Application.php 62
+[DEBUG] [application] - 2014-11-04 11:13:50 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 11:13:50 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 11:13:50 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 11:13:50 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 11:13:50 --> Severity: Notice  --> Undefined variable: a /Users/geet/www/fly/framework/system/core/Application.php 62
+[DEBUG] [application] - 2014-11-04 11:54:48 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 11:54:48 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 11:54:48 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 11:54:48 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 11:55:57 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 11:55:57 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 11:55:57 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 11:55:57 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 11:59:07 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 11:59:07 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 11:59:07 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 11:59:07 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 13:16:12 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 13:16:12 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 13:16:12 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 13:16:12 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:09 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:09 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:09 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:42:09 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 15:42:09 --> 404 Page Not Found --> xxx
+[DEBUG] [application] - 2014-11-04 15:42:11 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:11 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:11 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:42:11 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 15:42:11 --> 404 Page Not Found --> xxx
+[DEBUG] [application] - 2014-11-04 15:42:13 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:13 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:13 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:42:13 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 15:42:13 --> 404 Page Not Found --> xxx
+[DEBUG] [application] - 2014-11-04 15:42:15 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:15 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:15 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:42:15 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 15:42:15 --> 404 Page Not Found --> xxx
+[DEBUG] [application] - 2014-11-04 15:42:43 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:43 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:43 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:42:43 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:45 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:45 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:42:45 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:42:45 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:45:07 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:45:07 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:45:07 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:45:07 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:46:05 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:46:05 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:46:05 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:46:05 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:46:48 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:46:48 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:46:48 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:46:48 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:47:42 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:47:42 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:47:42 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:47:42 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:48:48 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:48:48 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:48:48 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:48:48 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:48:50 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:48:50 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:48:50 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:48:50 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 15:49:55 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 15:49:55 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 15:49:55 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 15:49:55 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:22 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:22 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:22 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 16:23:22 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:22 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:22 --> Language file loaded: language/english/date_lang.php
+[DEBUG] [application] - 2014-11-04 16:23:24 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:24 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:24 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 16:23:24 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:24 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 16:23:24 --> Language file loaded: language/english/date_lang.php
+[DEBUG] [application] - 2014-11-04 16:30:47 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 16:30:47 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 16:30:47 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 16:30:47 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 16:30:47 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 16:33:28 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 16:33:28 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 16:33:28 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 16:33:28 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 16:33:28 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 16:34:05 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 16:34:05 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 16:34:05 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 16:34:05 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 16:34:05 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 16:34:05 --> Language file loaded: language/english/date_lang.php
+[DEBUG] [application] - 2014-11-04 16:42:46 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 16:42:46 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 16:42:46 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 16:42:46 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 16:42:46 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 16:42:46 --> Language file loaded: language/english/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:21:13 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:13 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:13 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:21:13 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:13 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:13 --> Language file loaded: language/zh-cn/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:21:14 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:14 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:14 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:21:14 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:14 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:14 --> Language file loaded: language/zh-cn/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:21:16 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:16 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:16 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:21:16 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:16 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:16 --> Language file loaded: language/zh-cn/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:21:18 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:18 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:18 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:21:18 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:18 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:18 --> Language file loaded: language/zh-cn/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:21:20 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:20 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:20 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:21:20 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:20 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:20 --> Language file loaded: language/zh-cn/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:21:38 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:38 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:38 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:21:38 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:38 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:58 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:58 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:58 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:21:58 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:58 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:21:58 --> Language file loaded: language/english/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:42:53 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:42:53 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:42:53 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:42:53 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:42:53 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:42:53 --> Language file loaded: language/english/date_lang.php
+[DEBUG] [application] - 2014-11-04 17:45:49 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:45:49 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:45:49 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:45:49 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:45:49 --> Language Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:03 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:03 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:03 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:48:03 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:03 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 17:48:03 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 17:48:06 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:06 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:06 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:48:06 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:06 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 17:48:06 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 17:48:08 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:08 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:08 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:48:08 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:48:08 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 17:48:08 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 17:52:47 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:52:47 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:52:47 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:52:47 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:52:47 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 17:52:47 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 17:54:54 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:54:54 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:54:54 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:54:54 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:54:54 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 17:54:54 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 17:54:56 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 17:54:56 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 17:54:56 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 17:54:56 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 17:54:56 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 17:54:56 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 18:07:42 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 18:07:42 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 18:07:42 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 18:07:42 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 18:07:42 --> Severity: Notice  --> Undefined index: xx /Users/geet/www/fly/framework/index.php 37
+[DEBUG] [application] - 2014-11-04 18:07:42 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 18:07:42 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 18:07:44 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 18:07:44 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 18:07:44 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 18:07:44 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 18:07:44 --> Severity: Notice  --> Undefined index: xx /Users/geet/www/fly/framework/index.php 37
+[DEBUG] [application] - 2014-11-04 18:07:44 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 18:07:44 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 18:19:01 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 18:19:01 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 18:19:01 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 18:19:01 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 18:19:01 --> Severity: Notice  --> Undefined index: xx /Users/geet/www/fly/framework/index.php 37
+[DEBUG] [application] - 2014-11-04 18:19:01 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 18:19:01 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 18:19:03 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 18:19:03 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 18:19:03 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 18:19:03 --> Hooks Class Initialized
+[ERROR] [application] - 2014-11-04 18:19:03 --> Severity: Notice  --> Undefined index: xx /Users/geet/www/fly/framework/index.php 37
+[DEBUG] [application] - 2014-11-04 18:19:03 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 18:19:03 --> Language file contains no data: language/english/fly_lang.php
+[DEBUG] [application] - 2014-11-04 18:19:29 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 18:19:29 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 18:19:29 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 18:19:29 --> Hooks Class Initialized
+[DEBUG] [application] - 2014-11-04 18:19:29 --> Language Class Initialized
+[ERROR] [application] - 2014-11-04 18:19:29 --> Language file contains no data: language/english/fly_lang.php
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Warning  --> Missing argument 2 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Warning  --> Missing argument 3 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Warning  --> Missing argument 4 for Application::handleException() /Users/geet/www/fly/framework/system/core/Application.php 248
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Object of class Exceptions could not be converted to int /Users/geet/www/fly/framework/system/core/Application.php 254
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Object of class Exceptions could not be converted to int /Users/geet/www/fly/framework/system/core/Application.php 254
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Undefined variable: message /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Undefined variable: filepath /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Undefined variable: line /Users/geet/www/fly/framework/system/core/Application.php 255
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Warning  --> Illegal offset type in isset or empty /Users/geet/www/fly/framework/system/core/ExceptionHandler.php 166
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Undefined variable: message /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Undefined variable: filepath /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Notice  --> Undefined variable: line /Users/geet/www/fly/framework/system/core/Application.php 263
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: Warning  --> Illegal offset type in isset or empty /Users/geet/www/fly/framework/system/core/ExceptionHandler.php 93
+[ERROR] [application] - 2014-11-04 18:19:29 --> Severity: exception 'Exceptions' with message 'The configuration file can not be empty' in /Users/geet/www/fly/framework/index.php:37
+Stack trace:
+#0 {main}  -->   
+[DEBUG] [application] - 2014-11-04 18:20:40 --> Application Class Initialized
+[DEBUG] [application] - 2014-11-04 18:20:40 --> Utf8 Class Initialized
+[DEBUG] [application] - 2014-11-04 18:20:40 --> UTF-8 Support Enabled
+[DEBUG] [application] - 2014-11-04 18:20:40 --> Hooks Class Initialized
