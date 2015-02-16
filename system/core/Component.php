@@ -1,14 +1,13 @@
 <?php
 /**
  * This file contains the foundation classes for component-based and event-driven programming.
- *
  * @author zz@flyzz.net
  * @copyright Copyright 2014 flyzz.net
  */
 
 class Component
 {
-	private $_e;
+    private $_e;
     private $_m;
 
 	/**
