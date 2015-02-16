@@ -1,7 +1,7 @@
 <?php
 /**
  * This file contains the foundation classes for component-based and event-driven programming.
- * @author zz@flyzz.net
+ * @author zz@flyzz
  * @copyright Copyright 2014 flyzz.net
  */
 
@@ -10,31 +10,31 @@ class Component
     private $_e;
     private $_m;
 
-	/**
-	 * Returns a property value.
-	 * Do not call this method. This is a PHP magic method that we override
-	 * to allow using the following syntax:
-	 * 
-	 * For example:
-	 * $value = $component->propertyName;
-	 * 
-	 * @param string $name		the property name or event name
-	 * @return mixed 			the property value
-	 * @throws FlyException 		if the property or event is not defined
-	 * @see __set
-	 */
-	public function __get($name)
-	{
-		$getter = 'get'.$name;
-		if (method_exists($this,$getter)) {
-			return $this->$getter();
-		} else if (strncasecmp($name,'on',2) === 0 && method_exists($this,$name)) {
-			$name = strtolower($name);
-			if (!isset($this->_e[$name])) {
-				$this->_e[$name] = array();
-			}
-			return $this->_e[$name];
-		} else if(isset($this->_m[$name])) {
+    /**
+     * Returns a property value.
+     * Do not call this method. This is a PHP magic method that we override
+     * to allow using the following syntax:
+     * 
+     * For example:
+     * $value = $component->propertyName;
+     * 
+     * @param string $name		the property name or event name
+     * @return mixed 			the property value
+     * @throws FlyException 		if the property or event is not defined
+     * @see __set
+     */
+    public function __get($name)
+    {
+        $getter = 'get'.$name;
+        if (method_exists($this,$getter)) {
+            return $this->$getter();
+        } else if (strncasecmp($name,'on',2) === 0 && method_exists($this,$name)) {
+            $name = strtolower($name);
+            if (!isset($this->_e[$name])) {
+                $this->_e[$name] = array();
+            }
+            return $this->_e[$name];
+        } else if(isset($this->_m[$name])) {
             return $this->_m[$name];
         } else if(is_array($this->_m)) {
             foreach($this->_m as $object) {
@@ -42,9 +42,9 @@ class Component
                     return $object->$name;
             }
         }
-		throw new FlyException(Fly::t('fly','Property "{class}.{property}" is not defined.',
+        throw new FlyException(Fly::t('fly','Property "{class}.{property}" is not defined.',
 			array('{class}'=>get_class($this), '{property}'=>$name)));
-	}
+    }
 
 	/**
 	 * Sets value of a component property.
