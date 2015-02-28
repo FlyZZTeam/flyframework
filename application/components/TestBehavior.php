@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: geet
  * Date: 15/2/10
  * Time: 上午11:00
  */
-
 class TestBehavior extends Behavior
 {
     /**
@@ -18,7 +18,7 @@ class TestBehavior extends Behavior
     public function events()
     {
         return array(
-            'onBeginRequest'=>'onBeginRequest',
+            'onBeginRequest' => 'onBeginRequest',
         );
     }
 

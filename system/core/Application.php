@@ -5,41 +5,45 @@
  * @license http://www.flyframework.com/license.html
  * @author zz <zz@flyzz.net>
  */
-
 abstract class Application extends Module
 {
-
     /**
-     * Application name
-     * @var string
+     * @var string The application name.The default name is "Fly Application".
      */
     public $name = 'Fly Application';
-
     /**
-     * @var string the language that the application is written in.
+     * @var string The language that the application is written in.
      */
     public $sourceLanguage = 'en_us';
-
-    public $timeReference = 'local';
-
     /**
-     * Application path
-     * @var
+     * @var string The time reference.Defaults to "local".
+     */
+    public $timeReference = 'local';
+    /**
+     * @var string The application path.
+     * You can set,for example:"./application".
      */
     private $_basePath;
-
     /**
-     * Application config
-     * @var
+     * @var array The application's config.
      */
     private $_appConfig = array();
-
+    /**
+     * @var string The unique identifier for the application.
+     */
     private $_id;
-
+    /**
+     * @var string The language that the user is using and the application should be targeted to.
+     * Defaults to the {@link sourceLanguage source language}.
+     */
     private $_language;
-
+    /**
+     * @var string The home page url.
+     */
     private $_homeUrl;
-
+    /**
+     * @var bool The application is ended.
+     */
     private $_ended = false;
 
     public function __construct($config = null)
@@ -51,7 +55,6 @@ abstract class Application extends Module
         //System error and FlyException handler
         $this->initSystemHandlers();
         $this->startTimer();
-
         if (is_string($config)) {
             $config = require($config);
         }
@@ -110,7 +113,6 @@ abstract class Application extends Module
         if ($this->hasEventHandler('onEndRequest')) {
             $this->onEndRequest(new Event($this));
         }
-
     }
 
     /**
@@ -240,12 +242,11 @@ abstract class Application extends Module
      * Load configuration file
      * It will search 'application' and 'webroot'
      * if defined ENVIRONMENT,it will search 'ENVIRONMENT' on last dir.
-     *
-     * @access	public
-     * @param	string	alias name
+     * @access    public
+     * @param    string    alias name
      * @param   boolean  if configuration values should be loaded into their own section
      * @param   boolean  true if errors should just return false, false if an error message should be displayed
-     * @return	boolean	if the file was loaded correctly
+     * @return    boolean    if the file was loaded correctly
      */
     public function loadConfig($alias, $useSections = false, $failGracefully = false)
     {
@@ -340,7 +341,7 @@ abstract class Application extends Module
      */
     protected function initPHP()
     {
-        if (! Fly::isPhp('5.3')) {
+        if (!Fly::isPhp('5.3')) {
             // Kill magic quotes
             @set_magic_quotes_runtime(0);
         }
@@ -362,7 +363,7 @@ abstract class Application extends Module
             $this->assignConfig($config);
             $this->configure($config);
         } else {
-            throw new FlyException(Fly::t('fly','The configuration file can not be empty'));
+            throw new FlyException(Fly::t('fly', 'The configuration file can not be empty'));
         }
     }
 
@@ -403,9 +404,9 @@ abstract class Application extends Module
     public function setBasePath($path)
     {
 
-        if(($this->_basePath = realpath($path)) === false || !is_dir($this->_basePath)) {
-            throw new FlyException(Fly::t('fly','Application base path "{path}" is not a valid directory.',
-                array('{path}'=>$path)));
+        if (($this->_basePath = realpath($path)) === false || !is_dir($this->_basePath)) {
+            throw new FlyException(Fly::t('fly', 'Application base path "{path}" is not a valid directory.',
+                array('{path}' => $path)));
         }
     }
 
@@ -483,9 +484,7 @@ abstract class Application extends Module
 
     /**
      * Return Language component
-     *
      * i18n does not currently support
-     *
      * @return mixed
      */
     public function getLang()
@@ -495,7 +494,6 @@ abstract class Application extends Module
 
     /**
      * Return Output component
-     *
      * @return mixed
      */
     public function getOutput()
@@ -565,7 +563,6 @@ abstract class Application extends Module
 
     /**
      * Return Cache Component.
-     *
      * @return Cache
      */
     public function getCache()
@@ -634,7 +631,6 @@ abstract class Application extends Module
 
     /**
      * Returns the localized version of a specified file.
-     *
      * @param string $srcFile the original file
      * @param string $srcLanguage the language that the original file is in. If null, the application {@link sourceLanguage source language} is used.
      * @param string $language the desired language that the file should be localized to. If null, the {@link getLanguage application language} will be used.
@@ -669,8 +665,8 @@ abstract class Application extends Module
             if ($this->_id && $this->_id !== '') {
                 $this->_modulePath .= DIRECTORY_SEPARATOR.$this->_id;
                 if (!is_dir($this->_modulePath)) {
-                    throw new FlyException(Fly::t('fly','The module path "{path}" is not a valid directory.',
-                        array('{path}'=>$this->_modulePath)));
+                    throw new FlyException(Fly::t('fly', 'The module path "{path}" is not a valid directory.',
+                        array('{path}' => $this->_modulePath)));
                 }
                 Fly::setPathOfAlias($this->_id, $this->_modulePath);
             }
@@ -686,14 +682,14 @@ abstract class Application extends Module
     public function setModulePath($value)
     {
         if (($this->_modulePath = realpath($value)) === false || !is_dir($this->_modulePath)) {
-            throw new FlyException(Fly::t('fly','The module path "{path}" is not a valid directory.',
-                array('{path}'=>$value)));
+            throw new FlyException(Fly::t('fly', 'The module path "{path}" is not a valid directory.',
+                array('{path}' => $value)));
         }
         if ($this->_id && $this->_id !== '') {
             $this->_modulePath .= DIRECTORY_SEPARATOR.$this->_id;
             if (!is_dir($this->_modulePath)) {
-                throw new FlyException(Fly::t('fly','The module path "{path}" is not a valid directory.',
-                    array('{path}'=>$this->_modulePath)));
+                throw new FlyException(Fly::t('fly', 'The module path "{path}" is not a valid directory.',
+                    array('{path}' => $this->_modulePath)));
             }
             Fly::setPathOfAlias($this->_id, $this->_modulePath);
         }
@@ -747,7 +743,7 @@ abstract class Application extends Module
     public function getHomeUrl()
     {
         if ($this->_homeUrl === null) {
-            if($this->Uri->showScriptName) {
+            if ($this->Uri->showScriptName) {
                 return $this->getRequest()->getScriptUrl();
             } else {
                 return $this->getRequest()->getBaseUrl().'/';
@@ -830,19 +826,14 @@ abstract class Application extends Module
         }
     }
 
-
     /**
      * Handles uncaught PHP FlyException.
-     *
      * This method is implemented as a PHP exception handler. It requires
      * that constant FLY_ENABLE_EXCEPTION_HANDLER be defined true.
-     *
      * This method will first raise an {@link onException} event.
      * If the exception is not handled by any event handler, it will call
      * {@link getErrorHandler errorHandler} to process the exception.
-     *
      * The application will be terminated by this method.
-     *
      * @param Exception $exception exception that is not caught
      */
     public function handleException($exception)
@@ -864,7 +855,7 @@ abstract class Application extends Module
         if (isset($_SERVER['HTTP_REFERER'])) {
             $message .= "\nHTTP_REFERER=".$_SERVER['HTTP_REFERER'];
         }
-        $message.="\n---";
+        $message .= "\n---";
         Fly::log('error', $message, $category);
 
         try {
@@ -878,20 +869,20 @@ abstract class Application extends Module
                     $this->displayException($exception);
                 }
             }
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $this->displayException($e);
         }
 
         try {
             $this->end(1);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             // use the most primitive way to log error
             $msg = get_class($e).': '.$e->getMessage().' ('.$e->getFile().':'.$e->getLine().")\n";
             $msg .= $e->getTraceAsString()."\n";
             $msg .= "Previous exception:\n";
             $msg .= get_class($exception).': '.$exception->getMessage().' ('.$exception->getFile().':'.$exception->getLine().")\n";
             $msg .= $exception->getTraceAsString()."\n";
-            $msg .= '$_SERVER='.var_export($_SERVER,true);
+            $msg .= '$_SERVER='.var_export($_SERVER, true);
             error_log($msg);
             exit(1);
         }
@@ -899,16 +890,12 @@ abstract class Application extends Module
 
     /**
      * Handles PHP execution errors such as warnings, notices.
-     *
      * This method is implemented as a PHP error handler. It requires
      * that constant YII_ENABLE_ERROR_HANDLER be defined true.
-     *
      * This method will first raise an {@link onError} event.
      * If the error is not handled by any event handler, it will call
      * {@link getErrorHandler errorHandler} to process the error.
-     *
      * The application will be terminated by this method.
-     *
      * @param integer $code the level of the error raised
      * @param string $message the error message
      * @param string $file the filename that the error was raised in
@@ -926,10 +913,10 @@ abstract class Application extends Module
 
             // skip the first 3 stacks as they do not tell the error position
             if (count($trace) > 3) {
-                $trace = array_slice($trace,3);
+                $trace = array_slice($trace, 3);
             }
 
-            foreach ($trace as $i=>$t) {
+            foreach ($trace as $i => $t) {
                 if (!isset($t['file'])) {
                     $t['file'] = 'unknown';
                 }
@@ -951,12 +938,12 @@ abstract class Application extends Module
             Fly::log('error', $log, 'php');
 
             try {
-                Fly::import('ErrorEvent',true);
+                Fly::import('ErrorEvent', true);
                 $event = new ErrorEvent($this, $code, $message, $file, $line);
                 $this->onError($event);
                 if (!$event->handled) {
                     // try an error handler
-                    if (($handler=$this->getErrorHandler())!==null) {
+                    if (($handler = $this->getErrorHandler()) !== null) {
                         $handler->handle($event);
                     } else {
                         $this->displayError($code, $message, $file, $line);
@@ -974,7 +961,7 @@ abstract class Application extends Module
                 $msg .= $e->getTraceAsString()."\n";
                 $msg .= "Previous error:\n";
                 $msg .= $log."\n";
-                $msg .= '$_SERVER='.var_export($_SERVER,true);
+                $msg .= '$_SERVER='.var_export($_SERVER, true);
                 error_log($msg);
                 exit(1);
             }
@@ -983,12 +970,10 @@ abstract class Application extends Module
 
     /**
      * Raised when an uncaught PHP exception occurs.
-     *
      * An event handler can set the {@link ExceptionEvent::handled handled}
      * property of the event parameter to be true to indicate no further error
      * handling is needed. Otherwise, the {@link getErrorHandler errorHandler}
      * application component will continue processing the error.
-     *
      * @param ExceptionEvent $event event parameter
      */
     public function onException($event)
@@ -998,12 +983,10 @@ abstract class Application extends Module
 
     /**
      * Raised when a PHP execution error occurs.
-     *
      * An event handler can set the {@link ErrorEvent::handled handled}
      * property of the event parameter to be true to indicate no further error
      * handling is needed. Otherwise, the {@link getErrorHandler errorHandler}
      * application component will continue processing the error.
-     *
      * @param ErrorEvent $event event parameter
      */
     public function onError($event)
@@ -1013,20 +996,18 @@ abstract class Application extends Module
 
     /**
      * Registers the core application components.
-     *
      * @see setComponents
      */
     protected function registerCoreComponents()
     {
         $components = array(
-            'errorHandler' => array (
-                'class'=>'ErrorHandler',
+            'errorHandler' => array(
+                'class' => 'ErrorHandler',
             ),
-            'validator' => array (
+            'validator' => array(
                 'class' => 'Validator',
             ),
         );
         $this->setComponents($components);
     }
-
 }
