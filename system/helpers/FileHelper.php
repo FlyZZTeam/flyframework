@@ -1,30 +1,14 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
- * CodeIgniter File Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/file_helpers.html
+ * File Helpers
  */
-
 class FileHelper
 {
 
@@ -33,22 +17,21 @@ class FileHelper
      *
      * Opens the file specfied in the path and returns it as a string.
      *
-     * @access	public
-     * @param	string	path to file
-     * @return	string
+     * @param string $file path to file
+     * @return string
      */
     public static function readFile($file)
     {
-        if ( ! file_exists($file)) {
-            return FALSE;
+        if (!file_exists($file)) {
+            return false;
         }
 
         if (function_exists('file_get_contents')) {
             return file_get_contents($file);
         }
 
-        if ( ! $fp = @fopen($file, FOPEN_READ)) {
-            return FALSE;
+        if (!$fp = @fopen($file, FOPEN_READ)) {
+            return false;
         }
 
         flock($fp, LOCK_SH);
@@ -70,15 +53,14 @@ class FileHelper
      * Writes data to the file specified in the path.
      * Creates a new file if non-existent.
      *
-     * @access	public
-     * @param	string	path to file
-     * @param	string	file data
-     * @return	bool
+     * @param string $path path to file
+     * @param string $data file data
+     * @return bool
      */
     public static function writeFile($path, $data, $mode = FOPEN_WRITE_CREATE_DESTRUCTIVE)
     {
         if (!$fp = @fopen($path, $mode)) {
-            return FALSE;
+            return false;
         }
 
         flock($fp, LOCK_EX);
@@ -86,7 +68,7 @@ class FileHelper
         flock($fp, LOCK_UN);
         fclose($fp);
 
-        return TRUE;
+        return true;
     }
 
     /**
@@ -97,21 +79,20 @@ class FileHelper
      * If the second parameter is set to TRUE, any directories contained
      * within the supplied base directory will be nuked as well.
      *
-     * @access	public
-     * @param	string	path to file
-     * @param	bool	whether to delete any directories found in the path
-     * @return	bool
+     * @param string $path path to file
+     * @param bool $del_dir whether to delete any directories found in the path
+     * @return bool
      */
-    public static function deleteFiles($path, $del_dir = FALSE, $level = 0)
+    public static function deleteFiles($path, $del_dir = false, $level = 0)
     {
         // Trim the trailing slash
         $path = rtrim($path, DIRECTORY_SEPARATOR);
 
         if (!$current_dir = @opendir($path)) {
-            return FALSE;
+            return false;
         }
 
-        while (FALSE !== ($filename = @readdir($current_dir))) {
+        while (false !== ($filename = @readdir($current_dir))) {
             if ($filename != "." and $filename != "..") {
                 if (is_dir($path.DIRECTORY_SEPARATOR.$filename)) {
                     // Ignore empty folders
@@ -125,11 +106,11 @@ class FileHelper
         }
         @closedir($current_dir);
 
-        if ($del_dir == TRUE AND $level > 0) {
+        if ($del_dir == true AND $level > 0) {
             return @rmdir($path);
         }
 
-        return TRUE;
+        return true;
     }
 
     /**
@@ -138,35 +119,34 @@ class FileHelper
      * Reads the specified directory and builds an array containing the filenames.
      * Any sub-folders contained within the specified path are read as well.
      *
-     * @access	public
-     * @param	string	path to source
-     * @param	bool	whether to include the path as part of the filename
-     * @param	bool	internal variable to determine recursion status - do not use in calls
-     * @return	array
+     * @param string $source_dir path to source
+     * @param bool $include_path whether to include the path as part of the filename
+     * @param bool $_recursion internal variable to determine recursion status - do not use in calls
+     * @return array
      */
-    public static function getFileNames($source_dir, $include_path = FALSE, $_recursion = FALSE)
+    public static function getFileNames($source_dir, $include_path = false, $_recursion = false)
     {
         static $_filedata = array();
 
         if ($fp = @opendir($source_dir)) {
             // reset the array and make sure $source_dir has a trailing slash on the initial call
-            if ($_recursion === FALSE) {
+            if ($_recursion === false) {
                 $_filedata = array();
                 $source_dir = rtrim(realpath($source_dir), DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
             } else {
                 $source_dir = rtrim($source_dir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
             }
 
-            while (FALSE !== ($file = readdir($fp))) {
+            while (false !== ($file = readdir($fp))) {
                 if (@is_dir($source_dir.$file) && strncmp($file, '.', 1) !== 0) {
-                    self::getFileNames($source_dir.$file.DIRECTORY_SEPARATOR, $include_path, TRUE);
+                    self::getFileNames($source_dir.$file.DIRECTORY_SEPARATOR, $include_path, true);
                 } else if (strncmp($file, '.', 1) !== 0) {
-                    $_filedata[] = ($include_path == TRUE) ? $source_dir.$file : $file;
+                    $_filedata[] = ($include_path == true) ? $source_dir.$file : $file;
                 }
             }
             return $_filedata;
         } else {
-            return FALSE;
+            return false;
         }
     }
 
@@ -178,28 +158,27 @@ class FileHelper
      *
      * Any sub-folders contained within the specified path are read as well.
      *
-     * @access	public
-     * @param	string	path to source
-     * @param	bool	Look only at the top level directory specified?
-     * @param	bool	internal variable to determine recursion status - do not use in calls
-     * @return	array
+     * @param string $source_dir path to source
+     * @param bool $top_level_only Look only at the top level directory specified?
+     * @param bool $_recursion internal variable to determine recursion status - do not use in calls
+     * @return array
      */
-    public static function getDirFileInfo($source_dir, $top_level_only = TRUE, $_recursion = FALSE)
+    public static function getDirFileInfo($source_dir, $top_level_only = true, $_recursion = false)
     {
         static $_filedata = array();
         $relative_path = $source_dir;
 
         if ($fp = @opendir($source_dir)) {
             // reset the array and make sure $source_dir has a trailing slash on the initial call
-            if ($_recursion === FALSE) {
+            if ($_recursion === false) {
                 $_filedata = array();
                 $source_dir = rtrim(realpath($source_dir), DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
             }
 
             // foreach (scandir($source_dir, 1) as $file) // In addition to being PHP5+, scandir() is simply not as fast
-            while (FALSE !== ($file = readdir($fp))) {
-                if (@is_dir($source_dir.$file) AND strncmp($file, '.', 1) !== 0 AND $top_level_only === FALSE) {
-                    self::getDirFileInfo($source_dir.$file.DIRECTORY_SEPARATOR, $top_level_only, TRUE);
+            while (false !== ($file = readdir($fp))) {
+                if (@is_dir($source_dir.$file) AND strncmp($file, '.', 1) !== 0 AND $top_level_only === false) {
+                    self::getDirFileInfo($source_dir.$file.DIRECTORY_SEPARATOR, $top_level_only, true);
                 } else if (strncmp($file, '.', 1) !== 0) {
                     $_filedata[$file] = self::getFileInfo($source_dir.$file);
                     $_filedata[$file]['relative_path'] = $relative_path;
@@ -208,28 +187,27 @@ class FileHelper
 
             return $_filedata;
         } else {
-            return FALSE;
+            return false;
         }
     }
 
     /**
-    * Get File Info
-    *
-    * Given a file and path, returns the name, path, size, date modified
-    * Second parameter allows you to explicitly declare what information you want returned
-    * Options are: name, server_path, size, date, readable, writable, executable, fileperms
-    * Returns FALSE if the file cannot be found.
-    *
-    * @access	public
-    * @param	string	path to file
-    * @param	mixed	array or comma separated string of information returned
-    * @return	array
-    */
+     * Get File Info
+     *
+     * Given a file and path, returns the name, path, size, date modified
+     * Second parameter allows you to explicitly declare what information you want returned
+     * Options are: name, server_path, size, date, readable, writable, executable, fileperms
+     * Returns FALSE if the file cannot be found.
+     *
+     * @param string $file path to file
+     * @param mixed $returned_values array or comma separated string of information returned
+     * @return array
+     */
     public static function getFileInfo($file, $returned_values = array('name', 'server_path', 'size', 'date'))
     {
 
         if (!file_exists($file)) {
-            return FALSE;
+            return false;
         }
 
         if (is_string($returned_values)) {
@@ -278,9 +256,8 @@ class FileHelper
      * Note: this is NOT an accurate way of determining file mime types, and is here strictly as a convenience
      * It should NOT be trusted, and should certainly NOT be used for security
      *
-     * @access	public
-     * @param	string	path to file
-     * @return	mixed
+     * @param string $file path to file
+     * @return mixed
      */
     public static function getMimeByExtension($file)
     {
@@ -288,7 +265,7 @@ class FileHelper
         Fly::loadConfig('config.mimes', true);
         $mimes = Fly::getConfig('mimes');
         if (empty($mimes)) {
-            return FALSE;
+            return false;
         }
 
         if (array_key_exists($extension, $mimes)) {
@@ -299,7 +276,7 @@ class FileHelper
                 return $mimes[$extension];
             }
         } else {
-            return FALSE;
+            return false;
         }
     }
 
@@ -309,9 +286,8 @@ class FileHelper
      * Takes a numeric value representing a file's permissions and returns
      * standard symbolic notation representing that value
      *
-     * @access	public
-     * @param	int
-     * @return	string
+     * @param int
+     * @return string
      */
     public static function getSymbolicPermissions($perms)
     {
@@ -336,17 +312,17 @@ class FileHelper
         // Owner
         $symbolic .= (($perms & 0x0100) ? 'r' : '-');
         $symbolic .= (($perms & 0x0080) ? 'w' : '-');
-        $symbolic .= (($perms & 0x0040) ? (($perms & 0x0800) ? 's' : 'x' ) : (($perms & 0x0800) ? 'S' : '-'));
+        $symbolic .= (($perms & 0x0040) ? (($perms & 0x0800) ? 's' : 'x') : (($perms & 0x0800) ? 'S' : '-'));
 
         // Group
         $symbolic .= (($perms & 0x0020) ? 'r' : '-');
         $symbolic .= (($perms & 0x0010) ? 'w' : '-');
-        $symbolic .= (($perms & 0x0008) ? (($perms & 0x0400) ? 's' : 'x' ) : (($perms & 0x0400) ? 'S' : '-'));
+        $symbolic .= (($perms & 0x0008) ? (($perms & 0x0400) ? 's' : 'x') : (($perms & 0x0400) ? 'S' : '-'));
 
         // World
         $symbolic .= (($perms & 0x0004) ? 'r' : '-');
         $symbolic .= (($perms & 0x0002) ? 'w' : '-');
-        $symbolic .= (($perms & 0x0001) ? (($perms & 0x0200) ? 't' : 'x' ) : (($perms & 0x0200) ? 'T' : '-'));
+        $symbolic .= (($perms & 0x0001) ? (($perms & 0x0200) ? 't' : 'x') : (($perms & 0x0200) ? 'T' : '-'));
 
         return $symbolic;
     }
@@ -357,9 +333,8 @@ class FileHelper
      * Takes a numeric value representing a file's permissions and returns
      * a three character string representing the file's octal permissions
      *
-     * @access	public
-     * @param	int
-     * @return	string
+     * @param int
+     * @return string
      */
     public static function getOctalPermissions($perms)
     {
@@ -373,21 +348,20 @@ class FileHelper
      * representation of it.  Sub-folders contained with the
      * directory will be mapped as well.
      *
-     * @access	public
-     * @param	string	path to source
-     * @param	int		depth of directories to traverse (0 = fully recursive, 1 = current dir, etc)
-     * @return	array
+     * @param string $source_dir path to source
+     * @param int $directory_depth depth of directories to traverse (0 = fully recursive, 1 = current dir, etc)
+     * @return array
      */
-    public static function getDirectoryMap($source_dir, $directory_depth = 0, $hidden = FALSE)
+    public static function getDirectoryMap($source_dir, $directory_depth = 0, $hidden = false)
     {
         if ($fp = @opendir($source_dir)) {
-            $filedata	= array();
-            $new_depth	= $directory_depth - 1;
-            $source_dir	= rtrim($source_dir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+            $filedata = array();
+            $new_depth = $directory_depth - 1;
+            $source_dir = rtrim($source_dir, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 
-            while (FALSE !== ($file = readdir($fp))) {
+            while (false !== ($file = readdir($fp))) {
                 // Remove '.', '..', and hidden files [optional]
-                if ( ! trim($file, '.') OR ($hidden == FALSE && $file[0] == '.')) {
+                if (!trim($file, '.') OR ($hidden == false && $file[0] == '.')) {
                     continue;
                 }
 
@@ -401,7 +375,7 @@ class FileHelper
             closedir($fp);
             return $filedata;
         }
-        return FALSE;
+        return false;
     }
 
     /**
@@ -419,11 +393,11 @@ class FileHelper
     {
         $prevDir = dirname($dst);
         if ($recursive && !is_dir($dst) && !is_dir($prevDir)) {
-            self::mkdir(dirname($dst),$options,true);
+            self::mkdir(dirname($dst), $options, true);
         }
         $mode = isset($options['newDirMode']) ? $options['newDirMode'] : 0777;
         $res = mkdir($dst, $mode);
-        chmod($dst,$mode);
+        chmod($dst, $mode);
         return $res;
     }
 
@@ -434,35 +408,33 @@ class FileHelper
      * the file, based on the read-only attribute.  is_writable() is also unreliable
      * on Unix servers if safe_mode is on.
      *
-     * @access	private
-     * @return	void
+     * @return void
      */
     public static function isReallyWritable($file)
     {
         // If we're on a Unix server with safe_mode off we call is_writable
-        if (DIRECTORY_SEPARATOR == '/' && @ini_get("safe_mode") == FALSE) {
+        if (DIRECTORY_SEPARATOR == '/' && @ini_get("safe_mode") == false) {
             return is_writable($file);
         }
 
         // For windows servers and safe_mode "on" installations we'll actually
         // write a file then read it.  Bah...
         if (is_dir($file)) {
-            $file = rtrim($file, '/').'/'.md5(mt_rand(1,100).mt_rand(1,100));
+            $file = rtrim($file, '/').'/'.md5(mt_rand(1, 100).mt_rand(1, 100));
 
-            if (($fp = @fopen($file, FOPEN_WRITE_CREATE)) === FALSE) {
-                return FALSE;
+            if (($fp = @fopen($file, FOPEN_WRITE_CREATE)) === false) {
+                return false;
             }
 
             fclose($fp);
             @chmod($file, DIR_WRITE_MODE);
             @unlink($file);
-            return TRUE;
-        } else if ( ! is_file($file) OR ($fp = @fopen($file, FOPEN_WRITE_CREATE)) === FALSE) {
-            return FALSE;
+            return true;
+        } else if (!is_file($file) OR ($fp = @fopen($file, FOPEN_WRITE_CREATE)) === false) {
+            return false;
         }
 
         fclose($fp);
-        return TRUE;
+        return true;
     }
-
 }

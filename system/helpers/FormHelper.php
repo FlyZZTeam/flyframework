@@ -1,30 +1,14 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
- * CodeIgniter Form Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/form_helper.html
+ * Form Helpers
  */
-
 class FormHelper
 {
 
@@ -33,11 +17,10 @@ class FormHelper
      *
      * Creates the opening portion of the form.
      *
-     * @access	public
-     * @param	string	the URI segments of the form destination
-     * @param	array	a key/value pair of attributes
-     * @param	array	a key/value pair hidden data
-     * @return	string
+     * @param string $action the URI segments of the form destination
+     * @param array	$attributes a key/value pair of attributes
+     * @param array	$hidden a key/value pair hidden data
+     * @return string
      */
     public static function createForm($action = '', $attributes = '', $hidden = array())
     {
@@ -68,11 +51,10 @@ class FormHelper
      *
      * Creates the opening portion of the form, but with "multipart/form-data".
      *
-     * @access	public
-     * @param	string	the URI segments of the form destination
-     * @param	array	a key/value pair of attributes
-     * @param	array	a key/value pair hidden data
-     * @return	string
+     * @param string $action the URI segments of the form destination
+     * @param array $attribures a key/value pair of attributes
+     * @param array $hidden a key/value pair hidden data
+     * @return string
      */
     public static function createMultipartForm($action = '', $attributes = array(), $hidden = array())
     {
@@ -91,10 +73,9 @@ class FormHelper
      * Generates hidden fields.  You can pass a simple key/value string or an associative
      * array with multiple values.
      *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @return string
      */
     public static function createHidden($name, $value = '', $recursing = false)
     {
@@ -124,12 +105,10 @@ class FormHelper
 
     /**
      * Text Input Field
-     *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param string
+     * @return string
      */
     public static function createInput($data = '', $value = '', $extra = '')
     {
@@ -143,11 +122,10 @@ class FormHelper
      *
      * Identical to the input function but adds the "password" type
      *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param string
+     * @return string
      */
     public static function createPassword($data = '', $value = '', $extra = '')
     {
@@ -164,11 +142,10 @@ class FormHelper
      *
      * Identical to the input function but adds the "file" type
      *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param string
+     * @return string
      */
 
     public static function createUpload($data = '', $value = '', $extra = '')
@@ -183,11 +160,10 @@ class FormHelper
     /**
      * Textarea field
      *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param string
+     * @return string
      */
     public static function createTextarea($data = '', $value = '', $extra = '')
     {
@@ -206,12 +182,11 @@ class FormHelper
     /**
      * Multi-select menu
      *
-     * @access	public
-     * @param	string
-     * @param	array
-     * @param	mixed
-     * @param	string
-     * @return	type
+     * @param string
+     * @param array
+     * @param mixed
+     * @param string
+     * @return type
      */
     public static function createMultiSelect($name = '', $options = array(), $selected = array(), $extra = '')
     {
@@ -224,12 +199,11 @@ class FormHelper
     /**
      * Drop-down Menu
      *
-     * @access	public
-     * @param	string
-     * @param	array
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param string
+     * @param array
+     * @param string
+     * @param string
+     * @return string
      */
     public static function createDropdown($name = '', $options = array(), $selected = array(), $extra = '')
     {
@@ -278,13 +252,11 @@ class FormHelper
 
     /**
      * Checkbox Field
-     *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	bool
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param bool
+     * @param string
+     * @return string
      */
     public static function createCheckbox($data = '', $value = '', $checked = FALSE, $extra = '')
     {
@@ -311,13 +283,11 @@ class FormHelper
 
     /**
      * Radio Button
-     *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	bool
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param bool
+     * @param string
+     * @return string
      */
     public static function createRadio($data = '', $value = '', $checked = false, $extra = '')
     {
@@ -330,12 +300,10 @@ class FormHelper
 
     /**
      * Submit Button
-     *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param string
+     * @return string
      */
     public static function createSubmit($data = '', $value = '', $extra = '')
     {
@@ -346,12 +314,10 @@ class FormHelper
 
     /**
      * Reset Button
-     *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param string
+     * @return string
      */
     public static function createReset($data = '', $value = '', $extra = '')
     {
@@ -362,12 +328,10 @@ class FormHelper
 
     /**
      * Form Button
-     *
-     * @access	public
-     * @param	mixed
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param mixed
+     * @param string
+     * @param string
+     * @return string
      */
     public static function createButton($data = '', $content = '', $extra = '')
     {
@@ -383,12 +347,10 @@ class FormHelper
 
     /**
      * Form Label Tag
-     *
-     * @access	public
-     * @param	string	The text to appear onscreen
-     * @param	string	The id the label applies to
-     * @param	string	Additional attributes
-     * @return	string
+     * @param string $label_text The text to appear onscreen
+     * @param string $id The id the label applies to
+     * @param string $attributes Additional attributes
+     * @return string
      */
     public static function createLabel($label_text = '', $id = '', $attributes = array())
     {
@@ -411,14 +373,9 @@ class FormHelper
 
     /**
      * Fieldset Tag
-     *
-     * Used to produce <fieldset><legend>text</legend>.  To close fieldset
-     * use form_fieldset_close()
-     *
-     * @access	public
-     * @param	string	The legend text
-     * @param	string	Additional attributes
-     * @return	string
+     * @param string $legend_text The legend text
+     * @param string $attributes Additional attributes
+     * @return string
      */
     public static function createFieldset($legend_text = '', $attributes = array())
     {
@@ -436,10 +393,8 @@ class FormHelper
 
     /**
      * Fieldset Close Tag
-     *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function createFieldsetCloseTag($extra = '')
     {
@@ -448,10 +403,8 @@ class FormHelper
 
     /**
      * Form Close Tag
-     *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public function createFormCloseTag($extra = '')
     {
@@ -463,9 +416,8 @@ class FormHelper
      *
      * Formats text so that it can be safely placed in a form field in the event it has HTML tags.
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function prep($str = '', $field_name = '')
     {
@@ -510,9 +462,8 @@ class FormHelper
      * re-populate an input field or textarea.  If Form Validation
      * is active it retrieves the info from the validation class
      *
-     * @access	public
-     * @param	string
-     * @return	mixed
+     * @param string
+     * @return mixed
      */
     public static function setValue($field = '', $default = '')
     {
@@ -532,11 +483,10 @@ class FormHelper
      * Let's you set the selected value of a <select> menu via data in the POST array.
      * If Form Validation is active it retrieves the info from the validation class
      *
-     * @access	public
-     * @param	string
-     * @param	string
-     * @param	bool
-     * @return	string
+     * @param string
+     * @param string
+     * @param bool
+     * @return string
      */
     public static function setSelect($field = '', $value = '', $default = FALSE)
     {
@@ -574,11 +524,10 @@ class FormHelper
      * Let's you set the selected value of a checkbox via the value in the POST array.
      * If Form Validation is active it retrieves the info from the validation class
      *
-     * @access	public
-     * @param	string
-     * @param	string
-     * @param	bool
-     * @return	string
+     * @param string
+     * @param string
+     * @param bool
+     * @return string
      */
     public static function setCheckbox($field = '', $value = '', $default = FALSE)
     {
@@ -615,11 +564,10 @@ class FormHelper
      * Let's you set the selected value of a radio field via info in the POST array.
      * If Form Validation is active it retrieves the info from the validation class
      *
-     * @access	public
-     * @param	string
-     * @param	string
-     * @param	bool
-     * @return	string
+     * @param string
+     * @param string
+     * @param bool
+     * @return string
      */
     public static function setRadio($field = '', $value = '', $default = FALSE)
     {
@@ -656,11 +604,10 @@ class FormHelper
      * Returns the error for a specific form field.  This is a helper for the
      * form validation class.
      *
-     * @access	public
-     * @param	string
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param string
+     * @param string
+     * @param string
+     * @return string
      */
     public static function error($field = '', $prefix = '', $suffix = '')
     {
@@ -677,10 +624,9 @@ class FormHelper
      * Returns all the errors associated with a form submission.  This is a helper
      * function for the form validation class.
      *
-     * @access	public
-     * @param	string
-     * @param	string
-     * @return	string
+     * @param string
+     * @param string
+     * @return string
      */
     public static function validationErrors($prefix = '', $suffix = '')
     {
@@ -696,10 +642,9 @@ class FormHelper
      *
      * Helper function used by some of the form helpers
      *
-     * @access	private
-     * @param	array
-     * @param	array
-     * @return	string
+     * @param array
+     * @param array
+     * @return string
      */
     public static function parseFormAttributes($attributes, $default)
     {
@@ -732,10 +677,9 @@ class FormHelper
      *
      * Helper function used by some of the form helpers
      *
-     * @access	private
-     * @param	mixed
-     * @param	bool
-     * @return	string
+     * @param mixed
+     * @param bool
+     * @return string
      */
     public static function attributesToString($attributes, $formtag = false)
     {
@@ -779,8 +723,7 @@ class FormHelper
      * Determines what the form validation class was instantiated as, fetches
      * the object and returns it.
      *
-     * @access	private
-     * @return	mixed
+     * @return mixed
      */
     public static function &getValidation()
     {

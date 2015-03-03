@@ -1,28 +1,13 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
-// ------------------------------------------------------------------------
-
 /**
- * CodeIgniter HTML Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/html_helper.html
+ * HTML Helpers
  */
 
 class HtmlHelper
@@ -34,10 +19,9 @@ class HtmlHelper
      * Generates an HTML heading tag.  First param is the data.
      * Second param is the size of the heading tag.
      *
-     * @access	public
-     * @param	string
-     * @param	integer
-     * @return	string
+     * @param string
+     * @param integer
+     * @return string
      */
     public static function heading($data = '', $h = '1', $attributes = '')
     {
@@ -50,10 +34,9 @@ class HtmlHelper
      *
      * Generates an HTML unordered list from an single or multi-dimensional array.
      *
-     * @access	public
-     * @param	array
-     * @param	mixed
-     * @return	string
+     * @param array
+     * @param mixed
+     * @return string
      */
     public static function ul($list, $attributes = '')
     {
@@ -65,29 +48,25 @@ class HtmlHelper
      *
      * Generates an HTML ordered list from an single or multi-dimensional array.
      *
-     * @access	public
-     * @param	array
-     * @param	mixed
-     * @return	string
+     * @param array
+     * @param mixed
+     * @return string
      */
     public static function ol($list, $attributes = '')
     {
         return self::setList('ol', $list, $attributes);
     }
 
-// ------------------------------------------------------------------------
-
     /**
      * Generates the list
      *
      * Generates an HTML ordered list from an single or multi-dimensional array.
      *
-     * @access	private
-     * @param	string
-     * @param	mixed
-     * @param	mixed
-     * @param	integer
-     * @return	string
+     * @param string
+     * @param mixed
+     * @param mixed
+     * @param integer
+     * @return string
      */
     public static function setList($type = 'ul', $list, $attributes = '', $depth = 0)
     {
@@ -147,9 +126,8 @@ class HtmlHelper
     /**
      * Generates HTML BR tags based on number supplied
      *
-     * @access	public
-     * @param	integer
-     * @return	string
+     * @param integer
+     * @return string
      */
     public static function br($num = 1)
     {

@@ -1,46 +1,25 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
- * CodeIgniter Array Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/array_helper.html
+ * Array Helpers
  */
-
-// ------------------------------------------------------------------------
-
 class ArrayHelper
 {
 
     /**
      * Element
-     *
      * Lets you determine whether an array index is set and whether it has a value.
      * If the element is empty it returns FALSE (or whatever you specify as the default value.)
-     *
-     * @access	public
-     * @param	string
-     * @param	array
-     * @param	mixed
-     * @return	mixed	depends on what the array contains
+     * @param string
+     * @param array
+     * @param mixed
+     * @return mixed depends on what the array contains
      */
     public static function element($item, $array, $default = false)
     {
@@ -50,14 +29,10 @@ class ArrayHelper
         return $array[$item];
     }
 
-    // ------------------------------------------------------------------------
-
     /**
      * Random Element - Takes an array as input and returns a random element
-     *
-     * @access	public
-     * @param	array
-     * @return	mixed	depends on what the array contains
+     * @param array
+     * @return mixed depends on what the array contains
      */
     public static function randomElement($array)
     {
@@ -67,19 +42,14 @@ class ArrayHelper
         return $array[array_rand($array)];
     }
 
-    // --------------------------------------------------------------------
-
     /**
      * Elements
-     *
      * Returns only the array items specified.  Will return a default value if
      * it is not set.
-     *
-     * @access	public
-     * @param	array
-     * @param	array
-     * @param	mixed
-     * @return	mixed	depends on what the array contains
+     * @param array
+     * @param array
+     * @param mixed
+     * @return mixed depends on what the array contains
      */
     public static function elements($items, $array, $default = false)
     {
@@ -97,6 +67,3 @@ class ArrayHelper
         return $return;
     }
 }
-
-/* End of file array_helper.php */
-/* Location: ./system/helpers/array_helper.php */

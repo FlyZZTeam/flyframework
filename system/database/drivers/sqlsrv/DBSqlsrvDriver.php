@@ -31,9 +31,7 @@ class  DBSqlsrvDriver extends DBComponent
 
     /**
      * Non-persistent database connection
-     *
-     * @access    private called by the base class
-     * @return    resource
+     * @return resource
      */
     public function connect($pooling = false)
     {
