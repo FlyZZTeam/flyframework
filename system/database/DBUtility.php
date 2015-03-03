@@ -1,41 +1,25 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
  * Database Utility Class
- *
- * @category	Database
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/database/
  */
 class DBUtility
 {
-	var $data_cache		= array();
-    var $fields			= array();
-    var $keys			= array();
-    var $primary_keys	= array();
-    var $db_char_set	=	'';
+    var $data_cache = array();
+    var $fields = array();
+    var $keys = array();
+    var $primary_keys = array();
+    var $db_char_set = '';
     protected $db;
 
     /**
      * Constructor
-     *
-     * Grabs the CI super object instance so we can access it.
-     *
      */
     public function __construct($db)
     {
@@ -60,7 +44,6 @@ class DBUtility
 
     /**
      * Set db
-     *
      * @param $db
      */
     public function setDb($db)
@@ -70,10 +53,8 @@ class DBUtility
 
     /**
      * Create database
-     *
-     * @access	public
-     * @param	string	the database name
-     * @return	bool
+     * @param string $db_name the database name
+     * @return bool
      */
     public function createDataBase($db_name)
     {
@@ -88,10 +69,8 @@ class DBUtility
 
     /**
      * Drop database
-     *
-     * @access	public
-     * @param	string	the database name
-     * @return	bool
+     * @param string $db_name the database name
+     * @return bool
      */
     public function dropDataBase($db_name)
     {
@@ -106,13 +85,11 @@ class DBUtility
 
     /**
      * Add Key
-     *
-     * @access	public
-     * @param	string	key
-     * @param	string	type
-     * @return	void
+     * @param string $key
+     * @param string $type
+     * @return void
      */
-    public function addKey($key = '', $primary = FALSE)
+    public function addKey($key = '', $primary = false)
     {
         if ($primary && is_array($key)) {
             foreach ($key as $one) {
@@ -126,7 +103,7 @@ class DBUtility
             throw new FlyException(Fly::t('fly', 'Key information is required for that operation.'));
         }
 
-        if ($primary === TRUE) {
+        if ($primary === true) {
             $this->primary_keys[] = $key;
         } else {
             $this->keys[] = $key;
@@ -135,10 +112,8 @@ class DBUtility
 
     /**
      * Add Field
-     *
-     * @access	public
-     * @param	string	collation
-     * @return	void
+     * @param string $field collation
+     * @return void
      */
     public function addField($field = '')
     {
@@ -152,12 +127,12 @@ class DBUtility
                     'id' => array(
                         'type' => 'INT',
                         'constraint' => 9,
-                        'auto_increment' => TRUE
+                        'auto_increment' => true
                     )
                 ));
-                $this->addKey('id', TRUE);
+                $this->addKey('id', true);
             } else {
-                if (strpos($field, ' ') === FALSE) {
+                if (strpos($field, ' ') === false) {
                     throw new FlyException(Fly::t('fly', 'Field information is required for that operation.'));
                 }
 
@@ -168,17 +143,14 @@ class DBUtility
         if (is_array($field)) {
             $this->fields = array_merge($this->fields, $field);
         }
-
     }
 
     /**
      * Create Table
-     *
-     * @access	public
-     * @param	string	the table name
-     * @return	bool
+     * @param string $table the table name
+     * @return bool
      */
-    public function createTable($table = '', $if_not_exists = FALSE)
+    public function createTable($table = '', $if_not_exists = false)
     {
         if ($table == '') {
             throw new FlyException(Fly::t('fly', 'A table name is required for that operation.'));
@@ -194,12 +166,11 @@ class DBUtility
 
     /**
      * Drop Table
-     *
-     * @access	public
-     * @param	string	the table name
-     * @return	bool
+     * @param string $table_name the table name
+     * @return bool
      */
-    public function dropTable($table_name) {
+    public function dropTable($table_name)
+    {
         $sql = $this->_dropTable($this->db->dbprefix.$table_name);
         if (is_bool($sql)) {
             return $sql;
@@ -210,11 +181,9 @@ class DBUtility
 
     /**
      * Rename Table
-     *
-     * @access	public
-     * @param	string	the old table name
-     * @param	string	the new table name
-     * @return	bool
+     * @param string $table_name the old table name
+     * @param string $new_table_name the new table name
+     * @return bool
      */
     public function renameTable($table_name, $new_table_name)
     {
@@ -228,12 +197,10 @@ class DBUtility
 
     /**
      * Column Add
-     *
-     * @access	public
-     * @param	string	the table name
-     * @param	string	the column name
-     * @param	string	the column definition
-     * @return	bool
+     * @param string $table the table name
+     * @param string $field the column name
+     * @param string $after_field the column definition
+     * @return bool
      */
     public function addColumn($table = '', $field = array(), $after_field = '')
     {
@@ -255,22 +222,19 @@ class DBUtility
 
             $this->_reset();
 
-            if ($this->db->query($sql) === FALSE) {
-                return FALSE;
+            if ($this->db->query($sql) === false) {
+                return false;
             }
         }
 
-        return TRUE;
-
+        return true;
     }
 
     /**
      * Column Drop
-     *
-     * @access	public
-     * @param	string	the table name
-     * @param	string	the column name
-     * @return	bool
+     * @param string $table the table name
+     * @param string $column_name the column name
+     * @return bool
      */
     function dropColumn($table = '', $column_name = '')
     {
@@ -290,12 +254,9 @@ class DBUtility
 
     /**
      * Column Modify
-     *
-     * @access	public
-     * @param	string	the table name
-     * @param	string	the column name
-     * @param	string	the column definition
-     * @return	bool
+     * @param string $table the table name
+     * @param string $field the column information
+     * @return bool
      */
     public function modifyColumn($table = '', $field = array())
     {
@@ -308,7 +269,7 @@ class DBUtility
 
         foreach ($field as $k => $v) {
             // If no name provided, use the current name
-            if ( ! isset($field[$k]['name'])) {
+            if (!isset($field[$k]['name'])) {
                 $field[$k]['name'] = $k;
             }
 
@@ -322,42 +283,36 @@ class DBUtility
 
             $this->_reset();
 
-            if ($this->db->query($sql) === FALSE) {
-                return FALSE;
+            if ($this->db->query($sql) === false) {
+                return false;
             }
         }
 
-        return TRUE;
+        return true;
     }
 
     /**
-     * Reset
-     *
      * Resets table creation vars
-     *
-     * @access	private
-     * @return	void
+     * @return void
      */
     protected function _reset()
     {
-        $this->fields		= array();
-        $this->keys			= array();
-        $this->primary_keys	= array();
+        $this->fields = array();
+        $this->keys = array();
+        $this->primary_keys = array();
     }
 
     /**
      * Process Fields
-     *
-     * @access	private
-     * @param	mixed	the fields
-     * @return	string
+     * @param mixed $fields the fields
+     * @return string
      */
     protected function _processFields($fields)
     {
         $current_field_count = 0;
         $sql = '';
 
-        foreach ($fields as $field=>$attributes) {
+        foreach ($fields as $field => $attributes) {
             // Numeric field names aren't allowed in databases, so if the key is
             // numeric, we know it was assigned by PHP and the developer manually
             // entered the field information, so we'll simply add it to the list
@@ -373,7 +328,7 @@ class DBUtility
                 }
 
                 if (array_key_exists('TYPE', $attributes)) {
-                    $sql .=  ' '.$attributes['TYPE'];
+                    $sql .= ' '.$attributes['TYPE'];
 
                     if (array_key_exists('CONSTRAINT', $attributes)) {
                         switch ($attributes['TYPE']) {
@@ -394,7 +349,7 @@ class DBUtility
                     }
                 }
 
-                if (array_key_exists('UNSIGNED', $attributes) && $attributes['UNSIGNED'] === TRUE) {
+                if (array_key_exists('UNSIGNED', $attributes) && $attributes['UNSIGNED'] === true) {
                     $sql .= ' UNSIGNED';
                 }
 
@@ -403,14 +358,14 @@ class DBUtility
                 }
 
                 if (array_key_exists('NULL', $attributes)) {
-                    if ($attributes['NULL'] === TRUE) {
+                    if ($attributes['NULL'] === true) {
                         $sql .= ' NULL';
                     } else {
                         $sql .= ' NOT NULL';
                     }
                 }
 
-                if (array_key_exists('AUTO_INCREMENT', $attributes) && $attributes['AUTO_INCREMENT'] === TRUE) {
+                if (array_key_exists('AUTO_INCREMENT', $attributes) && $attributes['AUTO_INCREMENT'] === true) {
                     $sql .= ' AUTO_INCREMENT';
                 }
             }
@@ -424,314 +379,294 @@ class DBUtility
         return $sql;
     }
 
-	/**
-	 * List databases
-	 *
-	 * @access	public
-	 * @return	bool
-	 */
-	public function fetchDataBases()
-	{
-		// Is there a cached result?
-		if (isset($this->data_cache['db_names'])) {
-			return $this->data_cache['db_names'];
-		}
+    /**
+     * List databases
+     * @return bool
+     */
+    public function fetchDataBases()
+    {
+        // Is there a cached result?
+        if (isset($this->data_cache['db_names'])) {
+            return $this->data_cache['db_names'];
+        }
 
-		$query = $this->db->query($this->_listDataBases());
-		$dbs = array();
-		if ($query->getRowsCount() > 0) {
-			foreach ($query->resultArray() as $row) {
-				$dbs[] = current($row);
-			}
-		}
+        $query = $this->db->query($this->_listDataBases());
+        $dbs = array();
+        if ($query->getRowsCount() > 0) {
+            foreach ($query->resultArray() as $row) {
+                $dbs[] = current($row);
+            }
+        }
 
-		$this->data_cache['db_names'] = $dbs;
-		return $this->data_cache['db_names'];
-	}
+        $this->data_cache['db_names'] = $dbs;
+        return $this->data_cache['db_names'];
+    }
 
-	/**
-	 * Determine if a particular database exists
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	boolean
-	 */
-	public function isDataBaseExists($database_name)
-	{
-		// Some databases won't have access to the list_databases() function, so
-		// this is intended to allow them to override with their own functions as
-		// defined in $driver_utility.php
-		if (method_exists($this, '_isDataBaseExists')) {
-			return $this->_isDataBaseExists($database_name);
-		} else {
-			return ( ! in_array($database_name, $this->fetchDataBases())) ? FALSE : TRUE;
-		}
-	}
+    /**
+     * Determine if a particular database exists
+     * @param string
+     * @return boolean
+     */
+    public function isDataBaseExists($database_name)
+    {
+        // Some databases won't have access to the list_databases() function, so
+        // this is intended to allow them to override with their own functions as
+        // defined in $driver_utility.php
+        if (method_exists($this, '_isDataBaseExists')) {
+            return $this->_isDataBaseExists($database_name);
+        } else {
+            return (!in_array($database_name, $this->fetchDataBases())) ? false : true;
+        }
+    }
 
-	/**
-	 * Optimize Table
-	 *
-	 * @access	public
-	 * @param	string	the table name
-	 * @return	bool
-	 */
-	public function optimizeTable($table_name)
-	{
-		$sql = $this->_optimizeTable($table_name);
+    /**
+     * Optimize Table
+     * @param string $table_name the table name
+     * @return bool
+     */
+    public function optimizeTable($table_name)
+    {
+        $sql = $this->_optimizeTable($table_name);
 
-		if (is_bool($sql)) {
+        if (is_bool($sql)) {
             throw new FlyException(Fly::t('fly', 'db_must_use_set'));
-		}
+        }
 
-		$query = $this->db->query($sql);
-		$res = $query->resultArray();
+        $query = $this->db->query($sql);
+        $res = $query->resultArray();
 
-		// Note: Due to a bug in current() that affects some versions
-		// of PHP we can not pass function call directly into it
-		return current($res);
-	}
+        // Note: Due to a bug in current() that affects some versions
+        // of PHP we can not pass function call directly into it
+        return current($res);
+    }
 
-	/**
-	 * Optimize Database
-	 *
-	 * @access	public
-	 * @return	array
-	 */
-	public function optimizeDataBase()
-	{
-		$result = array();
-		foreach ($this->db->fetchTables() as $table_name) {
-			$sql = $this->_optimizeTable($table_name);
+    /**
+     * Optimize Database
+     * @return array
+     */
+    public function optimizeDataBase()
+    {
+        $result = array();
+        foreach ($this->db->fetchTables() as $table_name) {
+            $sql = $this->_optimizeTable($table_name);
 
-			if (is_bool($sql)) {
-				return $sql;
-			}
+            if (is_bool($sql)) {
+                return $sql;
+            }
 
-			$query = $this->db->query($sql);
+            $query = $this->db->query($sql);
 
-			// Build the result array...
-			// Note: Due to a bug in current() that affects some versions
-			// of PHP we can not pass function call directly into it
-			$res = $query->resultArray();
-			$res = current($res);
-			$key = str_replace($this->db->database.'.', '', current($res));
-			$keys = array_keys($res);
-			unset($res[$keys[0]]);
+            // Build the result array...
+            // Note: Due to a bug in current() that affects some versions
+            // of PHP we can not pass function call directly into it
+            $res = $query->resultArray();
+            $res = current($res);
+            $key = str_replace($this->db->database.'.', '', current($res));
+            $keys = array_keys($res);
+            unset($res[$keys[0]]);
 
-			$result[$key] = $res;
-		}
+            $result[$key] = $res;
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
-	/**
-	 * Repair Table
-	 *
-	 * @access	public
-	 * @param	string	the table name
-	 * @return	bool
-	 */
-	public function repairTable($table_name)
-	{
-		$sql = $this->_repairTable($table_name);
+    /**
+     * Repair Table
+     * @param string $table_name the table name
+     * @return bool
+     */
+    public function repairTable($table_name)
+    {
+        $sql = $this->_repairTable($table_name);
 
-		if (is_bool($sql)) {
-			return $sql;
-		}
+        if (is_bool($sql)) {
+            return $sql;
+        }
 
-		$query = $this->db->query($sql);
+        $query = $this->db->query($sql);
 
-		// Note: Due to a bug in current() that affects some versions
-		// of PHP we can not pass function call directly into it
-		$res = $query->resultArray();
-		return current($res);
-	}
+        // Note: Due to a bug in current() that affects some versions
+        // of PHP we can not pass function call directly into it
+        $res = $query->resultArray();
+        return current($res);
+    }
 
-	/**
-	 * Generate CSV from a query result object
-	 *
-	 * @access	public
-	 * @param	object	The query result object
-	 * @param	string	The delimiter - comma by default
-	 * @param	string	The newline character - \n by default
-	 * @param	string	The enclosure - double quote by default
-	 * @return	string
-	 */
-	public function getCsvFromResult($query, $delim = ",", $newline = "\n", $enclosure = '"')
-	{
-		if ( ! is_object($query) OR ! method_exists($query, 'fetchFields')) {
+    /**
+     * Generate CSV from a query result object
+     * @param object $query The query result object
+     * @param string $delim The delimiter - comma by default
+     * @param string $newline The newline character - \n by default
+     * @param string $enclosure The enclosure - double quote by default
+     * @return string
+     */
+    public function getCsvFromResult($query, $delim = ",", $newline = "\n", $enclosure = '"')
+    {
+        if (!is_object($query) OR !method_exists($query, 'fetchFields')) {
             throw new FlyException(Fly::t('fly', 'You must submit a valid result object'));
-		}
+        }
 
-		$out = '';
+        $out = '';
 
-		// First generate the headings from the table column names
-		foreach ($query->fetchFields() as $name) {
-			$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $name).$enclosure.$delim;
-		}
+        // First generate the headings from the table column names
+        foreach ($query->fetchFields() as $name) {
+            $out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $name).$enclosure.$delim;
+        }
 
-		$out = rtrim($out);
-		$out .= $newline;
+        $out = rtrim($out);
+        $out .= $newline;
 
-		// Next blast through the result array and build out the rows
-		foreach ($query->resultArray() as $row) {
-			foreach ($row as $item) {
-				$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $item).$enclosure.$delim;
-			}
-			$out = rtrim($out);
-			$out .= $newline;
-		}
+        // Next blast through the result array and build out the rows
+        foreach ($query->resultArray() as $row) {
+            foreach ($row as $item) {
+                $out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $item).$enclosure.$delim;
+            }
+            $out = rtrim($out);
+            $out .= $newline;
+        }
 
-		return $out;
-	}
+        return $out;
+    }
 
-	/**
-	 * Generate XML data from a query result object
-	 *
-	 * @access	public
-	 * @param	object	The query result object
-	 * @param	array	Any preferences
-	 * @return	string
-	 */
-	public function getXmlFromResult($query, $params = array())
-	{
-		if ( ! is_object($query) OR ! method_exists($query, 'fetchFields')) {
+    /**
+     * Generate XML data from a query result object
+     * @param object $query The query result object
+     * @param array $params An preferences
+     * @return string
+     */
+    public function getXmlFromResult($query, $params = array())
+    {
+        if (!is_object($query) OR !method_exists($query, 'fetchFields')) {
             throw new FlyException(Fly::t('fly', 'You must submit a valid result object'));
-		}
+        }
 
-		// Set our default values
-		foreach (array('root' => 'root', 'element' => 'element', 'newline' => "\n", 'tab' => "\t") as $key => $val) {
-			if ( ! isset($params[$key])) {
-				$params[$key] = $val;
-			}
-		}
+        // Set our default values
+        foreach (array('root' => 'root', 'element' => 'element', 'newline' => "\n", 'tab' => "\t") as $key => $val) {
+            if (!isset($params[$key])) {
+                $params[$key] = $val;
+            }
+        }
 
-		// Create variables for convenience
-		extract($params);
+        // Create variables for convenience
+        extract($params);
 
-		// Generate the result
-		$xml = "<{$root}>".$newline;
-		foreach ($query->resultArray() as $row)
-		{
-			$xml .= $tab."<{$element}>".$newline;
+        // Generate the result
+        $xml = "<{$root}>".$newline;
+        foreach ($query->resultArray() as $row) {
+            $xml .= $tab."<{$element}>".$newline;
 
-			foreach ($row as $key => $val)
-			{
-				$xml .= $tab.$tab."<{$key}>".XmlHelper::convert($val)."</{$key}>".$newline;
-			}
-			$xml .= $tab."</{$element}>".$newline;
-		}
-		$xml .= "</$root>".$newline;
+            foreach ($row as $key => $val) {
+                $xml .= $tab.$tab."<{$key}>".XmlHelper::convert($val)."</{$key}>".$newline;
+            }
+            $xml .= $tab."</{$element}>".$newline;
+        }
+        $xml .= "</$root>".$newline;
 
-		return $xml;
-	}
+        return $xml;
+    }
 
-	/**
-	 * Database Backup
-	 *
-	 * @access	public
-	 * @return	void
-	 */
-	public function backup($params = array())
-	{
-		// If the parameters have not been submitted as an
-		// array then we know that it is simply the table
-		// name, which is a valid short cut.
-		if (is_string($params)) {
-			$params = array('tables' => $params);
-		}
+    /**
+     * Database Backup
+     * @return void
+     */
+    public function backup($params = array())
+    {
+        // If the parameters have not been submitted as an
+        // array then we know that it is simply the table
+        // name, which is a valid short cut.
+        if (is_string($params)) {
+            $params = array('tables' => $params);
+        }
 
-		// Set up our default preferences
-		$prefs = array(
-							'tables'		=> array(),
-							'ignore'		=> array(),
-							'filename'		=> '',
-							'format'		=> 'gzip', // gzip, zip, txt
-							'add_drop'		=> TRUE,
-							'add_insert'	=> TRUE,
-							'newline'		=> "\n"
-						);
+        // Set up our default preferences
+        $prefs = array(
+            'tables' => array(),
+            'ignore' => array(),
+            'filename' => '',
+            'format' => 'gzip', // gzip, zip, txt
+            'add_drop' => true,
+            'add_insert' => true,
+            'newline' => "\n"
+        );
 
-		// Did the user submit any preferences? If so set them....
-		if (count($params) > 0) {
-			foreach ($prefs as $key => $val) {
-				if (isset($params[$key])) {
-					$prefs[$key] = $params[$key];
-				}
-			}
-		}
+        // Did the user submit any preferences? If so set them....
+        if (count($params) > 0) {
+            foreach ($prefs as $key => $val) {
+                if (isset($params[$key])) {
+                    $prefs[$key] = $params[$key];
+                }
+            }
+        }
 
-		// ------------------------------------------------------
+        // ------------------------------------------------------
 
-		// Are we backing up a complete database or individual tables?
-		// If no table names were submitted we'll fetch the entire table list
-		if (count($prefs['tables']) == 0) {
-			$prefs['tables'] = $this->db->fetchTables();
-		}
+        // Are we backing up a complete database or individual tables?
+        // If no table names were submitted we'll fetch the entire table list
+        if (count($prefs['tables']) == 0) {
+            $prefs['tables'] = $this->db->fetchTables();
+        }
 
-		// ------------------------------------------------------
+        // ------------------------------------------------------
 
-		// Validate the format
-		if (!in_array($prefs['format'], array('gzip', 'zip', 'txt'), TRUE)) {
-			$prefs['format'] = 'txt';
-		}
+        // Validate the format
+        if (!in_array($prefs['format'], array('gzip', 'zip', 'txt'), true)) {
+            $prefs['format'] = 'txt';
+        }
 
-		// ------------------------------------------------------
+        // ------------------------------------------------------
 
-		// Is the encoder supported?  If not, we'll either issue an
-		// error or use plain text depending on the debug settings
-		if (($prefs['format'] == 'gzip' AND ! @function_exists('gzencode'))
-		OR ($prefs['format'] == 'zip'  AND ! @function_exists('gzcompress')))
-		{
-			if ($this->db->db_debug) {
-				return $this->db->displayError('db_unsuported_compression');
-			}
+        // Is the encoder supported?  If not, we'll either issue an
+        // error or use plain text depending on the debug settings
+        if (($prefs['format'] == 'gzip' AND !@function_exists('gzencode'))
+            OR ($prefs['format'] == 'zip' AND !@function_exists('gzcompress'))
+        ) {
+            if ($this->db->db_debug) {
+                return $this->db->displayError('db_unsuported_compression');
+            }
 
-			$prefs['format'] = 'txt';
-		}
+            $prefs['format'] = 'txt';
+        }
 
-		// ------------------------------------------------------
+        // ------------------------------------------------------
 
-		// Set the filename if not provided - Only needed with Zip files
-		if ($prefs['filename'] == '' AND $prefs['format'] == 'zip') {
-			$prefs['filename'] = (count($prefs['tables']) == 1) ? $prefs['tables'] : $this->db->database;
-			$prefs['filename'] .= '_'.date('Y-m-d_H-i', time());
-		}
+        // Set the filename if not provided - Only needed with Zip files
+        if ($prefs['filename'] == '' AND $prefs['format'] == 'zip') {
+            $prefs['filename'] = (count($prefs['tables']) == 1) ? $prefs['tables'] : $this->db->database;
+            $prefs['filename'] .= '_'.date('Y-m-d_H-i', time());
+        }
 
-		// ------------------------------------------------------
+        // ------------------------------------------------------
 
-		// Was a Gzip file requested?
-		if ($prefs['format'] == 'gzip') {
-			return gzencode($this->_backup($prefs));
-		}
+        // Was a Gzip file requested?
+        if ($prefs['format'] == 'gzip') {
+            return gzencode($this->_backup($prefs));
+        }
 
-		// ------------------------------------------------------
+        // ------------------------------------------------------
 
-		// Was a text file requested?
-		if ($prefs['format'] == 'txt') {
-			return $this->_backup($prefs);
-		}
+        // Was a text file requested?
+        if ($prefs['format'] == 'txt') {
+            return $this->_backup($prefs);
+        }
 
-		// ------------------------------------------------------
+        // ------------------------------------------------------
 
-		// Was a Zip file requested?
-		if ($prefs['format'] == 'zip') {
-			// If they included the .zip file extension we'll remove it
-			if (preg_match("|.+?\.zip$|", $prefs['filename'])) {
-				$prefs['filename'] = str_replace('.zip', '', $prefs['filename']);
-			}
+        // Was a Zip file requested?
+        if ($prefs['format'] == 'zip') {
+            // If they included the .zip file extension we'll remove it
+            if (preg_match("|.+?\.zip$|", $prefs['filename'])) {
+                $prefs['filename'] = str_replace('.zip', '', $prefs['filename']);
+            }
 
-			// Tack on the ".sql" file extension if needed
-			if ( ! preg_match("|.+?\.sql$|", $prefs['filename'])) {
-				$prefs['filename'] .= '.sql';
-			}
+            // Tack on the ".sql" file extension if needed
+            if (!preg_match("|.+?\.sql$|", $prefs['filename'])) {
+                $prefs['filename'] .= '.sql';
+            }
 
-			// Load the Zip class and output it
+            // Load the Zip class and output it
             $zip = Fly::app()->getComponent('Zip');
             $zip->addData($prefs['filename'], $this->_backup($prefs));
-			return $zip->getZip();
-		}
-
-	}
-
+            return $zip->getZip();
+        }
+    }
 }

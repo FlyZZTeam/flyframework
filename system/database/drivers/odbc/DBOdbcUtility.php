@@ -1,54 +1,36 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
  * ODBC Utility Class
- *
- * @category	Database
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/database/
  */
 class DBOdbcUtility extends DBUtility
 {
 
-
     /**
      * Create database
-     *
-     * @access	private
-     * @param	string	the database name
-     * @return	bool
+     * @param string $name the database name
+     * @return bool
      */
-    protected function _createDataBase()
+    protected function _createDataBase($name)
     {
         // ODBC has no "create database" command since it's
         // designed to connect to an existing database
         if ($this->db->db_debug) {
             return $this->db->displayError('db_unsuported_feature');
         }
-        return FALSE;
+        return false;
     }
 
     /**
      * Drop database
-     *
-     * @access	private
-     * @param	string	the database name
-     * @return	bool
+     * @param string $name the database name
+     * @return bool
      */
     protected function _dropDataBase($name)
     {
@@ -57,32 +39,30 @@ class DBOdbcUtility extends DBUtility
         if ($this->db->db_debug) {
             return $this->db->displayError('db_unsuported_feature');
         }
-        return FALSE;
+        return false;
     }
 
     /**
      * Create Table
-     *
-     * @access	private
-     * @param	string	the table name
-     * @param	array	the fields
-     * @param	mixed	primary key(s)
-     * @param	mixed	key(s)
-     * @param	boolean	should 'IF NOT EXISTS' be added to the SQL
-     * @return	bool
+     * @param string $table the table name
+     * @param array $fields the fields
+     * @param mixed primary_keys primary key(s)
+     * @param mixed $keys key(s)
+     * @param boolean $if_not_exists should 'IF NOT EXISTS' be added to the SQL
+     * @return bool
      */
     protected function _createTable($table, $fields, $primary_keys, $keys, $if_not_exists)
     {
         $sql = 'CREATE TABLE ';
 
-        if ($if_not_exists === TRUE) {
+        if ($if_not_exists === true) {
             $sql .= 'IF NOT EXISTS ';
         }
 
         $sql .= $this->db->escapeIdentifiers($table)." (";
         $current_field_count = 0;
 
-        foreach ($fields as $field=>$attributes) {
+        foreach ($fields as $field => $attributes) {
             // Numeric field names aren't allowed in databases, so if the key is
             // numeric, we know it was assigned by PHP and the developer manually
             // entered the field information, so we'll simply add it to the list
@@ -93,48 +73,40 @@ class DBOdbcUtility extends DBUtility
 
                 $sql .= "\n\t".$this->db->protectIdentifiers($field);
 
-                $sql .=  ' '.$attributes['TYPE'];
+                $sql .= ' '.$attributes['TYPE'];
 
-                if (array_key_exists('CONSTRAINT', $attributes))
-                {
+                if (array_key_exists('CONSTRAINT', $attributes)) {
                     $sql .= '('.$attributes['CONSTRAINT'].')';
                 }
 
-                if (array_key_exists('UNSIGNED', $attributes) && $attributes['UNSIGNED'] === TRUE)
-                {
+                if (array_key_exists('UNSIGNED', $attributes) && $attributes['UNSIGNED'] === true) {
                     $sql .= ' UNSIGNED';
                 }
 
-                if (array_key_exists('DEFAULT', $attributes))
-                {
+                if (array_key_exists('DEFAULT', $attributes)) {
                     $sql .= ' DEFAULT \''.$attributes['DEFAULT'].'\'';
                 }
 
-                if (array_key_exists('NULL', $attributes) && $attributes['NULL'] === TRUE)
-                {
+                if (array_key_exists('NULL', $attributes) && $attributes['NULL'] === true) {
                     $sql .= ' NULL';
-                }
-                else
-                {
+                } else {
                     $sql .= ' NOT NULL';
                 }
 
-                if (array_key_exists('AUTO_INCREMENT', $attributes) && $attributes['AUTO_INCREMENT'] === TRUE)
-                {
+                if (array_key_exists('AUTO_INCREMENT', $attributes) && $attributes['AUTO_INCREMENT'] === true) {
                     $sql .= ' AUTO_INCREMENT';
                 }
             }
 
             // don't add a comma on the end of the last field
-            if (++$current_field_count < count($fields))
-            {
+            if (++$current_field_count < count($fields)) {
                 $sql .= ',';
             }
         }
 
         if (count($primary_keys) > 0) {
             $primary_keys = $this->db->protectIdentifiers($primary_keys);
-            $sql .= ",\n\tPRIMARY KEY (" . implode(', ', $primary_keys) . ")";
+            $sql .= ",\n\tPRIMARY KEY (".implode(', ', $primary_keys).")";
         }
 
         if (is_array($keys) && count($keys) > 0) {
@@ -145,7 +117,7 @@ class DBOdbcUtility extends DBUtility
                     $key = array($this->db->protectIdentifiers($key));
                 }
 
-                $sql .= ",\n\tFOREIGN KEY (" . implode(', ', $key) . ")";
+                $sql .= ",\n\tFOREIGN KEY (".implode(', ', $key).")";
             }
         }
 
@@ -156,9 +128,7 @@ class DBOdbcUtility extends DBUtility
 
     /**
      * Drop Table
-     *
-     * @access	private
-     * @return	bool
+     * @return bool
      */
     protected function _dropTable($table)
     {
@@ -166,24 +136,16 @@ class DBOdbcUtility extends DBUtility
         if ($this->db->db_debug) {
             return $this->db->displayError('db_unsuported_feature');
         }
-        return FALSE;
+        return false;
     }
 
     /**
      * Alter table query
-     *
-     * Generates a platform-specific query so that a table can be altered
-     * Called by add_column(), drop_column(), and column_alter(),
-     *
-     * @access	private
-     * @param	string	the ALTER type (ADD, DROP, CHANGE)
-     * @param	string	the column name
-     * @param	string	the table name
-     * @param	string	the column definition
-     * @param	string	the default value
-     * @param	boolean	should 'NOT NULL' be added
-     * @param	string	the field after which we should add the new field
-     * @return	object
+     * @param string $alter_type the ALTER type (ADD, DROP, CHANGE)
+     * @param string $table the table name
+     * @param string $fields the column definition
+     * @param string $after_field the field after which we should add the new field
+     * @return object
      */
     protected function _alterTable($alter_type, $table, $fields, $after_field = '')
     {
@@ -197,7 +159,7 @@ class DBOdbcUtility extends DBUtility
         $sql .= $this->_processFields($fields);
 
         if ($after_field != '') {
-            $sql .= ' AFTER ' . $this->db->protectIdentifiers($after_field);
+            $sql .= ' AFTER '.$this->db->protectIdentifiers($after_field);
         }
 
         return $sql;
@@ -205,13 +167,9 @@ class DBOdbcUtility extends DBUtility
 
     /**
      * Rename a table
-     *
-     * Generates a platform-specific query so that a table can be renamed
-     *
-     * @access	private
-     * @param	string	the old table name
-     * @param	string	the new table name
-     * @return	string
+     * @param string $table_name the old table name
+     * @param string $new_table_name the new table name
+     * @return string
      */
     protected function _renameTable($table_name, $new_table_name)
     {
@@ -219,68 +177,55 @@ class DBOdbcUtility extends DBUtility
         return $sql;
     }
 
-	/**
-	 * List databases
-	 *
-	 * @access	private
-	 * @return	bool
-	 */
-	protected function _listDataBases()
-	{
-		// Not sure if ODBC lets you list all databases...
-		if ($this->db->db_debug) {
-			return $this->db->displayError('db_unsuported_feature');
-		}
-		return FALSE;
-	}
+    /**
+     * List databases
+     * @return bool
+     */
+    protected function _listDataBases()
+    {
+        // Not sure if ODBC lets you list all databases...
+        if ($this->db->db_debug) {
+            return $this->db->displayError('db_unsuported_feature');
+        }
+        return false;
+    }
 
-	/**
-	 * Optimize table query
-	 *
-	 * Generates a platform-specific query so that a table can be optimized
-	 *
-	 * @access	private
-	 * @param	string	the table name
-	 * @return	object
-	 */
-	protected function _optimizeTable($table)
-	{
-		// Not a supported ODBC feature
-		if ($this->db->db_debug) {
-			return $this->db->displayError('db_unsuported_feature');
-		}
-		return FALSE;
-	}
+    /**
+     * Optimize table query
+     * @param string $table the table name
+     * @return object
+     */
+    protected function _optimizeTable($table)
+    {
+        // Not a supported ODBC feature
+        if ($this->db->db_debug) {
+            return $this->db->displayError('db_unsuported_feature');
+        }
+        return false;
+    }
 
-	/**
-	 * Repair table query
-	 *
-	 * Generates a platform-specific query so that a table can be repaired
-	 *
-	 * @access	private
-	 * @param	string	the table name
-	 * @return	object
-	 */
-	protected function _repairTable($table)
-	{
-		// Not a supported ODBC feature
-		if ($this->db->db_debug) {
-			return $this->db->displayError('db_unsuported_feature');
-		}
-		return FALSE;
-	}
+    /**
+     * Repair table query
+     * @param string $table the table name
+     * @return object
+     */
+    protected function _repairTable($table)
+    {
+        // Not a supported ODBC feature
+        if ($this->db->db_debug) {
+            return $this->db->displayError('db_unsuported_feature');
+        }
+        return false;
+    }
 
-	/**
-	 * ODBC Export
-	 *
-	 * @access	private
-	 * @param	array	Preferences
-	 * @return	mixed
-	 */
-	protected function _backup($params = array())
-	{
-		// Currently unsupported
-		return $this->db->displayError('db_unsuported_feature');
-	}
-
+    /**
+     * ODBC Export
+     * @param array $params Preferences
+     * @return mixed
+     */
+    protected function _backup($params = array())
+    {
+        // Currently unsupported
+        return $this->db->displayError('db_unsuported_feature');
+    }
 }
