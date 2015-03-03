@@ -1,35 +1,31 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
-// ------------------------------------------------------------------------
-
 /**
- * CodeIgniter Application Controller Class
+ * Controller manages a set of actions which deal with the corresponding user requests.
+ * Through the actions, Controller coordinates the data flow between models and views.
  *
- * This class object is the super class that every library in
- * CodeIgniter will be assigned to.
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/general/controllers.html
+ * @property string $id ID of the controller.
+ * @property string $action The action currently being executed, null if no active action.
+ * @property WebModule $module The module that this controller belongs to. It returns null
+ * if the controller does not belong to any module.
+ * @property string $viewPath The directory containing the view files for this controller. Defaults to 'application/views/ControllerID'.
+ * @property string $pageTitle The page title. Defaults to the controller name and the action name.
  */
 class Controller extends Component
 {
-
+    /**
+     * @var mixed the name of the layout to be applied to this controller's views.
+     * Defaults to null, meaning the {@link WebApplication::layout application layout}
+     * is used. If it is false, no layout will be applied.
+     * The {@link WebModule::layout module layout} will be used
+     * if the controller belongs to a module and this layout property is null.
+     */
     public $layout;
     /**
      * @var string the name of the default action. Defaults to 'index'.
@@ -44,21 +40,24 @@ class Controller extends Component
     private $_module;
     //private $_cachingStack;
 
-	/**
-	 * Constructor
-	 */
-	public function __construct($id, $module = null)
-	{
+    /**
+     * Constructor
+     * @param string $id id of this controller
+     * @param WebModule $module the module that this controller belongs to.
+     */
+    public function __construct($id, $module = null)
+    {
         $this->_id = $id;
         $this->_module = $module;
-	}
+    }
 
     /**
-     * Init controller.
+     * Initializes the controller.
+     * This method is called by the application before the controller starts to execute.
+     * You may override this method to perform the needed initialization for the controller.
      */
     public function init()
     {
-
     }
 
     /**
@@ -79,7 +78,6 @@ class Controller extends Component
                     $this->$action();
                     $this->afterActionRun($action);
                     $parent->afterControllerAction($this, $action);
-
                 }
             }
         } else {
@@ -130,7 +128,7 @@ class Controller extends Component
             return $this->_pageTitle;
         } else {
             $name = ucfirst(basename($this->getId()));
-            if($this->getAction() !== null && strcasecmp($this->getAction(), $this->defaultAction)) {
+            if ($this->getAction() !== null && strcasecmp($this->getAction(), $this->defaultAction)) {
                 return $this->_pageTitle = Fly::app()->name.' - '.ucfirst($this->getAction()).' '.$name;
             } else {
                 return $this->_pageTitle = Fly::app()->name.' - '.$name;
@@ -194,7 +192,7 @@ class Controller extends Component
      */
     public function getViewPath()
     {
-        if(($module = $this->getModule()) === null) {
+        if (($module = $this->getModule()) === null) {
             $module = Fly::app();
         }
         return $module->getViewPath().DIRECTORY_SEPARATOR.$this->getId();
@@ -211,7 +209,7 @@ class Controller extends Component
     public function getViewFile($viewName)
     {
         $moduleViewPath = $basePath = Fly::app()->getViewPath();
-        if(($module = $this->getModule()) !== null) {
+        if (($module = $this->getModule()) !== null) {
             $moduleViewPath = $module->getViewPath();
         }
 
@@ -256,7 +254,7 @@ class Controller extends Component
                 $module = Fly::app();
             }
             $layoutName = $module->layout;
-        } else if(($module = $this->getModule()) === null) {
+        } else if (($module = $this->getModule()) === null) {
             $module = Fly::app();
         }
 
@@ -281,12 +279,12 @@ class Controller extends Component
         }
         $extension = '.php';
         if ($viewName[0] === '/') {
-            if(strncmp($viewName,'//',2) === 0) {
+            if (strncmp($viewName, '//', 2) === 0) {
                 $viewFile = $basePath.$viewName;
             } else {
                 $viewFile = $moduleViewPath.$viewName;
             }
-        } else if(strpos($viewName, '.')) {
+        } else if (strpos($viewName, '.')) {
             $viewFile = Fly::getPathOfAlias($viewName);
         } else {
             $viewFile = $viewPath.DIRECTORY_SEPARATOR.$viewName;
@@ -472,8 +470,8 @@ class Controller extends Component
                 echo $output;
             }
         } else {
-            throw new FlyException(Fly::t('fly','{controller} cannot find the requested view "{view}".',
-                array('{controller}'=>get_class($this), '{view}'=>$view)));
+            throw new FlyException(Fly::t('fly', '{controller} cannot find the requested view "{view}".',
+                array('{controller}' => get_class($this), '{view}' => $view)));
         }
     }
 
@@ -513,14 +511,14 @@ class Controller extends Component
     public function createUrl($route, $params = array(), $ampersand = '&')
     {
         if ($route === '') {
-            $route=$this->getId().'/'.$this->getAction();
+            $route = $this->getId().'/'.$this->getAction();
         } else if (strpos($route, '/') === false) {
             $route = $this->getId().'/'.$route;
         }
-        if($route[0] !== '/' && ($module = $this->getModule()) !== null) {
+        if ($route[0] !== '/' && ($module = $this->getModule()) !== null) {
             $route = $module->getId().'/'.$route;
         }
-        return Fly::app()->createUrl(trim($route,'/'), $params, $ampersand);
+        return Fly::app()->createUrl(trim($route, '/'), $params, $ampersand);
     }
 
     /**
@@ -569,9 +567,8 @@ class Controller extends Component
      * @param string $anchor the anchor that should be appended to the redirection URL.
      * Defaults to empty. Make sure the anchor starts with '#' if you want to specify it.
      */
-    public function refresh($terminate = true, $anchor='')
+    public function refresh($terminate = true, $anchor = '')
     {
         $this->redirect(Fly::app()->getRequest()->getUrl().$anchor, $terminate);
     }
-
 }

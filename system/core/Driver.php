@@ -1,46 +1,45 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2006 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
-// ------------------------------------------------------------------------
-
 /**
- * CodeIgniter Driver Library Class
- *
- * This class enables you to create "Driver" libraries that add runtime ability
- * to extend the capabilities of a class via additional driver objects
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		EllisLab Dev Team
- * @link
+ * Simple factory class based, defines a simple factory practice standards.
+ * You can inherit this class to achieve a simple framework based on the standard factory.
  */
 class DriverManager extends Component
 {
-
+    /**
+     * @var array Save the new drive to this array.
+     */
     protected $_instance = array();
-    protected $_validDrivers = array ();
+    /**
+     * @var array The valid Drivers list.
+     */
+    protected $_validDrivers = array();
+    /**
+     * @var string The driving current use.
+     */
     protected $_adapter = '';
+    /**
+     * @var string If the drive does not exist, use the default drive $_backupDriver.
+     */
     protected $_backupDriver = '';
+    /**
+     * @var string The driver prefix.
+     */
     protected $_driverPrefix = '';
+    /**
+     * @var array The driving component configuration.
+     */
     protected $_components = array();
 
     /**
      * Constructor
-     *
-     * @param array
+     * @param array The DriverManager configuration.
      */
     public function __construct($config = array())
     {
@@ -50,9 +49,8 @@ class DriverManager extends Component
     }
 
     /**
-     * Set cache adapter
-     *
-     * @param $adapter
+     * Set the current used driver.
+     * @param string $adapter The driver name.
      */
     public function setAdapter($adapter)
     {
@@ -61,7 +59,7 @@ class DriverManager extends Component
 
     /**
      * Set Backup Driver
-     * @param $driver
+     * @param string $driver The driver name.
      */
     public function setBackupDriver($driver)
     {
@@ -71,9 +69,8 @@ class DriverManager extends Component
     }
 
     /**
-     * Set Cache Components's Config
-     *
-     * @param $config
+     * Set cache components's configuration
+     * @param array $config
      */
     public function setComponents($config)
     {
@@ -82,8 +79,7 @@ class DriverManager extends Component
 
     /**
      * Set valid drivers
-     *
-     * @param $drivers
+     * @param string $drivers The valid drivers.
      */
     public function setValidDrivers($drivers)
     {
@@ -94,18 +90,20 @@ class DriverManager extends Component
         }
     }
 
+    /**
+     * Set the driver prefix.
+     * @param string $driverPrefix
+     */
     protected function setDriverPrefix($driverPrefix)
     {
         $this->_driverPrefix = $driverPrefix;
     }
 
     /**
-     * Initialize
-     *
      * Initialize class properties based on the configuration array.
      *
-     * @param	array
-     * @return 	void
+     * @param array $config
+     * @return void
      */
     private function _initialize($config)
     {
@@ -123,10 +121,9 @@ class DriverManager extends Component
     }
 
     /**
-     * __get()
-     *
-     * @param 	child
-     * @return 	object
+     * Get the driver object through the drive name, e.g.:{DriverManager->XXX}
+     * @param string $child The driver name.
+     * @return mixed|null The driver object.
      */
     public function __get($child)
     {
@@ -156,21 +153,10 @@ class DriverManager extends Component
             return parent::__get($driverName);
         }
     }
-
 }
 
-
 /**
- * CodeIgniter Driver Class
- *
- * This class enables you to create drivers for a Library based on the Driver Library.
- * It handles the drivers' access to the parent library
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		EllisLab Dev Team
- * @link
+ * Driver class, you can inherit it for their own driver.
  */
 class Driver extends Component
 {

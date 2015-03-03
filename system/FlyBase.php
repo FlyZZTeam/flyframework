@@ -1,4 +1,11 @@
 <?php
+/**
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
+ */
+
 
 /**
  * This constant defines whether the application should be in debug mode or not. Defaults to false.

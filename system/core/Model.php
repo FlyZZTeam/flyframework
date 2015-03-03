@@ -1,37 +1,21 @@
 <?php
 /**
- * CModel class file.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @link http://www.yiiframework.com/
- * @copyright Copyright &copy; 2008-2011 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
-
 /**
- * CModel is the base class providing the common features needed by data model objects.
+ * Model is the base class providing the common features needed by data model objects.
+ * Model defines the basic framework for data models that need to be validated.
  *
- * CModel defines the basic framework for data models that need to be validated.
- *
- * @property CList $validatorList All the validators declared in the model.
- * @property array $validators The validators applicable to the current {@link scenario}.
  * @property array $errors Errors for all attributes or the specified attribute. Empty array is returned if no error.
  * @property array $attributes Attribute values (name=>value).
- * @property string $scenario The scenario that this model is in.
  * @property array $safeAttributeNames Safe attribute names.
- * @property CMapIterator $iterator An iterator for traversing the items in the list.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @package system.base
- * @since 1.0
  */
 class Model extends Component implements IteratorAggregate, ArrayAccess
 {
-    private $_errors = array();	// attribute name => array of errors
-    private $_validators;  		// validators
-    private $_scenario = '';  	// scenario
-
     /**
      * Returns the list of attribute names of the model.
      * @return array list of attribute names.
@@ -91,7 +75,6 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
      * merge the parent rules with child rules using functions like array_merge().
      *
      * @return array validation rules to be applied when {@link validate()} is called.
-     * @see scenario
      */
     public function rules($group = null)
     {
@@ -112,10 +95,10 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
      * </pre>
      *
      * Note, the behavior classes must implement {@link IBehavior} or extend from
-     * {@link CBehavior}. Behaviors declared in this method will be attached
+     * {@link Behavior}. Behaviors declared in this method will be attached
      * to the model when it is instantiated.
      *
-     * For more details about behaviors, see {@link CComponent}.
+     * For more details about behaviors, see {@link Component}.
      * @return array the behavior configurations (behavior name=>behavior configuration)
      */
     public function behaviors()

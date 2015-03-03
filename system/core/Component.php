@@ -1,10 +1,15 @@
 <?php
 /**
- * This file contains the foundation classes for component-based and event-driven programming.
- * @author zz@flyzz
- * @copyright Copyright 2014 flyzz.net
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
+/**
+ * CComponent is the base class for all components.
+ * CComponent implements the protocol of defining, using properties and events.
+ */
 class Component
 {
     private $_e;
@@ -14,148 +19,147 @@ class Component
      * Returns a property value.
      * Do not call this method. This is a PHP magic method that we override
      * to allow using the following syntax:
-     * 
+     *
      * For example:
      * $value = $component->propertyName;
-     * 
-     * @param string $name		the property name or event name
-     * @return mixed 			the property value
-     * @throws FlyException 		if the property or event is not defined
+     *
+     * @param string $name the property name or event name
+     * @return mixed the property value
+     * @throws FlyException if the property or event is not defined
      * @see __set
      */
     public function __get($name)
     {
         $getter = 'get'.$name;
-        if (method_exists($this,$getter)) {
+        if (method_exists($this, $getter)) {
             return $this->$getter();
-        } else if (strncasecmp($name,'on',2) === 0 && method_exists($this,$name)) {
+        } else if (strncasecmp($name, 'on', 2) === 0 && method_exists($this, $name)) {
             $name = strtolower($name);
             if (!isset($this->_e[$name])) {
                 $this->_e[$name] = array();
             }
             return $this->_e[$name];
-        } else if(isset($this->_m[$name])) {
+        } else if (isset($this->_m[$name])) {
             return $this->_m[$name];
-        } else if(is_array($this->_m)) {
-            foreach($this->_m as $object) {
-                if($object->getEnabled() && (property_exists($object,$name) || $object->canGetProperty($name)))
+        } else if (is_array($this->_m)) {
+            foreach ($this->_m as $object) {
+                if ($object->getEnabled() && (property_exists($object, $name) || $object->canGetProperty($name)))
                     return $object->$name;
             }
         }
-        throw new FlyException(Fly::t('fly','Property "{class}.{property}" is not defined.',
-			array('{class}'=>get_class($this), '{property}'=>$name)));
+        throw new FlyException(Fly::t('fly', 'Property "{class}.{property}" is not defined.',
+            array('{class}' => get_class($this), '{property}' => $name)));
     }
 
-	/**
-	 * Sets value of a component property.
-	 * Do not call this method. This is a PHP magic method that we override
-	 * to allow using the following syntax:
-	 * 
-	 * For example
-	 * $this->propertyName = $value;
-	 * 
-	 * @param string $name 		the property name
-	 * @param mixed $value 		the property value
-	 * @return mixed
-	 * @throws FlyException 		if the property/event is not defined or the property is read only.
-	 * @see __get
-	 */
-	public function __set($name, $value)
-	{
-		$setter = 'set'.$name;
-		if(method_exists($this,$setter)) {
-			return $this->$setter($value);
-		} else if(strncasecmp($name,'on',2)===0 && method_exists($this,$name)) {
-			$name = strtolower($name);
-			if(!isset($this->_e[$name]))
-				$this->_e[$name] = array();
-			return $this->_e[$name][] = $value;
-        } else if(is_array($this->_m)) {
+    /**
+     * Sets value of a component property.
+     * Do not call this method. This is a PHP magic method that we override
+     * to allow using the following syntax:
+     *
+     * For example
+     * $this->propertyName = $value;
+     *
+     * @param string $name the property name
+     * @param mixed $value the property value
+     * @return mixed
+     * @throws FlyException if the property/event is not defined or the property is read only.
+     * @see __get
+     */
+    public function __set($name, $value)
+    {
+        $setter = 'set'.$name;
+        if (method_exists($this, $setter)) {
+            return $this->$setter($value);
+        } else if (strncasecmp($name, 'on', 2) === 0 && method_exists($this, $name)) {
+            $name = strtolower($name);
+            if (!isset($this->_e[$name]))
+                $this->_e[$name] = array();
+            return $this->_e[$name][] = $value;
+        } else if (is_array($this->_m)) {
             foreach ($this->_m as $object) {
-                if($object->getEnabled() && (property_exists($object,$name) || $object->canSetProperty($name))) {
+                if ($object->getEnabled() && (property_exists($object, $name) || $object->canSetProperty($name))) {
                     return $object->$name = $value;
                 }
             }
         }
+        if (method_exists($this, 'get'.$name))
+            throw new FlyException(Fly::t('fly', 'Property "{class}.{property}" is read only.',
+                array('{class}' => get_class($this), '{property}' => $name)));
+        else
+            throw new FlyException(Fly::t('fly', 'Property "{class}.{property}" is not defined.',
+                array('{class}' => get_class($this), '{property}' => $name)));
+    }
 
-		if(method_exists($this,'get'.$name))
-			throw new FlyException(Fly::t('fly','Property "{class}.{property}" is read only.',
-				array('{class}'=>get_class($this), '{property}'=>$name)));
-		else
-			throw new FlyException(Fly::t('fly','Property "{class}.{property}" is not defined.',
-				array('{class}'=>get_class($this), '{property}'=>$name)));
-	}
-
-	/**
-	 * Checks if a property value is null.
-	 * Do not call this method. This is a PHP magic method that we override
-	 * to allow using isset() to detect if a component property is set or not.
-	 * 
-	 * For example
-	 * isset($this->propertyName);
-	 * 
-	 * @param string $name 		the property name or the event name
-	 * @return boolean
-	 */
-	public function __isset($name)
-	{
-		$getter = 'get'.$name;
-		if (method_exists($this,$getter)) {
-			return $this->$getter() !== null;
-		} else if (strncasecmp($name,'on',2)===0 && method_exists($this,$name)) {
-			$name=strtolower($name);
-			return isset($this->_e[$name]) && (count($this->_e[$name]));
-		} else if (is_array($this->_m)) {
+    /**
+     * Checks if a property value is null.
+     * Do not call this method. This is a PHP magic method that we override
+     * to allow using isset() to detect if a component property is set or not.
+     *
+     * For example
+     * isset($this->propertyName);
+     *
+     * @param string $name the property name or the event name
+     * @return boolean
+     */
+    public function __isset($name)
+    {
+        $getter = 'get'.$name;
+        if (method_exists($this, $getter)) {
+            return $this->$getter() !== null;
+        } else if (strncasecmp($name, 'on', 2) === 0 && method_exists($this, $name)) {
+            $name = strtolower($name);
+            return isset($this->_e[$name]) && (count($this->_e[$name]));
+        } else if (is_array($this->_m)) {
             if (isset($this->_m[$name])) {
                 return true;
             }
             foreach ($this->_m as $object) {
-                if ($object->getEnabled() && (property_exists($object,$name) || $object->canGetProperty($name))) {
+                if ($object->getEnabled() && (property_exists($object, $name) || $object->canGetProperty($name))) {
                     return $object->$name !== null;
                 }
             }
         }
-		return false;
-	}
+        return false;
+    }
 
-	/**
-	 * Sets a component property to be null.
-	 * Do not call this method. This is a PHP magic method that we override
-	 * to allow using unset() to set a component property to be null.
-	 * 
-	 * For example
-	 * unset($this->propertyName);
-	 * 
-	 * @param string $name 		the property name or the event name
-	 * @throws Exception 		if the property is read only.
-	 * @return mixed
-	 */
-	public function __unset($name)
-	{
-		$setter = 'set'.$name;
-		if (method_exists($this, $setter)) {
-			$this->$setter(null);
-		} else if (strncasecmp($name, 'on', 2) === 0 && method_exists($this, $name)) {
-			unset($this->_e[strtolower($name)]);
+    /**
+     * Sets a component property to be null.
+     * Do not call this method. This is a PHP magic method that we override
+     * to allow using unset() to set a component property to be null.
+     *
+     * For example
+     * unset($this->propertyName);
+     *
+     * @param string $name the property name or the event name
+     * @throws FlyException if the property is read only.
+     * @return mixed
+     */
+    public function __unset($name)
+    {
+        $setter = 'set'.$name;
+        if (method_exists($this, $setter)) {
+            $this->$setter(null);
+        } else if (strncasecmp($name, 'on', 2) === 0 && method_exists($this, $name)) {
+            unset($this->_e[strtolower($name)]);
         } else if (is_array($this->_m)) {
-            if(isset($this->_m[$name])) {
+            if (isset($this->_m[$name])) {
                 $this->detachBehavior($name);
             } else {
                 foreach ($this->_m as $object) {
                     if ($object->getEnabled()) {
-                        if (property_exists($object,$name)) {
+                        if (property_exists($object, $name)) {
                             return $object->$name = null;
-                        } else if($object->canSetProperty($name)) {
+                        } else if ($object->canSetProperty($name)) {
                             return $object->$setter(null);
                         }
                     }
                 }
             }
         } else if (method_exists($this, 'get'.$name)) {
-			throw new FlyException(Fly::t('fly','Property "{class}.{property}" is read only.',
-				array('{class}'=>get_class($this), '{property}'=>$name)));
-		}
-	}
+            throw new FlyException(Fly::t('fly', 'Property "{class}.{property}" is read only.',
+                array('{class}' => get_class($this), '{property}' => $name)));
+        }
+    }
 
     /**
      * Calls the named method which is not a class method.
@@ -175,12 +179,11 @@ class Component
                 }
             }
         }
-
         //PHP >= 5.3
         if (class_exists('Closure', false) && $this->canGetProperty($name) && $this->$name instanceof Closure) {
             return call_user_func_array($this->$name, $parameters);
         }
-        throw new FlyException(Fly::t('fly','{class} and its behaviors do not have a method or closure named "{name}".',
+        throw new FlyException(Fly::t('fly', '{class} and its behaviors do not have a method or closure named "{name}".',
             array('{class}' => get_class($this), '{name}' => $name)));
     }
 
@@ -222,11 +225,11 @@ class Component
      */
     public function detachBehaviors()
     {
-        if ( $this->_m !== null) {
-            foreach($this->_m as $name => $behavior) {
+        if ($this->_m !== null) {
+            foreach ($this->_m as $name => $behavior) {
                 $this->detachBehavior($name);
             }
-            $this->_m=null;
+            $this->_m = null;
         }
     }
 
@@ -242,7 +245,7 @@ class Component
      */
     public function attachBehavior($name, $behavior)
     {
-        if(!($behavior instanceof IBehavior)) {
+        if (!($behavior instanceof IBehavior)) {
             $behavior = Fly::createComponent($behavior);
         }
         $behavior->setEnabled(true);
@@ -260,7 +263,7 @@ class Component
     {
         if (isset($this->_m[$name])) {
             $this->_m[$name]->detach($this);
-            $behavior=$this->_m[$name];
+            $behavior = $this->_m[$name];
             unset($this->_m[$name]);
             return $behavior;
         }
@@ -271,7 +274,7 @@ class Component
      */
     public function enableBehaviors()
     {
-        if ($this->_m!==null) {
+        if ($this->_m !== null) {
             foreach ($this->_m as $behavior) {
                 $behavior->setEnabled(true);
             }
@@ -381,8 +384,8 @@ class Component
     /**
      * Returns the list of attached event handlers for an event.
      * @param string $name the event name
-     * @return CList list of attached event handlers for the event
-     * @throws CException if the event is not defined
+     * @return array list of attached event handlers for the event
+     * @throws FlyException if the event is not defined
      */
     public function getEventHandlers($name)
     {
@@ -393,8 +396,8 @@ class Component
             }
             return $this->_e[$name];
         } else {
-            throw new FlyException(Fly::t('fly','Event "{class}.{event}" is not defined.',
-                array('{class}'=>get_class($this), '{event}'=>$name)));
+            throw new FlyException(Fly::t('fly', 'Event "{class}.{event}" is not defined.',
+                array('{class}' => get_class($this), '{event}' => $name)));
         }
     }
 
@@ -412,22 +415,9 @@ class Component
      * </pre>
      * where $event includes parameters associated with the event.
      *
-     * This is a convenient method of attaching a handler to an event.
-     * It is equivalent to the following code:
-     * <pre>
-     * $component->getEventHandlers($eventName)->add($eventHandler);
-     * </pre>
-     *
-     * Using {@link getEventHandlers}, one can also specify the excution order
-     * of multiple handlers attaching to the same event. For example:
-     * <pre>
-     * $component->getEventHandlers($eventName)->insertAt(0,$eventHandler);
-     * </pre>
-     * makes the handler to be invoked first.
-     *
      * @param string $name the event name
      * @param callback $handler the event handler
-     * @throws Exception if the event is not defined
+     * @throws FlyException if the event is not defined
      * @see detachEventHandler
      */
     public function attachEventHandler($name, $handler)
@@ -472,39 +462,39 @@ class Component
     }
 
     /**
-     * Raises an event.
+     * Trigger an event.
      * This method represents the happening of an event. It invokes
      * all attached handlers for the event.
      * @param string $name the event name
-     * @param CEvent $event the event parameter
-     * @throws CException if the event is undefined or an event handler is invalid.
+     * @param Event $event the event parameter
+     * @throws FlyException if the event is undefined or an event handler is invalid.
      */
     public function trigger($name, $event)
     {
         $name = strtolower($name);
         if (isset($this->_e[$name])) {
-            foreach($this->_e[$name] as $handler) {
+            foreach ($this->_e[$name] as $handler) {
                 if (is_string($handler)) {
                     call_user_func($handler, $event);
-                } else if(is_callable($handler, true)) {
+                } else if (is_callable($handler, true)) {
                     if (is_array($handler)) {
                         // an array: 0 - object, 1 - method name
                         list($object, $method) = $handler;
-                        if (is_string($object)) {	// static method call
+                        if (is_string($object)) { // static method call
                             call_user_func($handler, $event);
-                        } else if(method_exists($object, $method)) {
+                        } else if (method_exists($object, $method)) {
                             $object->$method($event);
                         } else {
-                            throw new FlyException(Fly::t('fly','Event "{class}.{event}" is attached with an invalid handler "{handler}".',
-                                array('{class}'=>get_class($this), '{event}'=>$name, '{handler}'=>$handler[1])));
+                            throw new FlyException(Fly::t('fly', 'Event "{class}.{event}" is attached with an invalid handler "{handler}".',
+                                array('{class}' => get_class($this), '{event}' => $name, '{handler}' => $handler[1])));
                         }
                     } else {
                         // PHP 5.3: anonymous function
                         call_user_func($handler, $event);
                     }
                 } else {
-                    throw new FlyException(Fly::t('fly','Event "{class}.{event}" is attached with an invalid handler "{handler}".',
-                        array('{class}'=>get_class($this), '{event}'=>$name, '{handler}'=>gettype($handler))));
+                    throw new FlyException(Fly::t('fly', 'Event "{class}.{event}" is attached with an invalid handler "{handler}".',
+                        array('{class}' => get_class($this), '{event}' => $name, '{handler}' => gettype($handler))));
                 }
                 // stop further handling if param.handled is set true
                 if (($event instanceof Event) && $event->handled) {
@@ -512,8 +502,8 @@ class Component
                 }
             }
         } else if (FLY_DEBUG && !$this->hasEvent($name)) {
-            throw new FlyException(Fly::t('fly','Event "{class}.{event}" is not defined.',
-                array('{class}'=>get_class($this), '{event}'=>$name)));
+            throw new FlyException(Fly::t('fly', 'Event "{class}.{event}" is not defined.',
+                array('{class}' => get_class($this), '{event}' => $name)));
         }
     }
 
@@ -537,21 +527,18 @@ class Component
      * @param mixed $_expression_ a PHP expression or PHP callback to be evaluated.
      * @param array $_data_ additional parameters to be passed to the above expression/callback.
      * @return mixed the expression result
-     * @since 1.1.0
      */
-    public function evaluateExpression($_expression_, $_data_=array())
+    public function evaluateExpression($_expression_, $_data_ = array())
     {
         if (is_string($_expression_)) {
             extract($_data_);
             return eval('return '.$_expression_.';');
         } else {
-            $_data_[]=$this;
+            $_data_[] = $this;
             return call_user_func_array($_expression_, $_data_);
         }
     }
-
 }
-
 
 /**
  * Event is the base class for all event classes.
@@ -568,13 +555,11 @@ class Event extends Component
      * @var object the sender of this event
      */
     public $sender;
-
     /**
      * @var boolean whether the event is handled. Defaults to false.
      * When a handler sets this true, the rest of the uninvoked event handlers will not be invoked anymore.
      */
     public $handled = false;
-
     /**
      * @var mixed additional event parameters.
      */

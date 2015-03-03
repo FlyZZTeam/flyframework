@@ -1,11 +1,9 @@
 <?php
 /**
- * This file contains core interfaces for Yii framework.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @link http://www.yiiframework.com/
- * @copyright Copyright &copy; 2008-2011 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
 /**
@@ -13,22 +11,19 @@
  *
  * After the application completes configuration, it will invoke the {@link init()}
  * method of every loaded application component.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @package system.base
- * @since 1.0
  */
 interface IApplicationComponent
 {
-	/**
-	 * Initializes the application component.
-	 * This method is invoked after the application completes configuration.
-	 */
-	public function init();
-	/**
-	 * @return boolean whether the {@link init()} method has been invoked.
-	 */
-	public function getIsInitialized();
+    /**
+     * Initializes the application component.
+     * This method is invoked after the application completes configuration.
+     */
+    public function init();
+
+    /**
+     * @return boolean whether the {@link init()} method has been invoked.
+     */
+    public function getIsInitialized();
 }
 
 /**

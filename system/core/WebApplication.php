@@ -1,5 +1,14 @@
 <?php
+/**
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
+ */
 
+/**
+ * CWebApplication extends CApplication by providing functionalities specific to Web requests.
+ */
 class WebApplication extends Application
 {
 
@@ -14,9 +23,9 @@ class WebApplication extends Application
      * Each name-value pair specifies the configuration for a single controller.
      * A controller configuration can be either a string or an array.
      * If the former, the string should be the class name or
-     * {@link YiiBase::getPathOfAlias class path alias} of the controller.
+     * {@link FlyBase::getPathOfAlias class path alias} of the controller.
      * If the latter, the array must contain a 'class' element which specifies
-     * the controller's class name or {@link YiiBase::getPathOfAlias class path alias}.
+     * the controller's class name or {@link FlyBase::getPathOfAlias class path alias}.
      * The rest name-value pairs in the array are used to initialize
      * the corresponding controller properties. For example,
      * <pre>
@@ -34,6 +43,7 @@ class WebApplication extends Application
      * If not, a controller will be searched for under the {@link getControllerPath default controller path}.
      */
     public $controllerMap = array();
+
     /**
      * @var array the configuration specifying a controller which should handle
      * all user requests. This is mainly used when the application is in maintenance mode
@@ -54,7 +64,6 @@ class WebApplication extends Application
     /**
      * @var string Namespace that should be used when loading controllers.
      * Default is to use global namespace.
-     * @since 1.1.11
      */
     public $controllerNamespace;
 
@@ -64,7 +73,6 @@ class WebApplication extends Application
     private $_layoutPath;
     private $_controller;
     private $_theme;
-
 
     /**
      * Processes the current request.
@@ -107,7 +115,7 @@ class WebApplication extends Application
     /**
      * Creates the controller and performs the specified action.
      * @param string $route the route of the current request. See {@link createController} for more details.
-     * @throws CHttpException if the controller could not be created.
+     * @throws HttpException if the controller could not be created.
      */
     public function runController($route)
     {
@@ -139,7 +147,6 @@ class WebApplication extends Application
                             $this->showPageNotFound();
                         }
                         $this->_controller = $controller = new $class($x[0], $this);
-
                     }
                 }
 
@@ -174,9 +181,7 @@ class WebApplication extends Application
          * Is there a "end of application" hook.
          */
         $this->Hooks->callHook('endApplication');
-
     }
-
 
     public function createController($route, $module = null)
     {
@@ -277,26 +282,6 @@ class WebApplication extends Application
     }
 
     /**
-     * Parses a path info into an action ID and GET variables.
-     * @param string $pathInfo path info
-     * @return string action ID
-     */
-    protected function parseActionParams($pathInfo)
-    {
-        /*
-        if(($pos=strpos($pathInfo,'/'))!==false)
-        {
-            $manager=$this->getUrlManager();
-            $manager->parsePathInfo((string)substr($pathInfo,$pos+1));
-            $actionID=substr($pathInfo,0,$pos);
-            return $manager->caseSensitive ? $actionID : strtolower($actionID);
-        }
-        else
-            return $pathInfo;
-        */
-    }
-
-    /**
      * @return Controller the currently active controller
      */
     public function getController()
@@ -318,7 +303,7 @@ class WebApplication extends Application
      */
     public function getControllerPath()
     {
-        if($this->_controllerPath !== null) {
+        if ($this->_controllerPath !== null) {
             return $this->_controllerPath;
         } else {
             return $this->_controllerPath = $this->getBasePath().DIRECTORY_SEPARATOR.'controllers';
@@ -331,9 +316,9 @@ class WebApplication extends Application
      */
     public function setControllerPath($value)
     {
-        if(($this->_controllerPath = realpath($value)) === false || !is_dir($this->_controllerPath))
-            throw new FlyException(Fly::t('fly','The controller path "{path}" is not a valid directory.',
-                array('{path}'=>$value)));
+        if (($this->_controllerPath = realpath($value)) === false || !is_dir($this->_controllerPath))
+            throw new FlyException(Fly::t('fly', 'The controller path "{path}" is not a valid directory.',
+                array('{path}' => $value)));
     }
 
     /**
@@ -387,7 +372,6 @@ class WebApplication extends Application
 
     /**
      * Return standard controller name
-     *
      * @param $name
      * @return string
      */
@@ -399,7 +383,6 @@ class WebApplication extends Application
 
     /**
      * Return standard action name
-     *
      * @param $name string
      * @return string
      */
@@ -428,8 +411,8 @@ class WebApplication extends Application
     public function setViewPath($path)
     {
         if (($this->_viewPath = realpath($path)) === false || !is_dir($this->_viewPath)) {
-            throw new FlyException(Fly::t('fly','The view path "{path}" is not a valid directory.',
-                array('{path}'=>$path)));
+            throw new FlyException(Fly::t('fly', 'The view path "{path}" is not a valid directory.',
+                array('{path}' => $path)));
         }
     }
 
@@ -442,7 +425,7 @@ class WebApplication extends Application
         if ($this->_systemViewPath !== null) {
             return $this->_systemViewPath;
         } else {
-            return $this->_systemViewPath=$this->getViewPath().DIRECTORY_SEPARATOR.'system';
+            return $this->_systemViewPath = $this->getViewPath().DIRECTORY_SEPARATOR.'system';
         }
     }
 
@@ -453,8 +436,8 @@ class WebApplication extends Application
     public function setSystemViewPath($path)
     {
         if (($this->_systemViewPath = realpath($path)) === false || !is_dir($this->_systemViewPath)) {
-            throw new FlyException(Fly::t('fly','The system view path "{path}" is not a valid directory.',
-                array('{path}'=>$path)));
+            throw new FlyException(Fly::t('fly', 'The system view path "{path}" is not a valid directory.',
+                array('{path}' => $path)));
         }
     }
 
@@ -478,8 +461,8 @@ class WebApplication extends Application
     public function setLayoutPath($path)
     {
         if (($this->_layoutPath = realpath($path)) === false || !is_dir($this->_layoutPath)) {
-            throw new FlyException(Fly::t('fly','The layout path "{path}" is not a valid directory.',
-                array('{path}'=>$path)));
+            throw new FlyException(Fly::t('fly', 'The layout path "{path}" is not a valid directory.',
+                array('{path}' => $path)));
         }
     }
 
@@ -521,9 +504,9 @@ class WebApplication extends Application
                 if (($m = $module->getModule($id)) !== null) {
                     return $m;
                 }
-            } while(($module = $module->getParentModule()) !== null);
+            } while (($module = $module->getParentModule()) !== null);
         }
-        if(($m = $this->getModule($id)) !== null) {
+        if (($m = $this->getModule($id)) !== null) {
             return $m;
         }
     }

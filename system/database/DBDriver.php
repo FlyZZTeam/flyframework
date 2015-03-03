@@ -1,19 +1,10 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
  * Database Driver Class
@@ -21,12 +12,6 @@
  * This is the platform-independent base DB implementation class.
  * This class will not be called directly. Rather, the adapter
  * class for the specific database will extend and instantiate it.
- *
- * @package		CodeIgniter
- * @subpackage	Drivers
- * @category	Database
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/database/
  */
 class DBDriver
 {
@@ -93,9 +78,8 @@ class DBDriver
 	/**
 	 * Initialize Database Settings
 	 *
-	 * @access	private Called by the constructor
-	 * @param	mixed
-	 * @return	void
+	 * @param mixed
+	 * @return void
 	 */
 	public function initialize()
 	{
@@ -167,10 +151,9 @@ class DBDriver
 	/**
 	 * Set client character set
 	 *
-	 * @access	public
-	 * @param	string
-	 * @param	string
-	 * @return	resource
+	 * @param string
+	 * @param string
+	 * @return resource
 	 */
 	public function setCharset($charset, $collation)
 	{
@@ -190,8 +173,7 @@ class DBDriver
 	/**
 	 * The name of the platform in use (mysql, mssql, etc...)
 	 *
-	 * @access	public
-	 * @return	string
+	 * @return string
 	 */
 	public function getPlatform()
 	{
@@ -202,8 +184,7 @@ class DBDriver
 	 * Database Version Number.  Returns a string containing the
 	 * version of the database being used
 	 *
-	 * @access	public
-	 * @return	string
+	 * @return string
 	 */
 	public function getVersion()
 	{
@@ -274,10 +255,9 @@ class DBDriver
 	 * FALSE upon failure, and if the $db_debug variable is set to TRUE
 	 * will raise an error.
 	 *
-	 * @access	public
-	 * @param	string	An SQL query string
-	 * @param	array	An array of binding data
-	 * @return	mixed
+	 * @param string $sql An SQL query string
+	 * @param array	$binds An array of binding data
+	 * @return mixed
 	 */
 	public function query($sql, $binds = FALSE, $return_object = TRUE)
 	{
@@ -427,9 +407,8 @@ class DBDriver
 
 	/**
 	 * Load the result drivers
-	 *
-	 * @access	public
-	 * @return	string	the name of the result class
+     *
+	 * @return string the name of the result class
 	 */
 	public function loadResultDriver()
 	{
@@ -439,10 +418,9 @@ class DBDriver
 
 	/**
 	 * real Query
-	 *
-	 * @access	protected
-	 * @param	string	the sql query
-	 * @return	mixed
+     *
+	 * @param string $sql the sql query
+	 * @return mixed
 	 */
 	protected function _realQuery($sql)
 	{
@@ -454,14 +432,12 @@ class DBDriver
 	}
 
     /**
-     * Simple Query
      * This is a simplified version of the query() function.  Internally
      * we only use it when running transaction commands since they do
      * not require all the features of the main query() function.
      *
-     * @access	protected
-     * @param	string	the sql query
-     * @return	mixed
+     * @param string the sql query
+     * @return mixed
      */
     public function exec($sql)
     {
@@ -472,8 +448,7 @@ class DBDriver
 	 * Disable Transactions
 	 * This permits transactions to be disabled at run-time.
 	 *
-	 * @access	public
-	 * @return	void
+	 * @return void
 	 */
 	public function setTransactionOff()
 	{
@@ -487,8 +462,7 @@ class DBDriver
 	 * If strict mode is disabled, each group is treated autonomously, meaning
 	 * a failure of one group will not affect any others
 	 *
-	 * @access	public
-	 * @return	void
+	 * @return void
 	 */
 	public function setTransactionStrict($mode = TRUE)
 	{
@@ -498,8 +472,7 @@ class DBDriver
 	/**
 	 * Start Transaction
 	 *
-	 * @access	public
-	 * @return	void
+	 * @return void
 	 */
 	public function transactionStart($test_mode = FALSE)
 	{
@@ -519,8 +492,7 @@ class DBDriver
 	/**
 	 * Complete Transaction
 	 *
-	 * @access	public
-	 * @return	bool
+	 * @return bool
 	 */
 	public function transactionComplete()
 	{
@@ -555,9 +527,8 @@ class DBDriver
 
 	/**
 	 * Lets you retrieve the transaction flag to determine if it has failed
-	 *
-	 * @access	public
-	 * @return	bool
+     *
+	 * @return bool
 	 */
 	public function getTransactionStatus()
 	{
@@ -567,10 +538,9 @@ class DBDriver
 	/**
 	 * Compile Bindings
 	 *
-	 * @access	public
-	 * @param	string	the sql statement
-	 * @param	array	an array of bind data
-	 * @return	string
+	 * @param string $sql the sql statement
+	 * @param array $binds an array of bind data
+	 * @return string
 	 */
 	public function compileBinds($sql, $binds)
 	{
@@ -605,9 +575,8 @@ class DBDriver
 	/**
 	 * Determines if a query is a "write" type.
 	 *
-	 * @access	public
-	 * @param	string	An SQL query string
-	 * @return	boolean
+	 * @param string $sql An SQL query string
+	 * @return boolean
 	 */
 	public function isWriteType($sql)
 	{
@@ -620,9 +589,8 @@ class DBDriver
 	/**
 	 * Calculate the aggregate query elapsed time
 	 *
-	 * @access	public
-	 * @param	integer	The number of decimal places
-	 * @return	integer
+	 * @param integer $decimals The number of decimal places
+	 * @return integer
 	 */
 	public function elapsedTime($decimals = 6)
 	{

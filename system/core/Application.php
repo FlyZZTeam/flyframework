@@ -5,6 +5,15 @@
  * @license http://www.flyframework.com/license.html
  * @author zz <zz@flyzz.net>
  */
+
+/**
+ * Application is the base class for all application classes.
+ *
+ * An application serves as the global context that the user request
+ * is being processed. It manages a set of application components that
+ * provide specific functionalities to the whole application.
+ *
+ */
 abstract class Application extends Module
 {
     /**
@@ -19,6 +28,10 @@ abstract class Application extends Module
      * @var string The time reference.Defaults to "local".
      */
     public $timeReference = 'local';
+    /**
+     * @var string the charset currently used for the application. Defaults to 'UTF-8'.
+     */
+    public $charset = 'UTF-8';
     /**
      * @var string The application path.
      * You can set,for example:"./application".
@@ -46,6 +59,15 @@ abstract class Application extends Module
      */
     private $_ended = false;
 
+    /**
+     * Constructor.
+     * @param mixed $config application configuration.
+     * If a string, it is treated as the path of the file that contains the configuration;
+     * If an array, it is the actual configuration information.
+     * Please make sure you specify the {@link getBasePath basePath} property in the configuration,
+     * which should point to the directory containing all application logic, template and data.
+     * If not, the directory will be defaulted to 'application'.
+     */
     public function __construct($config = null)
     {
         Fly::setApplication($this);
@@ -101,6 +123,11 @@ abstract class Application extends Module
         $this->initHooks();
     }
 
+    /**
+     * Runs the application.
+     * This method loads static application components. Derived classes usually overrides this
+     * method to do more application-specific tasks.
+     */
     public function run()
     {
         if ($this->hasEventHandler('onBeginRequest')) {
@@ -135,7 +162,7 @@ abstract class Application extends Module
     }
 
     /**
-     * Raised right BEFORE the application processes the request.
+     * Trigger right BEFORE the application processes the request.
      * @param Event $event the event parameter
      */
     public function onBeginRequest($event)
@@ -144,7 +171,7 @@ abstract class Application extends Module
     }
 
     /**
-     * Raised right AFTER the application processes the request.
+     * Trigger right AFTER the application processes the request.
      * @param Event $event the event parameter
      */
     public function onEndRequest($event)
@@ -182,8 +209,8 @@ abstract class Application extends Module
 
     /**
      * Set configure item
-     * @param $key
-     * @param $val
+     * @param string $key
+     * @param mixed $val
      */
     public function setConfig($key, $val)
     {
@@ -204,6 +231,8 @@ abstract class Application extends Module
     }
 
     /**
+     * Return application's config
+     * When $key and $category is empty,this method will return all data.
      * @param string $key the configure item name
      * @param string $category the configure index name
      * @return mixed bool OR string OR array
@@ -239,14 +268,13 @@ abstract class Application extends Module
     }
 
     /**
-     * Load configuration file
-     * It will search 'application' and 'webroot'
+     * Load configuration file.
+     * It will search 'application' and 'webroot'.
      * if defined ENVIRONMENT,it will search 'ENVIRONMENT' on last dir.
-     * @access    public
-     * @param    string    alias name
-     * @param   boolean  if configuration values should be loaded into their own section
-     * @param   boolean  true if errors should just return false, false if an error message should be displayed
-     * @return    boolean    if the file was loaded correctly
+     * @param string $alias alias name
+     * @param boolean $useSections if configuration values should be loaded into their own section
+     * @param boolean $failGracefully true if errors should just return false, false if an error message should be displayed
+     * @return boolean if the file was loaded correctly
      */
     public function loadConfig($alias, $useSections = false, $failGracefully = false)
     {
@@ -323,7 +351,7 @@ abstract class Application extends Module
     }
 
     /**
-     * Init system handler
+     * Initializes the error handlers.
      */
     protected function initSystemHandlers()
     {
@@ -337,7 +365,8 @@ abstract class Application extends Module
     }
 
     /**
-     * Init php settings and versions difference control
+     * Init php settings and versions difference control.
+     * Set php script execution time.
      */
     protected function initPHP()
     {
@@ -350,12 +379,11 @@ abstract class Application extends Module
         if (function_exists("set_time_limit") == true && @ini_get("safe_mode") == 0) {
             @set_time_limit(300);
         }
-        $this->getUnicode();
     }
 
     /**
      * Init application configure
-     * @param $config
+     * @param array $config
      */
     protected function initConfigure($config)
     {
@@ -388,7 +416,7 @@ abstract class Application extends Module
 
     /**
      * Returns the root path of the application.
-     * @return string the root directory of the application. Defaults to 'protected'.
+     * @return string the root directory of the application. Defaults to 'application'.
      */
     public function getBasePath()
     {
@@ -403,7 +431,6 @@ abstract class Application extends Module
      */
     public function setBasePath($path)
     {
-
         if (($this->_basePath = realpath($path)) === false || !is_dir($this->_basePath)) {
             throw new FlyException(Fly::t('fly', 'Application base path "{path}" is not a valid directory.',
                 array('{path}' => $path)));
@@ -731,6 +758,7 @@ abstract class Application extends Module
      * @param boolean $absolute whether to return an absolute URL. Defaults to false, meaning returning a relative one.
      * @return string the relative URL for the application
      * @see HttpRequest::getBaseUrl()
+     * @return string the constructed URL
      */
     public function getBaseUrl($absolute = false)
     {
@@ -830,7 +858,7 @@ abstract class Application extends Module
      * Handles uncaught PHP FlyException.
      * This method is implemented as a PHP exception handler. It requires
      * that constant FLY_ENABLE_EXCEPTION_HANDLER be defined true.
-     * This method will first raise an {@link onException} event.
+     * This method will first trigger an {@link onException} event.
      * If the exception is not handled by any event handler, it will call
      * {@link getErrorHandler errorHandler} to process the exception.
      * The application will be terminated by this method.
@@ -891,8 +919,8 @@ abstract class Application extends Module
     /**
      * Handles PHP execution errors such as warnings, notices.
      * This method is implemented as a PHP error handler. It requires
-     * that constant YII_ENABLE_ERROR_HANDLER be defined true.
-     * This method will first raise an {@link onError} event.
+     * that constant FLY_ENABLE_ERROR_HANDLER be defined true.
+     * This method will first trigger an {@link onError} event.
      * If the error is not handled by any event handler, it will call
      * {@link getErrorHandler errorHandler} to process the error.
      * The application will be terminated by this method.
@@ -969,7 +997,7 @@ abstract class Application extends Module
     }
 
     /**
-     * Raised when an uncaught PHP exception occurs.
+     * Trigger when an uncaught PHP exception occurs.
      * An event handler can set the {@link ExceptionEvent::handled handled}
      * property of the event parameter to be true to indicate no further error
      * handling is needed. Otherwise, the {@link getErrorHandler errorHandler}
@@ -982,7 +1010,7 @@ abstract class Application extends Module
     }
 
     /**
-     * Raised when a PHP execution error occurs.
+     * Trigger when a PHP execution error occurs.
      * An event handler can set the {@link ErrorEvent::handled handled}
      * property of the event parameter to be true to indicate no further error
      * handling is needed. Otherwise, the {@link getErrorHandler errorHandler}
