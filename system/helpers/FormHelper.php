@@ -18,8 +18,8 @@ class FormHelper
      * Creates the opening portion of the form.
      *
      * @param string $action the URI segments of the form destination
-     * @param array	$attributes a key/value pair of attributes
-     * @param array	$hidden a key/value pair hidden data
+     * @param array $attributes a key/value pair of attributes
+     * @param array $hidden a key/value pair hidden data
      * @return string
      */
     public static function createForm($action = '', $attributes = '', $hidden = array())
@@ -97,7 +97,7 @@ class FormHelper
         } else {
             foreach ($value as $k => $v) {
                 $k = (is_int($k)) ? '' : $k;
-                self::createHidden($name.'['.$k.']', $v, TRUE);
+                self::createHidden($name.'['.$k.']', $v, true);
             }
         }
         return $form;
@@ -112,7 +112,7 @@ class FormHelper
      */
     public static function createInput($data = '', $value = '', $extra = '')
     {
-        $defaults = array('type' => 'text', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
+        $defaults = array('type' => 'text', 'name' => ((!is_array($data)) ? $data : ''), 'value' => $value);
 
         return "<input ".self::parseFormAttributes($data, $defaults).$extra." />";
     }
@@ -167,7 +167,7 @@ class FormHelper
      */
     public static function createTextarea($data = '', $value = '', $extra = '')
     {
-        $defaults = array('name' => (( ! is_array($data)) ? $data : ''), 'cols' => '40', 'rows' => '10');
+        $defaults = array('name' => ((!is_array($data)) ? $data : ''), 'cols' => '40', 'rows' => '10');
 
         if (!is_array($data) && !isset($data['value'])) {
             $val = $value;
@@ -219,29 +219,30 @@ class FormHelper
             }
         }
 
-        if ($extra != '') $extra = ' '.$extra;
+        if ($extra != '')
+            $extra = ' '.$extra;
 
-        $multiple = (count($selected) > 1 && strpos($extra, 'multiple') === FALSE) ? ' multiple="multiple"' : '';
+        $multiple = (count($selected) > 1 && strpos($extra, 'multiple') === false) ? ' multiple="multiple"' : '';
 
         $form = '<select name="'.$name.'"'.$extra.$multiple.">\n";
 
         foreach ($options as $key => $val) {
-            $key = (string) $key;
+            $key = (string)$key;
 
-            if (is_array($val) && ! empty($val)) {
+            if (is_array($val) && !empty($val)) {
                 $form .= '<optgroup label="'.$key.'">'."\n";
 
                 foreach ($val as $optgroup_key => $optgroup_val) {
                     $sel = (in_array($optgroup_key, $selected)) ? ' selected="selected"' : '';
 
-                    $form .= '<option value="'.$optgroup_key.'"'.$sel.'>'.(string) $optgroup_val."</option>\n";
+                    $form .= '<option value="'.$optgroup_key.'"'.$sel.'>'.(string)$optgroup_val."</option>\n";
                 }
 
                 $form .= '</optgroup>'."\n";
             } else {
                 $sel = (in_array($key, $selected)) ? ' selected="selected"' : '';
 
-                $form .= '<option value="'.$key.'"'.$sel.'>'.(string) $val."</option>\n";
+                $form .= '<option value="'.$key.'"'.$sel.'>'.(string)$val."</option>\n";
             }
         }
 
@@ -258,9 +259,9 @@ class FormHelper
      * @param string
      * @return string
      */
-    public static function createCheckbox($data = '', $value = '', $checked = FALSE, $extra = '')
+    public static function createCheckbox($data = '', $value = '', $checked = false, $extra = '')
     {
-        $defaults = array('type' => 'checkbox', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
+        $defaults = array('type' => 'checkbox', 'name' => ((!is_array($data)) ? $data : ''), 'value' => $value);
 
         if (is_array($data) && array_key_exists('checked', $data)) {
             $checked = $data['checked'];
@@ -307,7 +308,7 @@ class FormHelper
      */
     public static function createSubmit($data = '', $value = '', $extra = '')
     {
-        $defaults = array('type' => 'submit', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
+        $defaults = array('type' => 'submit', 'name' => ((!is_array($data)) ? $data : ''), 'value' => $value);
 
         return "<input ".self::parseFormAttributes($data, $defaults).$extra." />";
     }
@@ -321,7 +322,7 @@ class FormHelper
      */
     public static function createReset($data = '', $value = '', $extra = '')
     {
-        $defaults = array('type' => 'reset', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
+        $defaults = array('type' => 'reset', 'name' => ((!is_array($data)) ? $data : ''), 'value' => $value);
 
         return "<input ".self::parseFormAttributes($data, $defaults).$extra." />";
     }
@@ -335,9 +336,9 @@ class FormHelper
      */
     public static function createButton($data = '', $content = '', $extra = '')
     {
-        $defaults = array('name' => (( ! is_array($data)) ? $data : ''), 'type' => 'button');
+        $defaults = array('name' => ((!is_array($data)) ? $data : ''), 'type' => 'button');
 
-        if ( is_array($data) AND isset($data['content'])) {
+        if (is_array($data) AND isset($data['content'])) {
             $content = $data['content'];
             unset($data['content']); // content is not an attribute
         }
@@ -381,7 +382,7 @@ class FormHelper
     {
         $fieldset = "<fieldset";
 
-        $fieldset .= self::attributesToString($attributes, FALSE);
+        $fieldset .= self::attributesToString($attributes, false);
 
         $fieldset .= ">\n";
 
@@ -467,7 +468,7 @@ class FormHelper
      */
     public static function setValue($field = '', $default = '')
     {
-        if (FALSE === ($validation =& self::getValidation())) {
+        if (false === ($validation =& self::getValidation())) {
             if (!isset($_POST[$field])) {
                 return $default;
             }
@@ -488,13 +489,13 @@ class FormHelper
      * @param bool
      * @return string
      */
-    public static function setSelect($field = '', $value = '', $default = FALSE)
+    public static function setSelect($field = '', $value = '', $default = false)
     {
         $validation =& self::getValidation();
 
-        if ($validation === FALSE) {
+        if ($validation === false) {
             if (!isset($_POST[$field])) {
-                if (count($_POST) === 0 && $default == TRUE) {
+                if (count($_POST) === 0 && $default == true) {
                     return ' selected="selected"';
                 }
                 return '';
@@ -529,13 +530,13 @@ class FormHelper
      * @param bool
      * @return string
      */
-    public static function setCheckbox($field = '', $value = '', $default = FALSE)
+    public static function setCheckbox($field = '', $value = '', $default = false)
     {
         $validation =& self::getValidation();
 
-        if ($validation === FALSE) {
+        if ($validation === false) {
             if (!isset($_POST[$field])) {
-                if (count($_POST) === 0 && $default == TRUE) {
+                if (count($_POST) === 0 && $default == true) {
                     return ' checked="checked"';
                 }
                 return '';
@@ -569,11 +570,11 @@ class FormHelper
      * @param bool
      * @return string
      */
-    public static function setRadio($field = '', $value = '', $default = FALSE)
+    public static function setRadio($field = '', $value = '', $default = false)
     {
         $validation =& self::getValidation();
 
-        if ($validation === FALSE) {
+        if ($validation === false) {
             if (!isset($_POST[$field])) {
                 if (count($_POST) === 0 && $default == true) {
                     return ' checked="checked"';
@@ -611,7 +612,7 @@ class FormHelper
      */
     public static function error($field = '', $prefix = '', $suffix = '')
     {
-        if (FALSE === ($validation =& self::getValidation())) {
+        if (false === ($validation =& self::getValidation())) {
             return '';
         }
 
@@ -630,7 +631,7 @@ class FormHelper
      */
     public static function validationErrors($prefix = '', $suffix = '')
     {
-        if (FALSE === ($validation =& self::getValidation())) {
+        if (false === ($validation =& self::getValidation())) {
             return '';
         }
 
@@ -667,7 +668,7 @@ class FormHelper
             if ($key == 'value') {
                 $val = self::prep($val, $default['name']);
             }
-            $att .= $key . '="' . $val . '" ';
+            $att .= $key.'="'.$val.'" ';
         }
         return $att;
     }
@@ -730,5 +731,4 @@ class FormHelper
         $return = Fly::app()->getValidation();
         return $return;
     }
-
 }

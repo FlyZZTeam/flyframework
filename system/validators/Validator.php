@@ -1,36 +1,21 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
  * Form Validation Class
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Validation
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/libraries/form_validation.html
  */
 class Validator extends Component
 {
     public static $builtInValidators = array();
 
-	protected $_rules		= array();
-	protected $_errors	    = array();
-	protected $_errorMessages = array();
+    protected $_rules = array();
+    protected $_errors = array();
+    protected $_errorMessages = array();
     public $attributes = array();
     public $attributeLabels = array();
 
@@ -41,25 +26,24 @@ class Validator extends Component
     public $skipOnError = false;
     public $engine = 'inLine';
 
-	/**
-	 * Constructor
-	 */
-	public function __construct($rules = array())
-	{
-		// Validation rules can be stored in a config file.
-		$this->setRules($rules);
+    /**
+     * Constructor
+     */
+    public function __construct($rules = array())
+    {
+        // Validation rules can be stored in a config file.
+        $this->setRules($rules);
 
-		// Set the character encoding in MB.
-		if (function_exists('mb_internal_encoding')) {
-			mb_internal_encoding(Fly::getConfig('charset'));
-		}
+        // Set the character encoding in MB.
+        if (function_exists('mb_internal_encoding')) {
+            mb_internal_encoding(Fly::getConfig('charset'));
+        }
 
-		Fly::log('debug', "Form Validation Class Initialized");
-	}
+        Fly::log('debug', "Form Validation Class Initialized");
+    }
 
     /**
      * Set wait for the validation raw data
-     *
      * @param $data
      */
     public function setAttributes($data, $attributeLabels = array())
@@ -68,48 +52,46 @@ class Validator extends Component
         $this->attributeLabels = $attributeLabels;
     }
 
-	/**
-	 * Set Rules
-	 *
-	 * This function takes an array of field names and validation
-	 * rules as input, validates the info, and stores it
-	 *
-	 * @access	public
-	 * @param	mixed
-	 * @param	string
-	 * @return	void
-	 */
-	public function setRules($rules = array())
-	{
+    /**
+     * Set Rules
+     *
+     * This function takes an array of field names and validation
+     * rules as input, validates the info, and stores it
+     *
+     * @param mixed
+     * @param string
+     * @return void
+     */
+    public function setRules($rules = array())
+    {
         if (empty($rules) || !is_array($rules)) {
             return $this;
         }
         $this->_rules = $rules;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Set Error Message
-	 *
-	 * Lets users set their own error messages on the fly.  Note:  The key
-	 * name has to match the  function name that it corresponds to.
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	string
-	 * @return	string
-	 */
-	public function setMessage($lang, $val = '')
-	{
-		if (!is_array($lang)) {
-			$lang = array($lang => $val);
-		}
+    /**
+     * Set Error Message
+     *
+     * Lets users set their own error messages on the fly.  Note:  The key
+     * name has to match the  function name that it corresponds to.
+     *
+     * @param string
+     * @param string
+     * @return string
+     */
+    public function setMessage($lang, $val = '')
+    {
+        if (!is_array($lang)) {
+            $lang = array($lang => $val);
+        }
 
-		$this->_errorMessages = array_merge($this->_errorMessages, $lang);
+        $this->_errorMessages = array_merge($this->_errorMessages, $lang);
 
-		return $this;
-	}
+        return $this;
+    }
 
     /**
      * Returns a value indicating whether there is any validation error.
@@ -170,7 +152,7 @@ class Validator extends Component
     {
         foreach ($errors as $attribute => $error) {
             if (is_array($error)) {
-                foreach($error as $e) {
+                foreach ($error as $e) {
                     $this->addError($attribute, $e);
                 }
             } else {
@@ -192,76 +174,79 @@ class Validator extends Component
         }
     }
 
-	/**
-	 * Error String
-	 *
-	 * Returns the error messages as a string, wrapped in the error delimiters
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	string
-	 * @return	str
-	 */
-	public function getErrorString()
-	{
-		// No errrors, validation passes!
-		if (count($this->_errors) === 0) {
-			return '';
-		}
-		// Generate the error string
-		$str = '';
-		foreach ($this->_errors as $val) {
-			if ($val != '') {
-				$str .= implode('<br>', $val).'<br>';
-			}
-		}
-		return $str;
-	}
+    /**
+     * Error String
+     *
+     * Returns the error messages as a string, wrapped in the error delimiters
+     *
+     * @param string
+     * @param string
+     * @return str
+     */
+    public function getErrorString()
+    {
+        // No errrors, validation passes!
+        if (count($this->_errors) === 0) {
+            return '';
+        }
+        // Generate the error string
+        $str = '';
+        foreach ($this->_errors as $val) {
+            if ($val != '') {
+                $str .= implode('<br>', $val).'<br>';
+            }
+        }
+        return $str;
+    }
 
-	/**
-	 * Run the Validator
-	 *
-	 * This function does all the work.
-	 *
-	 * @access	public
-	 * @return	bool
-	 */
-	public function run($context = null)
-	{
-		if (count($this->attributes) == 0) {
-			return false;
-		}
+    /**
+     * Run the Validator
+     *
+     * This function does all the work.
+     *
+     * @return bool
+     */
+    public function run($context = null)
+    {
+        if (count($this->attributes) == 0) {
+            return false;
+        }
 
-		// Does the _field_data array containing the validation rules exist?
-		// If not, we look to see if they were assigned via a config file
-		if (count($this->_rules) == 0) {
+        // Does the _field_data array containing the validation rules exist?
+        // If not, we look to see if they were assigned via a config file
+        if (count($this->_rules) == 0) {
             return true;
-		}
+        }
 
-		foreach ($this->_rules as $row) {
+        foreach ($this->_rules as $row) {
             $type = $row[1];
             if (preg_match("/^validator:([\w\W]+)/", $type)) {
                 $engine = '_executeValidatorEngine';
             } else {
                 $engine = '_execute'.ucfirst($this->engine).'Engine';
             }
-			$this->$engine($row, $context);
+            $this->$engine($row, $context);
             if ($this->skipOnError && $this->hasErrors()) {
                 break;
             }
-		}
+        }
 
-		// Did we end up with any errors?
-		$totalErrors = count($this->_errors);
+        // Did we end up with any errors?
+        $totalErrors = count($this->_errors);
 
-		// No errors, validation passes!
-		if ($totalErrors == 0) {
-			return TRUE;
-		}
+        // No errors, validation passes!
+        if ($totalErrors == 0) {
+            return true;
+        }
 
-		return FALSE;
-	}
+        return false;
+    }
 
+    /**
+     * Execute a validator engine.
+     * @param $rule
+     * @param null $model
+     */
     protected function _executeValidatorEngine($rule, $model = null)
     {
         $type = str_replace('validator:', '', $rule[1]);
@@ -292,18 +277,16 @@ class Validator extends Component
         }
     }
 
-	/**
-	 * Executes the InLineEngine
-	 *
-	 * @access	private
-	 * @param	array
-	 * @param	array
-	 * @param	mixed
-	 * @param	integer
-	 * @return	mixed
-	 */
-	protected function _executeInLineEngine($row, $context = NULL)
-	{
+    /**
+     * Executes the InLineEngine
+     * @param array
+     * @param array
+     * @param mixed
+     * @param integer
+     * @return mixed
+     */
+    protected function _executeInLineEngine($row, $context = null)
+    {
         $rules = explode('|', $row[1]);
         $attributeData = array();
         if (isset($this->attributes[$row[0]])) {
@@ -320,13 +303,13 @@ class Validator extends Component
         }
 
         foreach ($attributeData as $item) {
-		    // If the field is blank, but NOT required, no further tests are necessary
-		    $callback = FALSE;
+            // If the field is blank, but NOT required, no further tests are necessary
+            $callback = false;
             $postdata = $item;
             if (!in_array('required', $rules) && is_null($postdata)) {
                 // Before we bail out, does the rule contain a callback?
                 if (preg_match("/(callback:\w+(\[.*?\])?)/", implode(' ', $rules), $match)) {
-                    $callback = TRUE;
+                    $callback = true;
                     $rules = (array('1' => $match[1]));
                 } else {
                     return;
@@ -334,8 +317,8 @@ class Validator extends Component
             }
 
             // Isset Test. Typically this rule will only apply to checkboxes.
-            if (is_null($postdata) AND $callback == FALSE) {
-                if (in_array('isset', $rules, TRUE) OR in_array('required', $rules)) {
+            if (is_null($postdata) AND $callback == false) {
+                if (in_array('isset', $rules, true) OR in_array('required', $rules)) {
                     // Set the message type
                     $type = (in_array('required', $rules)) ? 'required' : 'isset';
 
@@ -350,22 +333,22 @@ class Validator extends Component
             foreach ($rules As $rule) {
 
                 // Is the rule a callback?
-                $callback = FALSE;
+                $callback = false;
                 if (substr($rule, 0, 9) == 'callback:') {
                     $rule = substr($rule, 9);
-                    $callback = TRUE;
+                    $callback = true;
                 }
 
                 // Strip the parameter (if exists) from the rule
                 // Rules can contain a parameter: max_length[5]
-                $param = FALSE;
+                $param = false;
                 if (preg_match("/(.*?)\[(.*)\]/", $rule, $match)) {
-                    $rule	= $match[1];
-                    $param	= $match[2];
+                    $rule = $match[1];
+                    $param = $match[2];
                 }
 
                 // Call the function that corresponds to the rule
-                if ($callback === TRUE) {
+                if ($callback === true) {
                     $object = null;
                     if (method_exists($context, $rule)) {
                         $object = $context;
@@ -377,7 +360,7 @@ class Validator extends Component
                     }
                     $result = $object->$rule($postdata, $param);
                     // If the field isn't required and we just processed a callback we'll move on...
-                    if (!in_array('required', $rules, TRUE) AND $result !== FALSE) {
+                    if (!in_array('required', $rules, true) AND $result !== false) {
                         continue;
                     }
                 } else {
@@ -396,7 +379,7 @@ class Validator extends Component
                 }
 
                 // Did the rule test negatively?  If so, grab the error.
-                if ($result === FALSE) {
+                if ($result === false) {
                     $newParams = array();
                     if ($param && is_array($param)) {
                         $count = 1;
@@ -414,7 +397,7 @@ class Validator extends Component
                 }
             }
         }
-	}
+    }
 
     /**
      * Creates a validator object.
@@ -432,7 +415,7 @@ class Validator extends Component
             $attributes = preg_split('/[\s,]+/', $attributes, -1, PREG_SPLIT_NO_EMPTY);
         }
         $params['attributes'] = $attributes;
-        if(method_exists($model, $type)) {
+        if (method_exists($model, $type)) {
             $validator = new InlineValidator;
             $validator->attributes = $attributes;
             $validator->method = $type;
@@ -448,7 +431,7 @@ class Validator extends Component
                 $className = Fly::import($type, true);
             }
             $validator = new $className;
-            foreach($params as $name => $value) {
+            foreach ($params as $name => $value) {
                 $validator->$name = $value;
             }
         }
@@ -473,13 +456,12 @@ class Validator extends Component
 
         if (empty($message)) {
             if (!isset($this->_errorMessages[$rule])) {
-                if (FALSE === ($line = Fly::t('form_validation', $rule))) {
+                if (false === ($line = Fly::t('form_validation', $rule))) {
                     $line = 'Unable to access an error message corresponding to your field name.';
                 }
             } else {
                 $line = $this->_errorMessages[$rule];
             }
-
         } else {
             $line = $message;
         }
@@ -518,346 +500,301 @@ class Validator extends Component
      */
     protected function validateValue($value)
     {
-        throw new FlyException(get_class($this) . ' does not support validateValue().');
+        throw new FlyException(get_class($this).' does not support validateValue().');
     }
 
-	/**
-	 * Required
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function required($str)
-	{
-		if (!is_array($str)) {
-			return (trim($str) == '') ? FALSE : TRUE;
-		} else {
-			return ( ! empty($str));
-		}
-	}
-
-	/**
-	 * Performs a Regular Expression match test.
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	regex
-	 * @return	bool
-	 */
-	public function regexMatch($str, $regex)
-	{
-		if (!preg_match($regex, $str)) {
-			return FALSE;
-		}
-		return  TRUE;
-	}
-
-	/**
-	 * Match one field to another
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	field
-	 * @return	bool
-	 */
-	public function matches($str, $field)
-	{
-		if (!isset($_POST[$field])) {
-			return FALSE;
-		}
-
-		$field = $_POST[$field];
-
-		return ($str !== $field) ? FALSE : TRUE;
-	}
-
-	/**
-	 * Match one field to another
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	field
-	 * @return	bool
-	 */
-	public function isUnique($str, $field)
-	{
-		list($table, $field)=explode('.', $field);
-		$query = Fly::app()->db->limit(1)->getWhere($table, array($field => $str));
-		
-		return $query->getRowsCount() === 0;
+    /**
+     * Required
+     * @param string
+     * @return bool
+     */
+    public function required($str)
+    {
+        if (!is_array($str)) {
+            return (trim($str) == '') ? false : true;
+        } else {
+            return (!empty($str));
+        }
     }
 
-	/**
-	 * Minimum Length
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	value
-	 * @return	bool
-	 */
-	public function minLength($str, $val)
-	{
-		if (preg_match("/[^0-9]/", $val)) {
-			return FALSE;
-		}
-
-		if (function_exists('mb_strlen')) {
-			return (mb_strlen($str) < $val) ? FALSE : TRUE;
-		}
-
-		return (strlen($str) < $val) ? FALSE : TRUE;
-	}
-
-	/**
-	 * Max Length
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	value
-	 * @return	bool
-	 */
-	public function maxLength($str, $val)
-	{
-		if (preg_match("/[^0-9]/", $val)) {
-			return FALSE;
-		}
-
-		if (function_exists('mb_strlen')) {
-			return (mb_strlen($str) > $val) ? FALSE : TRUE;
-		}
-
-		return (strlen($str) > $val) ? FALSE : TRUE;
-	}
-
-	/**
-	 * Exact Length
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	value
-	 * @return	bool
-	 */
-	public function exactLength($str, $val)
-	{
-		if (preg_match("/[^0-9]/", $val)) {
-			return FALSE;
-		}
-
-		if (function_exists('mb_strlen')) {
-			return (mb_strlen($str) != $val) ? FALSE : TRUE;
-		}
-
-		return (strlen($str) != $val) ? FALSE : TRUE;
-	}
-
-	/**
-	 * Valid Email
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function validEmail($str)
-	{
-		return ( ! preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
-	}
-
-	/**
-	 * Valid Emails
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function validEmails($str)
-	{
-		if (strpos($str, ',') === FALSE) {
-			return $this->validEmail(trim($str));
-		}
-
-		foreach (explode(',', $str) as $email) {
-			if (trim($email) != '' && $this->validEmail(trim($email)) === FALSE) {
-				return FALSE;
-			}
-		}
-
-		return TRUE;
+    /**
+     * Performs a Regular Expression match test.
+     * @param string
+     * @param regex
+     * @return bool
+     */
+    public function regexMatch($str, $regex)
+    {
+        if (!preg_match($regex, $str)) {
+            return false;
+        }
+        return true;
     }
 
-	/**
-	 * Validate IP Address
-	 *
-	 * @access	public
-	 * @param	string
-	 * @param	string "ipv4" or "ipv6" to validate a specific ip format
-	 * @return	string
-	 */
-	public function validIp($ip, $which = '')
-	{
-		return Fly::app()->Request->validIp($ip, $which);
-	}
+    /**
+     * Match one field to another
+     * @param string
+     * @param field
+     * @return bool
+     */
+    public function matches($str, $field)
+    {
+        if (!isset($_POST[$field])) {
+            return false;
+        }
 
-	/**
-	 * Alpha
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function alpha($str)
-	{
-		return (!preg_match("/^([a-z])+$/i", $str)) ? FALSE : TRUE;
-	}
+        $field = $_POST[$field];
 
-	/**
-	 * Alpha-numeric
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function alphaNumeric($str)
-	{
-		return ( ! preg_match("/^([a-z0-9])+$/i", $str)) ? FALSE : TRUE;
-	}
+        return ($str !== $field) ? false : true;
+    }
 
-	/**
-	 * Alpha-numeric with underscores and dashes
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function alphaDash($str)
-	{
-		return ( ! preg_match("/^([-a-z0-9_-])+$/i", $str)) ? FALSE : TRUE;
-	}
+    /**
+     * Match one field to another
+     * @param string
+     * @param field
+     * @return bool
+     */
+    public function isUnique($str, $field)
+    {
+        list($table, $field) = explode('.', $field);
+        $query = Fly::app()->db->limit(1)->getWhere($table, array($field => $str));
 
-	/**
-	 * Numeric
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function numeric($str)
-	{
-		return (bool)preg_match( '/^[\-+]?[0-9]*\.?[0-9]+$/', $str);
+        return $query->getRowsCount() === 0;
+    }
 
-	}
+    /**
+     * Minimum Length
+     * @param string
+     * @param value
+     * @return bool
+     */
+    public function minLength($str, $val)
+    {
+        if (preg_match("/[^0-9]/", $val)) {
+            return false;
+        }
 
-	/**
-	 * Is Numeric
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function isNumeric($str)
-	{
-		return ( ! is_numeric($str)) ? FALSE : TRUE;
-	}
+        if (function_exists('mb_strlen')) {
+            return (mb_strlen($str) < $val) ? false : true;
+        }
 
-	/**
-	 * Integer
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function integer($str)
-	{
-		return (bool) preg_match('/^[\-+]?[0-9]+$/', $str);
-	}
+        return (strlen($str) < $val) ? false : true;
+    }
 
-	/**
-	 * Decimal number
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function decimal($str)
-	{
-		return (bool) preg_match('/^[\-+]?[0-9]+\.[0-9]+$/', $str);
-	}
+    /**
+     * Max Length
+     * @param string
+     * @param value
+     * @return bool
+     */
+    public function maxLength($str, $val)
+    {
+        if (preg_match("/[^0-9]/", $val)) {
+            return false;
+        }
 
-	/**
-	 * Greather than
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function greaterThan($str, $min)
-	{
-		if (!is_numeric($str)) {
-			return FALSE;
-		}
-		return $str > $min;
-	}
+        if (function_exists('mb_strlen')) {
+            return (mb_strlen($str) > $val) ? false : true;
+        }
 
-	/**
-	 * Less than
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function lessThan($str, $max)
-	{
-		if (!is_numeric($str)) {
-			return FALSE;
-		}
-		return $str < $max;
-	}
+        return (strlen($str) > $val) ? false : true;
+    }
 
-	/**
-	 * Is a Natural number  (0,1,2,3, etc.)
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function isNatural($str)
-	{
-		return (bool) preg_match( '/^[0-9]+$/', $str);
-	}
+    /**
+     * Exact Length
+     * @param string
+     * @param value
+     * @return bool
+     */
+    public function exactLength($str, $val)
+    {
+        if (preg_match("/[^0-9]/", $val)) {
+            return false;
+        }
 
-	/**
-	 * Is a Natural number, but not a zero  (1,2,3, etc.)
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function isNaturalNoZero($str)
-	{
-		if (!preg_match( '/^[0-9]+$/', $str)) {
-			return FALSE;
-		}
+        if (function_exists('mb_strlen')) {
+            return (mb_strlen($str) != $val) ? false : true;
+        }
 
-		if ($str == 0) {
-			return FALSE;
-		}
+        return (strlen($str) != $val) ? false : true;
+    }
 
-		return TRUE;
-	}
+    /**
+     * Valid Email
+     * @param string
+     * @return bool
+     */
+    public function validEmail($str)
+    {
+        return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? false : true;
+    }
 
-	/**
-	 * Valid Base64
-	 *
-	 * Tests a string for characters outside of the Base64 alphabet
-	 * as defined by RFC 2045 http://www.faqs.org/rfcs/rfc2045
-	 *
-	 * @access	public
-	 * @param	string
-	 * @return	bool
-	 */
-	public function validBase64($str)
-	{
-		return (bool) ! preg_match('/[^a-zA-Z0-9\/\+=]/', $str);
-	}
+    /**
+     * Valid Emails
+     * @param string
+     * @return bool
+     */
+    public function validEmails($str)
+    {
+        if (strpos($str, ',') === false) {
+            return $this->validEmail(trim($str));
+        }
 
+        foreach (explode(',', $str) as $email) {
+            if (trim($email) != '' && $this->validEmail(trim($email)) === false) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Validate IP Address
+     * @param string
+     * @param string "ipv4" or "ipv6" to validate a specific ip format
+     * @return string
+     */
+    public function validIp($ip, $which = '')
+    {
+        return Fly::app()->Request->validIp($ip, $which);
+    }
+
+    /**
+     * Alpha
+     * @param string
+     * @return bool
+     */
+    public function alpha($str)
+    {
+        return (!preg_match("/^([a-z])+$/i", $str)) ? false : true;
+    }
+
+    /**
+     * Alpha-numeric
+     * @param string
+     * @return bool
+     */
+    public function alphaNumeric($str)
+    {
+        return (!preg_match("/^([a-z0-9])+$/i", $str)) ? false : true;
+    }
+
+    /**
+     * Alpha-numeric with underscores and dashes
+     * @param string
+     * @return bool
+     */
+    public function alphaDash($str)
+    {
+        return (!preg_match("/^([-a-z0-9_-])+$/i", $str)) ? false : true;
+    }
+
+    /**
+     * Numeric
+     * @param string
+     * @return bool
+     */
+    public function numeric($str)
+    {
+        return (bool)preg_match('/^[\-+]?[0-9]*\.?[0-9]+$/', $str);
+    }
+
+    /**
+     * Is Numeric
+     * @param string
+     * @return bool
+     */
+    public function isNumeric($str)
+    {
+        return (!is_numeric($str)) ? false : true;
+    }
+
+    /**
+     * Integer
+     * @param string
+     * @return bool
+     */
+    public function integer($str)
+    {
+        return (bool)preg_match('/^[\-+]?[0-9]+$/', $str);
+    }
+
+    /**
+     * Decimal number
+     * @param string
+     * @return bool
+     */
+    public function decimal($str)
+    {
+        return (bool)preg_match('/^[\-+]?[0-9]+\.[0-9]+$/', $str);
+    }
+
+    /**
+     * Greather than
+     * @param string
+     * @return bool
+     */
+    public function greaterThan($str, $min)
+    {
+        if (!is_numeric($str)) {
+            return false;
+        }
+        return $str > $min;
+    }
+
+    /**
+     * Less than
+     * @param string
+     * @return bool
+     */
+    public function lessThan($str, $max)
+    {
+        if (!is_numeric($str)) {
+            return false;
+        }
+        return $str < $max;
+    }
+
+    /**
+     * Is a Natural number  (0,1,2,3, etc.)
+     * @param string
+     * @return bool
+     */
+    public function isNatural($str)
+    {
+        return (bool)preg_match('/^[0-9]+$/', $str);
+    }
+
+    /**
+     * Is a Natural number, but not a zero  (1,2,3, etc.)
+     * @param string
+     * @return bool
+     */
+    public function isNaturalNoZero($str)
+    {
+        if (!preg_match('/^[0-9]+$/', $str)) {
+            return false;
+        }
+
+        if ($str == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Valid Base64
+     *
+     * Tests a string for characters outside of the Base64 alphabet
+     * as defined by RFC 2045 http://www.faqs.org/rfcs/rfc2045
+     *
+     * @param string
+     * @return bool
+     */
+    public function validBase64($str)
+    {
+        return (bool)!preg_match('/[^a-zA-Z0-9\/\+=]/', $str);
+    }
 }

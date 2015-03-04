@@ -9,7 +9,6 @@
 /**
  * HTML Helpers
  */
-
 class HtmlHelper
 {
 
@@ -82,11 +81,11 @@ class HtmlHelper
         if (is_array($attributes)) {
             $atts = '';
             foreach ($attributes as $key => $val) {
-                $atts .= ' ' . $key . '="' . $val . '"';
+                $atts .= ' '.$key.'="'.$val.'"';
             }
             $attributes = $atts;
         } else if (is_string($attributes) AND strlen($attributes) > 0) {
-            $attributes = ' '. $attributes;
+            $attributes = ' '.$attributes;
         }
 
         // Write the opening list tag
@@ -136,12 +135,9 @@ class HtmlHelper
 
     /**
      * Image
-     *
      * Generates an <img /> element
-     *
-     * @access	public
-     * @param	mixed
-     * @return	string
+     * @param mixed
+     * @return string
      */
     public static function img($src = '')
     {
@@ -156,7 +152,7 @@ class HtmlHelper
 
         $img = '<img';
 
-        foreach ($src as $k=>$v) {
+        foreach ($src as $k => $v) {
 
             if ($k == 'src' && strpos($v, '://') === false) {
                 $img .= ' src="'.$v.'"';
@@ -177,9 +173,8 @@ class HtmlHelper
      * html4-strict, html4-trans, and html4-frame.  Values are saved in the
      * doctypes config file.
      *
-     * @access	public
-     * @param	string	type	The doctype to be generated
-     * @return	string
+     * @param string $type The doctype to be generated
+     * @return string
      */
     public static function doctype($type = 'xhtml1-strict')
     {
@@ -201,14 +196,12 @@ class HtmlHelper
      *
      * Generates link to a CSS file
      *
-     * @access	public
-     * @param	mixed	stylesheet hrefs or an array
-     * @param	string	rel
-     * @param	string	type
-     * @param	string	title
-     * @param	string	media
-     * @param	boolean	should index_page be added to the css path
-     * @return	string
+     * @param mixed $href stylesheet hrefs or an array
+     * @param string $rel
+     * @param string $type
+     * @param string $title
+     * @param string $media
+     * @return string
      */
     public static function linkTag($href = '', $rel = 'stylesheet', $type = 'text/css', $title = '', $media = '')
     {
@@ -216,7 +209,7 @@ class HtmlHelper
         $link = '<link ';
 
         if (is_array($href)) {
-            foreach ($href as $k=>$v) {
+            foreach ($href as $k => $v) {
                 if ($k == 'href' && strpos($v, '://') === false) {
                     $link .= 'href="'.$v.'" ';
                 } else {
@@ -232,7 +225,7 @@ class HtmlHelper
                 $link .= 'media="'.$media.'" ';
             }
 
-            if ($title	!= '') {
+            if ($title != '') {
                 $link .= 'title="'.$title.'" ';
             }
 
@@ -244,10 +237,8 @@ class HtmlHelper
 
     /**
      * Generates meta tags from an array of key/values
-     *
-     * @access	public
-     * @param	array
-     * @return	string
+     * @param array
+     * @return string
      */
     public static function meta($name = '', $content = '', $type = 'name', $newline = "\n")
     {
@@ -264,10 +255,10 @@ class HtmlHelper
 
         $str = '';
         foreach ($name as $meta) {
-            $type		= ( ! isset($meta['type']) || $meta['type'] == 'name') ? 'name' : 'http-equiv';
-            $name		= ( ! isset($meta['name']))		? ''	: $meta['name'];
-            $content	= ( ! isset($meta['content']))	? ''	: $meta['content'];
-            $newline	= ( ! isset($meta['newline']))	? "\n"	: $meta['newline'];
+            $type = (!isset($meta['type']) || $meta['type'] == 'name') ? 'name' : 'http-equiv';
+            $name = (!isset($meta['name'])) ? '' : $meta['name'];
+            $content = (!isset($meta['content'])) ? '' : $meta['content'];
+            $newline = (!isset($meta['newline'])) ? "\n" : $meta['newline'];
 
             $str .= '<meta '.$type.'="'.$name.'" content="'.$content.'" />'.$newline;
         }
@@ -277,10 +268,8 @@ class HtmlHelper
 
     /**
      * Generates non-breaking space entities based on number supplied
-     *
-     * @access	public
-     * @param	integer
-     * @return	string
+     * @param integer
+     * @return string
      */
     public static function nbs($num = 1)
     {
@@ -300,5 +289,4 @@ class HtmlHelper
             return htmlspecialchars($var, ENT_QUOTES, FLy::getConfig('charset'));
         }
     }
-
 }

@@ -1,42 +1,22 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
- * CodeIgniter URL Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/url_helper.html
+ * URL Helpers
  */
-
 class UrlHelper
 {
 
     /**
-     * Site URL
-     *
      * Create a local URL based on your basepath. Segments can be passed via the
      * first parameter either as a string or an array.
-     *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function createUrl($uri, $absolute = false)
     {
@@ -59,15 +39,11 @@ class UrlHelper
     }
 
     /**
-     * Base URL
-     *
      * Create a local URL based on your basepath.
      * Segments can be passed in as a string or an array, same as site_url
      * or a URL to a file can be passed in, e.g. to an image file.
-     *
-     * @access	public
      * @param string
-     * @return	string
+     * @return string
      */
     public static function getBaseUrl($absolute = false)
     {
@@ -75,18 +51,15 @@ class UrlHelper
     }
 
     /**
-     * Current URL
-     *
      * Returns the full URL (including segments) of the page where this
      * function is placed
      *
-     * @access	public
-     * @return	string
+     * @return string
      */
     public static function getCurrentUrl($absolute = false)
     {
         $url = Fly::app()->Request->getUrl();
-        return $absolute ? Fly::app()->Request->getHostUrl() . $url : $url;
+        return $absolute ? Fly::app()->Request->getHostUrl().$url : $url;
     }
 
     /**
@@ -94,8 +67,7 @@ class UrlHelper
      *
      * Returns the URI segments.
      *
-     * @access	public
-     * @return	string
+     * @return string
      */
     public static function getUriString()
     {
@@ -107,25 +79,22 @@ class UrlHelper
      *
      * Creates an anchor based on the local URL.
      *
-     * @access	public
-     * @param	string	the URL
-     * @param	string	the link title
-     * @param	mixed	any attributes
-     * @return	string
+     * @param string $uri the URL
+     * @param string $title the link title
+     * @param mixed $attributes any attributes
+     * @return string
      */
     public static function createAnchor($uri = '', $title = '', $attributes = '')
     {
-        $title = (string) $title;
+        $title = (string)$title;
 
         $site_url = self::createUrl($uri, true);
 
-        if ($title == '')
-        {
+        if ($title == '') {
             $title = $site_url;
         }
 
-        if ($attributes != '')
-        {
+        if ($attributes != '') {
             $attributes = self::parseAttributes($attributes);
         }
 
@@ -138,61 +107,60 @@ class UrlHelper
      * Creates an anchor based on the local URL. The link
      * opens a new window based on the attributes specified.
      *
-     * @access	public
-     * @param	string	the URL
-     * @param	string	the link title
-     * @param	mixed	any attributes
-     * @return	string
+     * @param string $uri the URL
+     * @param string $title the link title
+     * @param mixed $attributes any attributes
+     * @return    string
      */
-	public static function createAnchorPopup($uri = '', $title = '', $attributes = FALSE)
-	{
-		$title = (string) $title;
+    public static function createAnchorPopup($uri = '', $title = '', $attributes = false)
+    {
+        $title = (string)$title;
         $site_url = self::createUrl($uri, true);
 
-		if ($title == '')
-		{
-			$title = $site_url;
-		}
+        if ($title == '') {
+            $title = $site_url;
+        }
 
-		if ($attributes === FALSE)
-		{
-			return "<a href='javascript:void(0);' onclick=\"window.open('".$site_url."', '_blank');\">".$title."</a>";
-		}
+        if ($attributes === false) {
+            return "<a href='javascript:void(0);' onclick=\"window.open('".$site_url."', '_blank');\">".$title."</a>";
+        }
 
-		if ( ! is_array($attributes))
-		{
-			$attributes = array();
-		}
+        if (!is_array($attributes)) {
+            $attributes = array();
+        }
 
-		foreach (array('width' => '800', 'height' => '600', 'scrollbars' => 'yes', 'status' => 'yes', 'resizable' => 'yes', 'screenx' => '0', 'screeny' => '0', ) as $key => $val)
-		{
-			$atts[$key] = ( ! isset($attributes[$key])) ? $val : $attributes[$key];
-			unset($attributes[$key]);
-		}
+        foreach (array(
+                     'width' => '800',
+                     'height' => '600',
+                     'scrollbars' => 'yes',
+                     'status' => 'yes',
+                     'resizable' => 'yes',
+                     'screenx' => '0',
+                     'screeny' => '0',
+                 ) as $key => $val) {
+            $atts[$key] = (!isset($attributes[$key])) ? $val : $attributes[$key];
+            unset($attributes[$key]);
+        }
 
-		if ($attributes != '')
-		{
-			$attributes = self::parseAttributes($attributes);
-		}
+        if ($attributes != '') {
+            $attributes = self::parseAttributes($attributes);
+        }
 
-		return "<a href='javascript:void(0);' onclick=\"window.open('".$site_url."', '_blank', '".self::parseAttributes($atts, TRUE)."');\"$attributes>".$title."</a>";
-	}
+        return "<a href='javascript:void(0);' onclick=\"window.open('".$site_url."', '_blank', '".self::parseAttributes($atts, true)."');\"$attributes>".$title."</a>";
+    }
 
     /**
      * Mailto Link
-     *
-     * @access	public
-     * @param	string	the email address
-     * @param	string	the link title
-     * @param	mixed	any attributes
-     * @return	string
+     * @param string $email the email address
+     * @param string $title the link title
+     * @param mixed $attributes any attributes
+     * @return string
      */
     public static function createMailTo($email, $title = '', $attributes = '')
     {
-        $title = (string) $title;
+        $title = (string)$title;
 
-        if ($title == "")
-        {
+        if ($title == "") {
             $title = $email;
         }
 
@@ -206,51 +174,40 @@ class UrlHelper
      *
      * Create a spam-protected mailto link written in Javascript
      *
-     * @access	public
-     * @param	string	the email address
-     * @param	string	the link title
-     * @param	mixed	any attributes
-     * @return	string
+     * @param string $email the email address
+     * @param string $title the link title
+     * @param mixed $attributes any attributes
+     * @return string
      */
     public static function createSafeMailTo($email, $title = '', $attributes = '')
     {
-        $title = (string) $title;
+        $title = (string)$title;
 
-        if ($title == "")
-        {
+        if ($title == "") {
             $title = $email;
         }
 
-        for ($i = 0; $i < 16; $i++)
-        {
+        for ($i = 0; $i < 16; $i++) {
             $x[] = substr('<a href="mailto:', $i, 1);
         }
 
-        for ($i = 0; $i < strlen($email); $i++)
-        {
+        for ($i = 0; $i < strlen($email); $i++) {
             $x[] = "|".ord(substr($email, $i, 1));
         }
 
         $x[] = '"';
 
-        if ($attributes != '')
-        {
-            if (is_array($attributes))
-            {
-                foreach ($attributes as $key => $val)
-                {
-                    $x[] =  ' '.$key.'="';
-                    for ($i = 0; $i < strlen($val); $i++)
-                    {
+        if ($attributes != '') {
+            if (is_array($attributes)) {
+                foreach ($attributes as $key => $val) {
+                    $x[] = ' '.$key.'="';
+                    for ($i = 0; $i < strlen($val); $i++) {
                         $x[] = "|".ord(substr($val, $i, 1));
                     }
                     $x[] = '"';
                 }
-            }
-            else
-            {
-                for ($i = 0; $i < strlen($attributes); $i++)
-                {
+            } else {
+                for ($i = 0; $i < strlen($attributes); $i++) {
                     $x[] = substr($attributes, $i, 1);
                 }
             }
@@ -259,24 +216,18 @@ class UrlHelper
         $x[] = '>';
 
         $temp = array();
-        for ($i = 0; $i < strlen($title); $i++)
-        {
+        for ($i = 0; $i < strlen($title); $i++) {
             $ordinal = ord($title[$i]);
 
-            if ($ordinal < 128)
-            {
+            if ($ordinal < 128) {
                 $x[] = "|".$ordinal;
-            }
-            else
-            {
-                if (count($temp) == 0)
-                {
+            } else {
+                if (count($temp) == 0) {
                     $count = ($ordinal < 224) ? 2 : 3;
                 }
 
                 $temp[] = $ordinal;
-                if (count($temp) == $count)
-                {
+                if (count($temp) == $count) {
                     $number = ($count == 3) ? (($temp['0'] % 16) * 4096) + (($temp['1'] % 64) * 64) + ($temp['2'] % 64) : (($temp['0'] % 32) * 64) + ($temp['1'] % 64);
                     $x[] = "|".$number;
                     $count = 1;
@@ -285,23 +236,29 @@ class UrlHelper
             }
         }
 
-        $x[] = '<'; $x[] = '/'; $x[] = 'a'; $x[] = '>';
+        $x[] = '<';
+        $x[] = '/';
+        $x[] = 'a';
+        $x[] = '>';
 
         $x = array_reverse($x);
         ob_start();
 
-    ?><script type="text/javascript">
+        ?>
+        <script type="text/javascript">
     //<![CDATA[
     var l=new Array();
     <?php
-    $i = 0;
-    foreach ($x as $val){ ?>l[<?php echo $i++; ?>]='<?php echo $val; ?>';<?php } ?>
+            $i = 0;
+            foreach ($x as $val) {
+                ?>l[<?php echo $i++; ?>]='<?php echo $val; ?>';<?php } ?>
 
     for (var i = l.length-1; i >= 0; i=i-1){
     if (l[i].substring(0, 1) == '|') document.write("&#"+unescape(l[i].substring(1))+";");
     else document.write(unescape(l[i]));}
     //]]>
-    </script><?php
+
+        </script><?php
 
         $buffer = ob_get_contents();
         ob_end_clean();
@@ -316,51 +273,42 @@ class UrlHelper
      * URLs or emails that end in a period.  We'll strip these
      * off and add them after the link.
      *
-     * @access	public
-     * @param	string	the string
-     * @param	string	the type: email, url, or both
-     * @param	bool	whether to create pop-up links
-     * @return	string
+     * @param string $str the string
+     * @param string $type the type: email, url, or both
+     * @param bool $popup whether to create pop-up links
+     * @return string
      */
-    public static function createAutoLink($str, $type = 'both', $popup = FALSE)
+    public static function createAutoLink($str, $type = 'both', $popup = false)
     {
-        if ($type != 'email')
-        {
-            if (preg_match_all("#(^|\s|\()((http(s?)://)|(www\.))(\w+[^\s\)\<]+)#i", $str, $matches))
-            {
-                $pop = ($popup == TRUE) ? " target=\"_blank\" " : "";
+        if ($type != 'email') {
+            if (preg_match_all("#(^|\s|\()((http(s?)://)|(www\.))(\w+[^\s\)\<]+)#i", $str, $matches)) {
+                $pop = ($popup == true) ? " target=\"_blank\" " : "";
 
-                for ($i = 0; $i < count($matches['0']); $i++)
-                {
+                for ($i = 0; $i < count($matches['0']); $i++) {
                     $period = '';
-                    if (preg_match("|\.$|", $matches['6'][$i]))
-                    {
+                    if (preg_match("|\.$|", $matches['6'][$i])) {
                         $period = '.';
                         $matches['6'][$i] = substr($matches['6'][$i], 0, -1);
                     }
 
                     $str = str_replace($matches['0'][$i],
-                                        $matches['1'][$i].'<a href="http'.
-                                        $matches['4'][$i].'://'.
-                                        $matches['5'][$i].
-                                        $matches['6'][$i].'"'.$pop.'>http'.
-                                        $matches['4'][$i].'://'.
-                                        $matches['5'][$i].
-                                        $matches['6'][$i].'</a>'.
-                                        $period, $str);
+                        $matches['1'][$i].'<a href="http'.
+                        $matches['4'][$i].'://'.
+                        $matches['5'][$i].
+                        $matches['6'][$i].'"'.$pop.'>http'.
+                        $matches['4'][$i].'://'.
+                        $matches['5'][$i].
+                        $matches['6'][$i].'</a>'.
+                        $period, $str);
                 }
             }
         }
 
-        if ($type != 'url')
-        {
-            if (preg_match_all("/([a-zA-Z0-9_\.\-\+]+)@([a-zA-Z0-9\-]+)\.([a-zA-Z0-9\-\.]*)/i", $str, $matches))
-            {
-                for ($i = 0; $i < count($matches['0']); $i++)
-                {
+        if ($type != 'url') {
+            if (preg_match_all("/([a-zA-Z0-9_\.\-\+]+)@([a-zA-Z0-9\-]+)\.([a-zA-Z0-9\-\.]*)/i", $str, $matches)) {
+                for ($i = 0; $i < count($matches['0']); $i++) {
                     $period = '';
-                    if (preg_match("|\.$|", $matches['3'][$i]))
-                    {
+                    if (preg_match("|\.$|", $matches['3'][$i])) {
                         $period = '.';
                         $matches['3'][$i] = substr($matches['3'][$i], 0, -1);
                     }
@@ -378,9 +326,8 @@ class UrlHelper
      *
      * Simply adds the http:// part if no scheme is included
      *
-     * @access	public
-     * @param	string	the URL
-     * @return	string
+     * @param string $str the URL
+     * @return string
      */
     public static function prepUrl($str = '')
     {
@@ -401,12 +348,11 @@ class UrlHelper
      * human-friendly URL string with a "separator" string
      * as the word separator.
      *
-     * @access	public
-     * @param	string	the string
-     * @param	string	the separator
-     * @return	string
+     * @param string $str the string
+     * @param string $separator the separator
+     * @return string
      */
-    public static function createUrlTitle($str, $separator = '-', $lowercase = FALSE)
+    public static function createUrlTitle($str, $separator = '-', $lowercase = false)
     {
         if ($separator == 'dash') {
             $separator = '-';
@@ -417,10 +363,10 @@ class UrlHelper
         $q_separator = preg_quote($separator);
 
         $trans = array(
-            '&.+?;'                 => '',
-            '[^a-z0-9 _-]'          => '',
-            '\s+'                   => $separator,
-            '('.$q_separator.')+'   => $separator
+            '&.+?;' => '',
+            '[^a-z0-9 _-]' => '',
+            '\s+' => $separator,
+            '('.$q_separator.')+' => $separator
         );
 
         $str = strip_tags($str);
@@ -429,7 +375,7 @@ class UrlHelper
             $str = preg_replace("#".$key."#i", $val, $str);
         }
 
-        if ($lowercase === TRUE) {
+        if ($lowercase === true) {
             $str = strtolower($str);
         }
 
@@ -439,21 +385,16 @@ class UrlHelper
     /**
      * Header Redirect
      *
-     * Header redirect in two flavors
-     * For very fine grained control over headers, you could use the Output
-     * Library's set_header() function.
-     *
-     * @access	public
-     * @param	string	the URL
-     * @param	string	the method: location or redirect
-     * @return	string
+     * @param string $url the URL
+     * @param string $terminate the method: location or redirect
+     * @return string
      */
     public static function redirect($url, $terminate = true, $statusCode = 302)
     {
         Fly::app()->Controller->redirect($url, $terminate, $statusCode);
     }
 
-    public static function refresh($terminate = true, $anchor='')
+    public static function refresh($terminate = true, $anchor = '')
     {
         self::redirect(self::getCurrentUrl().$anchor, $terminate);
     }
@@ -463,12 +404,11 @@ class UrlHelper
      *
      * Some of the functions use this
      *
-     * @access	private
-     * @param	array
-     * @param	bool
-     * @return	string
+     * @param array
+     * @param bool
+     * @return string
      */
-    public static function parseAttributes($attributes, $javascript = FALSE)
+    public static function parseAttributes($attributes, $javascript = false)
     {
         if (is_string($attributes)) {
             return ($attributes != '') ? ' '.$attributes : '';
@@ -476,14 +416,14 @@ class UrlHelper
 
         $att = '';
         foreach ($attributes as $key => $val) {
-            if ($javascript == TRUE) {
-                $att .= $key . '=' . $val . ',';
+            if ($javascript == true) {
+                $att .= $key.'='.$val.',';
             } else {
-                $att .= ' ' . $key . '="' . $val . '"';
+                $att .= ' '.$key.'="'.$val.'"';
             }
         }
 
-        if ($javascript == TRUE AND $att != '') {
+        if ($javascript == true AND $att != '') {
             $att = substr($att, 0, -1);
         }
 

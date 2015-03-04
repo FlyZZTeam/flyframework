@@ -1,29 +1,14 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
 
 /**
- * CodeIgniter String Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/string_helper.html
+ * String Helpers
  */
-
 class StringHelper
 {
 
@@ -38,9 +23,8 @@ class StringHelper
      *
      * this/that/theother
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function trimSlashes($str)
     {
@@ -52,9 +36,8 @@ class StringHelper
      *
      * Removes slashes contained in a string or in an array
      *
-     * @access	public
-     * @param	mixed	string or array
-     * @return	mixed	string or array
+     * @param mixed string or array
+     * @return mixed string or array
      */
     public static function stripSlashes($str)
     {
@@ -74,9 +57,8 @@ class StringHelper
      *
      * Removes single and double quotes from a string
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function stripQuotes($str)
     {
@@ -88,15 +70,13 @@ class StringHelper
      *
      * Converts single and double quotes to entities
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function quotesToEntities($str)
     {
-        return str_replace(array("\'","\"","'",'"'), array("&#39;","&quot;","&#39;","&quot;"), $str);
+        return str_replace(array("\'", "\"", "'", '"'), array("&#39;", "&quot;", "&#39;", "&quot;"), $str);
     }
-
 
     /**
      * Reduce Double Slashes
@@ -110,9 +90,8 @@ class StringHelper
      *
      * http://www.some-site.com/index.php
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function reduceDoubleSlashes($str)
     {
@@ -130,16 +109,15 @@ class StringHelper
      *
      * Fred, Bill, Joe, Jimmy
      *
-     * @access	public
-     * @param	string
-     * @param	string	the character you wish to reduce
-     * @param	bool	TRUE/FALSE - whether to trim the character from the beginning/end
-     * @return	string
+     * @param string
+     * @param string $character the character you wish to reduce
+     * @param bool $trim TRUE/FALSE - whether to trim the character from the beginning/end
+     * @return string
      */
-    function reduceMultiples($str, $character = ',', $trim = FALSE)
+    function reduceMultiples($str, $character = ',', $trim = false)
     {
         $str = preg_replace('#'.preg_quote($character, '#').'{2,}#', $character, $str);
-        if ($trim === TRUE) {
+        if ($trim === true) {
             $str = trim($str, $character);
         }
         return $str;
@@ -150,53 +128,54 @@ class StringHelper
      *
      * Useful for generating passwords or hashes.
      *
-     * @access	public
-     * @param	string	type of random string.  basic, alpha, alunum, numeric, nozero, unique, md5, encrypt and sha1
-     * @param	integer	number of characters
-     * @return	string
+     * @param string $type type of random string.  basic, alpha, alunum, numeric, nozero, unique, md5, encrypt and sha1
+     * @param integer $len number of characters
+     * @return string
      */
     public static function randomString($type = 'alnum', $len = 8)
     {
-        switch($type)
-        {
-            case 'basic'	: return mt_rand();
+        switch ($type) {
+            case 'basic'    :
+                return mt_rand();
                 break;
-            case 'alnum'	:
-            case 'numeric'	:
-            case 'nozero'	:
-            case 'alpha'	:
+            case 'alnum'    :
+            case 'numeric'    :
+            case 'nozero'    :
+            case 'alpha'    :
 
-                    switch ($type)
-                    {
-                        case 'alpha'	:	$pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                            break;
-                        case 'alnum'	:	$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                            break;
-                        case 'numeric'	:	$pool = '0123456789';
-                            break;
-                        case 'nozero'	:	$pool = '123456789';
-                            break;
-                    }
+                switch ($type) {
+                    case 'alpha'    :
+                        $pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                        break;
+                    case 'alnum'    :
+                        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                        break;
+                    case 'numeric'    :
+                        $pool = '0123456789';
+                        break;
+                    case 'nozero'    :
+                        $pool = '123456789';
+                        break;
+                }
 
-                    $str = '';
-                    for ($i=0; $i < $len; $i++)
-                    {
-                        $str .= substr($pool, mt_rand(0, strlen($pool) -1), 1);
-                    }
-                    return $str;
+                $str = '';
+                for ($i = 0; $i < $len; $i++) {
+                    $str .= substr($pool, mt_rand(0, strlen($pool) - 1), 1);
+                }
+                return $str;
                 break;
-            case 'unique'	:
-            case 'md5'		:
+            case 'unique'    :
+            case 'md5'        :
 
-                        return md5(uniqid(mt_rand()));
+                return md5(uniqid(mt_rand()));
                 break;
-            case 'encrypt'	:
-            case 'sha1'	:
+            case 'encrypt'    :
+            case 'sha1'    :
 
-                        $CI =& get_instance();
-                        $CI->load->helper('security');
+                $CI =& get_instance();
+                $CI->load->helper('security');
 
-                        return do_hash(uniqid(mt_rand(), TRUE), 'sha1');
+                return do_hash(uniqid(mt_rand(), true), 'sha1');
                 break;
         }
     }
@@ -204,10 +183,10 @@ class StringHelper
     /**
      * Add's _1 to a string or increment the ending number to allow _2, _3, etc
      *
-     * @param   string  $str  required
-     * @param   string  $separator  What should the duplicate number be appended with
-     * @param   string  $first  Which number should be used for the first dupe increment
-     * @return  string
+     * @param string $str required
+     * @param string $separator What should the duplicate number be appended with
+     * @param string $first Which number should be used for the first dupe increment
+     * @return string
      */
     public static function incrementString($str, $separator = '_', $first = 1)
     {
@@ -220,9 +199,8 @@ class StringHelper
      *
      * Allows strings to be alternated.  See docs...
      *
-     * @access	public
-     * @param	string (as many parameters as needed)
-     * @return	string
+     * @param string (as many parameters as needed)
+     * @return string
      */
     public static function alternator()
     {
@@ -238,10 +216,9 @@ class StringHelper
     /**
      * Repeater function
      *
-     * @access	public
-     * @param	string
-     * @param	integer	number of repeats
-     * @return	string
+     * @param string
+     * @param integer $num number of repeats
+     * @return string
      */
     public static function repeater($data, $num = 1)
     {
@@ -254,9 +231,8 @@ class StringHelper
      * This prevents sandwiching null characters
      * between ascii characters, like Java\0script.
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function removeInvisibleCharacters($str, $url_encoded = true)
     {
@@ -266,16 +242,15 @@ class StringHelper
         // carriage return (dec 13), and horizontal tab (dec 09)
 
         if ($url_encoded) {
-            $non_displayables[] = '/%0[0-8bcef]/';	// url encoded 00-08, 11, 12, 14, 15
-            $non_displayables[] = '/%1[0-9a-f]/';	// url encoded 16-31
+            $non_displayables[] = '/%0[0-8bcef]/'; // url encoded 00-08, 11, 12, 14, 15
+            $non_displayables[] = '/%1[0-9a-f]/'; // url encoded 16-31
         }
 
-        $non_displayables[] = '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S';	// 00-08, 11, 12, 14-31, 127
+        $non_displayables[] = '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S'; // 00-08, 11, 12, 14-31, 127
 
         do {
             $str = preg_replace($non_displayables, '', $str, -1, $count);
         } while ($count);
         return $str;
     }
-
 }

@@ -1,15 +1,13 @@
 <?php
 /**
- * HttpSession class file.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @link http://www.yiiframework.com/
- * @copyright Copyright &copy; 2008-2011 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
 /**
- * CHttpSession provides session-level data management and the related configurations.
+ * HttpSession provides session-level data management and the related configurations.
  *
  * To start the session, call {@link open()}; To complete and send out session data, call {@link close()};
  * To destroy the session, call {@link destroy()}.
@@ -17,9 +15,9 @@
  * If {@link autoStart} is set true, the session will be started automatically
  * when the application component is initialized by the application.
  *
- * CHttpSession can be used like an array to set and get session data. For example,
+ * HttpSession can be used like an array to set and get session data. For example,
  * <pre>
- *   $session=new CHttpSession;
+ *   $session=new HttpSession;
  *   $session->open();
  *   $value1=$session['name1'];  // get session variable 'name1'
  *   $value2=$session['name2'];  // get session variable 'name2'
@@ -42,14 +40,14 @@
  * See the corresponding setter and getter documentation for more information.
  * Note, these properties must be set before the session is started.
  *
- * CHttpSession can be extended to support customized session storage.
+ * HttpSession can be extended to support customized session storage.
  * Override {@link openSession}, {@link closeSession}, {@link readSession},
  * {@link writeSession}, {@link destroySession} and {@link gcSession}
  * and set {@link useCustomStorage} to true.
  * Then, the session data will be stored and retrieved using the above methods.
  *
- * CHttpSession is a Web application component that can be accessed via
- * {@link CWebApplication::getSession()}.
+ * HttpSession is a Web application component that can be accessed via
+ * {@link WebApplication::getSession()}.
  *
  * @property boolean $useCustomStorage Whether to use custom storage.
  * @property boolean $isStarted Whether the session has started.
@@ -61,15 +59,11 @@
  * @property float $gCProbability The probability (percentage) that the gc (garbage collection) process is started on every session initialization, defaults to 1 meaning 1% chance.
  * @property boolean $useTransparentSessionID Whether transparent sid support is enabled or not, defaults to false.
  * @property integer $timeout The number of seconds after which data will be seen as 'garbage' and cleaned up, defaults to 1440 seconds.
- * @property CHttpSessionIterator $iterator An iterator for traversing the session variables.
+ * @property HttpSessionIterator $iterator An iterator for traversing the session variables.
  * @property integer $count The number of session variables.
  * @property array $keys The list of session variable names.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @package system.web
- * @since 1.0
  */
-class HttpSession extends ApplicationComponent implements IteratorAggregate,ArrayAccess,Countable
+class HttpSession extends ApplicationComponent implements IteratorAggregate, ArrayAccess, Countable
 {
     /**
      * @var boolean whether the session should be automatically started when the session application component is initialized, defaults to true.
@@ -85,13 +79,13 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
         parent::init();
 
         // default session gc probability is 1%
-        ini_set('session.gc_probability',1);
-        ini_set('session.gc_divisor',100);
+        ini_set('session.gc_probability', 1);
+        ini_set('session.gc_divisor', 100);
 
         if ($this->autoStart) {
             $this->open();
         }
-        register_shutdown_function(array($this,'close'));
+        register_shutdown_function(array($this, 'close'));
     }
 
     /**
@@ -113,12 +107,30 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
      */
     public function open()
     {
-        if($this->getUseCustomStorage())
-            @session_set_save_handler(array($this,'openSession'),array($this,'closeSession'),array($this,'readSession'),array($this,'writeSession'),array($this,'destroySession'),array($this,'gcSession'));
+        if ($this->getUseCustomStorage())
+            @session_set_save_handler(array(
+                $this,
+                'openSession'
+            ), array(
+                $this,
+                'closeSession'
+            ), array(
+                $this,
+                'readSession'
+            ), array(
+                $this,
+                'writeSession'
+            ), array(
+                $this,
+                'destroySession'
+            ), array(
+                $this,
+                'gcSession'
+            ));
 
         @session_start();
-        if (FLY_DEBUG && session_id()=='') {
-            $message = Fly::t('fly','Failed to start session.');
+        if (FLY_DEBUG && session_id() == '') {
+            $message = Fly::t('fly', 'Failed to start session.');
             if (function_exists('error_get_last')) {
                 $error = error_get_last();
                 if (isset($error['message'])) {
@@ -134,7 +146,7 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
      */
     public function close()
     {
-        if(session_id() !== '') {
+        if (session_id() !== '') {
             @session_write_close();
         }
     }
@@ -178,9 +190,8 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
      * Updates the current session id with a newly generated one .
      * Please refer to {@link http://php.net/session_regenerate_id} for more details.
      * @param boolean $deleteOldSession Whether to delete the old associated session file or not.
-     * @since 1.1.8
      */
-    public function regenerateID($deleteOldSession=false)
+    public function regenerateID($deleteOldSession = false)
     {
         session_regenerate_id($deleteOldSession);
     }
@@ -211,15 +222,15 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
 
     /**
      * @param string $value the current session save path
-     * @throws CException if the path is not a valid directory
+     * @throws FlyException if the path is not a valid directory
      */
     public function setSavePath($value)
     {
         if (is_dir($value)) {
             session_save_path($value);
         } else {
-            throw new FlyException(Fly::t('fly','HttpSession.savePath "{path}" is not a valid directory.',
-                array('{path}'=>$value)));
+            throw new FlyException(Fly::t('fly', 'HttpSession.savePath "{path}" is not a valid directory.',
+                array('{path}' => $value)));
         }
     }
 
@@ -245,9 +256,9 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
         extract($data);
         extract($value);
         if (isset($httponly)) {
-            session_set_cookie_params($lifetime,$path,$domain,$secure,$httponly);
+            session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
         } else {
-            session_set_cookie_params($lifetime,$path,$domain,$secure);
+            session_set_cookie_params($lifetime, $path, $domain, $secure);
         }
     }
 
@@ -271,16 +282,16 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
     public function setCookieMode($value)
     {
         if ($value === 'none') {
-            ini_set('session.use_cookies','0');
-            ini_set('session.use_only_cookies','0');
+            ini_set('session.use_cookies', '0');
+            ini_set('session.use_only_cookies', '0');
         } else if ($value === 'allow') {
-            ini_set('session.use_cookies','1');
-            ini_set('session.use_only_cookies','0');
-        } else if($value === 'only') {
-            ini_set('session.use_cookies','1');
-            ini_set('session.use_only_cookies','1');
+            ini_set('session.use_cookies', '1');
+            ini_set('session.use_only_cookies', '0');
+        } else if ($value === 'only') {
+            ini_set('session.use_cookies', '1');
+            ini_set('session.use_only_cookies', '1');
         } else {
-            throw new FlyException(Fly::t('fly','HttpSession.cookieMode can only be "none", "allow" or "only".'));
+            throw new FlyException(Fly::t('fly', 'HttpSession.cookieMode can only be "none", "allow" or "only".'));
         }
     }
 
@@ -289,7 +300,7 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
      */
     public function getGCProbability()
     {
-        return (float)(ini_get('session.gc_probability')/ini_get('session.gc_divisor')*100);
+        return (float)(ini_get('session.gc_probability') / ini_get('session.gc_divisor') * 100);
     }
 
     /**
@@ -300,11 +311,11 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
     {
         if ($value >= 0 && $value <= 100) {
             // percent * 21474837 / 2147483647 ≈ percent * 0.01
-            ini_set('session.gc_probability',floor($value*21474836.47));
-            ini_set('session.gc_divisor',2147483647);
+            ini_set('session.gc_probability', floor($value * 21474836.47));
+            ini_set('session.gc_divisor', 2147483647);
         } else {
-            throw new FlyException(Fly::t('fly','HttpSession.gcProbability "{value}" is invalid. It must be a float between 0 and 100.',
-                array('{value}'=>$value)));
+            throw new FlyException(Fly::t('fly', 'HttpSession.gcProbability "{value}" is invalid. It must be a float between 0 and 100.',
+                array('{value}' => $value)));
         }
     }
 
@@ -313,7 +324,7 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
      */
     public function getUseTransparentSessionID()
     {
-        return ini_get('session.use_trans_sid')  == 1;
+        return ini_get('session.use_trans_sid') == 1;
     }
 
     /**
@@ -509,7 +520,7 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
      */
     public function clear()
     {
-        foreach(array_keys($_SESSION) as $key)
+        foreach (array_keys($_SESSION) as $key)
             unset($_SESSION[$key]);
     }
 
@@ -555,9 +566,9 @@ class HttpSession extends ApplicationComponent implements IteratorAggregate,Arra
      * @param integer $offset the offset to set element
      * @param mixed $item the element value
      */
-    public function offsetSet($offset,$item)
+    public function offsetSet($offset, $item)
     {
-        $_SESSION[$offset]=$item;
+        $_SESSION[$offset] = $item;
     }
 
     /**

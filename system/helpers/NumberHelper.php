@@ -1,39 +1,21 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
- * CodeIgniter Number Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/number_helper.html
+ * Number Helpers
  */
-
 class NumberHelper
 {
 
     /**
      * Formats a numbers as bytes, based on size, and adds the appropriate suffix
-     *
-     * @access	public
-     * @param	mixed	// will be cast as int
-     * @return	string
+     * @param mixed
+     * @return string
      */
 
     public static function byteFormat($num, $precision = 1)
@@ -59,9 +41,4 @@ class NumberHelper
 
         return number_format($num, $precision).' '.$unit;
     }
-
 }
-
-
-/* End of file number_helper.php */
-/* Location: ./system/helpers/number_helper.php */

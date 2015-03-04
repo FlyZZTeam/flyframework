@@ -34,6 +34,9 @@ defined('BASEPATH') || define('BASEPATH', FLY_PATH);
  */
 defined('EXT') || define('EXT', '.php');
 
+/**
+ * FlyBase is a helper class serving common framework functionalities.
+ */
 class FlyBase
 {
     /**
@@ -81,10 +84,6 @@ class FlyBase
 
     public static function createApplication($class, $config = null)
     {
-        /*
-        if (defined('STDIN')) {
-            chdir(dirname(__FILE__));
-        }*/
         return new $class($config);
     }
 
@@ -362,11 +361,10 @@ class FlyBase
      * It will search 'application' and 'webroot'
      * if defined ENVIRONMENT,it will search 'ENVIRONMENT' on last dir.
      *
-     * @access    public
-     * @param    string    alias name
-     * @param   boolean  if configuration values should be loaded into their own section
-     * @param   boolean  true if errors should just return false, false if an error message should be displayed
-     * @return    boolean    if the file was loaded correctly
+     * @param string $alias alias name
+     * @param boolean $useSections if configuration values should be loaded into their own section
+     * @param boolean $failGracefully true if errors should just return false, false if an error message should be displayed
+     * @return boolean if the file was loaded correctly
      */
     public static function loadConfig($alias, $useSections = false, $failGracefully = false)
     {
@@ -528,9 +526,8 @@ class FlyBase
      * Since there are a few places where we conditionally test for PHP > 5
      * we'll set a static variable.
      *
-     * @access    public
-     * @param    string
-     * @return    bool    TRUE if the current version is $version or higher
+     * @param string
+     * @return bool TRUE if the current version is $version or higher
      */
     public static function isPhp($version = '5.0.0')
     {

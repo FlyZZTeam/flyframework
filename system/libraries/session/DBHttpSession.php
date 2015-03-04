@@ -1,17 +1,15 @@
 <?php
 /**
- * CDbHttpSession class
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @link http://www.yiiframework.com/
- * @copyright Copyright &copy; 2008-2011 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
 
 /**
- * CDbHttpSession extends {@link CHttpSession} by using database as session data storage.
+ * DBHttpSession extends {@link HttpSession} by using database as session data storage.
  *
- * CDbHttpSession stores session data in a DB table named 'YiiSession'. The table name
+ * DBHttpSession stores session data in a DB table named 'FlySession'. The table name
  * can be changed by setting {@link sessionTableName}. If the table does not exist,
  * it will be automatically created if {@link autoCreateSessionTable} is set true.
  *
@@ -27,29 +25,20 @@
  * </pre>
  * Where 'BLOB' refers to the BLOB-type of your preffered database.
  *
- * CDbHttpSession relies on {@link http://www.php.net/manual/en/ref.pdo.php PDO} to access database.
+ * DBHttpSession relies on {@link http://www.php.net/manual/en/ref.pdo.php PDO} to access database.
  *
- * By default, it will use an SQLite3 database named 'session-YiiVersion.db' under the application runtime directory.
- * You can also specify {@link connectionID} so that it makes use of a DB application component to access database.
- *
- * When using CDbHttpSession in a production server, we recommend you pre-create the session DB table
+ * When using DBHttpSession in a production server, we recommend you pre-create the session DB table
  * and set {@link autoCreateSessionTable} to be false. This will greatly improve the performance.
  * You may also create a DB index for the 'expire' column in the session table to further improve the performance.
  *
  * @property boolean $useCustomStorage Whether to use custom storage.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @package system.web
- * @since 1.0
  */
 class DBHttpSession extends HttpSession
 {
-    public  $activeDbGroupID = 'default';
+    public $activeDbGroupID = 'default';
 
     /**
-     * @var string the ID of a {@link CDbConnection} application component. If not set, a SQLite database
-     * will be automatically created and used. The SQLite database file is
-     * is <code>protected/runtime/session-YiiVersion.db</code>.
+     * @var string the ID of a {@link DB} application component.
      */
     public $connectionID;
 
@@ -62,13 +51,13 @@ class DBHttpSession extends HttpSession
      * </pre>
      * @see autoCreateSessionTable
      */
-    public $sessionTableName='FlySession';
+    public $sessionTableName = 'FlySession';
 
     /**
      * @var boolean whether the session DB table should be automatically created if not exists. Defaults to true.
      * @see sessionTableName
      */
-    public $autoCreateSessionTable=true;
+    public $autoCreateSessionTable = true;
 
     /**
      * Returns a value indicating whether to use custom session storage.
@@ -84,7 +73,6 @@ class DBHttpSession extends HttpSession
      * Updates the current session id with a newly generated one.
      * Please refer to {@link http://php.net/session_regenerate_id} for more details.
      * @param boolean $deleteOldSession Whether to delete the old associated session file or not.
-     * @since 1.1.8
      */
     public function regenerateID($deleteOldSession = false)
     {
@@ -105,8 +93,8 @@ class DBHttpSession extends HttpSession
             ->where(array('id' => $oldID))
             ->get()
             ->rowArray();
-        if($row) {
-            if($deleteOldSession) {
+        if ($row) {
+            if ($deleteOldSession) {
                 $db->update($this->sessionTableName, array('id' => $newID), array('id' => $oldID));
             } else {
                 $row['id'] = $newID;
@@ -115,15 +103,15 @@ class DBHttpSession extends HttpSession
         } else {
             // shouldn't reach here normally
             $db->insert($this->sessionTableName, array(
-                'id'=>$newID,
-                'expire'=>time()+$this->getTimeout(),
+                'id' => $newID,
+                'expire' => time() + $this->getTimeout(),
             ));
         }
     }
 
     /**
      * Creates the session DB table.
-     * @param CDbConnection $db the database connection
+     * @param DB $db the database connection
      * @param string $tableName the name of the table to be created
      */
     protected function createSessionTable($db, $tableName)
@@ -133,7 +121,7 @@ class DBHttpSession extends HttpSession
         if ($driver === 'mysql') {
             $blob = 'LONGBLOB';
         } else if ($driver === 'pgsql') {
-            $blob='BYTEA';
+            $blob = 'BYTEA';
         } else {
             $blob = 'BLOB';
         }
@@ -167,7 +155,7 @@ class DBHttpSession extends HttpSession
         if ($this->autoCreateSessionTable) {
             try {
                 $db->delete($this->sessionTableName, array('expire < ' => time()));
-            } catch(Exception $e) {
+            } catch (Exception $e) {
                 $this->createSessionTable($db, $this->sessionTableName);
             }
         }
@@ -217,13 +205,13 @@ class DBHttpSession extends HttpSession
                     'expire' => $expire,
                 ));
             } else {
-                $db->update($this->sessionTableName,array(
+                $db->update($this->sessionTableName, array(
                     'data' => $data,
                     'expire' => $expire
                 ), array('id' => $id));
             }
-        } catch(Exception $e) {
-            if(FLY_DEBUG) {
+        } catch (Exception $e) {
+            if (FLY_DEBUG) {
                 echo $e->getMessage();
             }
             // it is too late to log an error message here

@@ -1,42 +1,25 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
+ * @link http://www.flyframework.com/
+ * @copyright Copyright &copy; FlyZZ Team
+ * @license http://www.flyframework.com/license.html
+ * @author zz <zz@flyzz.net>
  */
-
-// ------------------------------------------------------------------------
 
 /**
- * CodeIgniter Security Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/security_helper.html
+ * Security Helpers
  */
-
 class SecurityHelper
 {
 
     /**
      * XSS Filtering
      *
-     * @access	public
-     * @param	string
-     * @param	bool	whether or not the content is an image file
-     * @return	string
+     * @param string
+     * @param bool $is_image whether or not the content is an image file
+     * @return string
      */
-    public static function cleanXss($str, $is_image = FALSE)
+    public static function cleanXss($str, $is_image = false)
     {
         return Fly::app()->Security->cleanXss($str, $is_image);
     }
@@ -44,9 +27,8 @@ class SecurityHelper
     /**
      * Sanitize Filename
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function sanitizeFileName($filename)
     {
@@ -56,9 +38,8 @@ class SecurityHelper
     /**
      * Hash encode a string
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function hash($str, $type = 'sha1')
     {
@@ -72,9 +53,8 @@ class SecurityHelper
     /**
      * Strip Image Tags
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function stripImageTags($str)
     {
@@ -87,13 +67,11 @@ class SecurityHelper
     /**
      * Convert PHP tags to entities
      *
-     * @access	public
-     * @param	string
-     * @return	string
+     * @param string
+     * @return string
      */
     public static function encodePhpTags($str)
     {
-        return str_replace(array('<?php', '<?PHP', '<?', '?>'),  array('&lt;?php', '&lt;?PHP', '&lt;?', '?&gt;'), $str);
+        return str_replace(array('<?php', '<?PHP', '<?', '?>'), array('&lt;?php', '&lt;?PHP', '&lt;?', '?&gt;'), $str);
     }
-
 }
