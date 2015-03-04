@@ -6,3 +6,16 @@ When we are in the development of the web project, I hope to have a more appropr
 So we made a let us feel amazing things - "we put CI and YII together". We hope he can have CI simple, quick start, also has the powerful function of YII.
 
 This is FlyFramework.
+
+
+Thanks
+------------
+Thanks to Ci, the YII development team
+
+
+Copyright
+------------
+Copyright &copy; 2008-2011 Yii Software LLC
+Copyright &copy; 2008-2014 EllisLab, Inc.
+Copyright &copy; FlyZZ Team
+
