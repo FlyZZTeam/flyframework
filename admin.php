@@ -32,7 +32,7 @@ define('FLY_DEBUG', true);
 error_reporting(E_ALL);
 
 
-require('./system/Fly.php');
+require('./framework/Fly.php');
 $a = require('./application/config/config.php');
 Fly::createWebApplication($a)->run();
 

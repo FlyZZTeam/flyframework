@@ -34,7 +34,7 @@ error_reporting(E_ALL);
 
 
 
-require('./system/Fly.php');
+require('./framework/Fly.php');
 require('./application/modules/admin/AdminWebApplication.php');
 $a = require('./application/config/config.php');
 //Fly::createWebApplication($a)->run();
