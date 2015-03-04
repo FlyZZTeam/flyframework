@@ -539,11 +539,11 @@ class Validator extends Component
      */
     public function matches($str, $field)
     {
-        if (!isset($_POST[$field])) {
+        if (!isset($this->attributes[$field])) {
             return false;
         }
 
-        $field = $_POST[$field];
+        $field = $this->attributes[$field];
 
         return ($str !== $field) ? false : true;
     }
