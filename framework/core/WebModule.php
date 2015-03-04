@@ -7,7 +7,7 @@
  */
 
 /**
- * CWebModule represents an application module.
+ * WebModule represents an application module.
  *
  * An application module may be considered as a self-contained sub-application
  * that has its own controllers, models and views and can be reused in a different

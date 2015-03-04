@@ -7,7 +7,7 @@
  */
 
 /**
- * CWebApplication extends CApplication by providing functionalities specific to Web requests.
+ * WebApplication extends Application by providing functionalities specific to Web requests.
  */
 class WebApplication extends Application
 {
