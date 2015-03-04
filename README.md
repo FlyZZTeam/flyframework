@@ -16,6 +16,8 @@ Thanks to Ci, the YII development team
 Copyright
 ------------
 Copyright &copy; 2008-2011 Yii Software LLC
+
 Copyright &copy; 2008-2014 EllisLab, Inc.
+
 Copyright &copy; FlyZZ Team
 
