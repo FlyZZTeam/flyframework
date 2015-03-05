@@ -135,25 +135,25 @@ class StringHelper
     public static function randomString($type = 'alnum', $len = 8)
     {
         switch ($type) {
-            case 'basic'    :
+            case 'basic':
                 return mt_rand();
                 break;
-            case 'alnum'    :
-            case 'numeric'    :
-            case 'nozero'    :
-            case 'alpha'    :
+            case 'alnum':
+            case 'numeric':
+            case 'nozero':
+            case 'alpha':
 
                 switch ($type) {
-                    case 'alpha'    :
+                    case 'alpha':
                         $pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                         break;
-                    case 'alnum'    :
+                    case 'alnum':
                         $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                         break;
-                    case 'numeric'    :
+                    case 'numeric':
                         $pool = '0123456789';
                         break;
-                    case 'nozero'    :
+                    case 'nozero':
                         $pool = '123456789';
                         break;
                 }
@@ -164,18 +164,14 @@ class StringHelper
                 }
                 return $str;
                 break;
-            case 'unique'    :
-            case 'md5'        :
+            case 'unique':
+            case 'md5':
 
                 return md5(uniqid(mt_rand()));
                 break;
-            case 'encrypt'    :
-            case 'sha1'    :
-
-                $CI =& get_instance();
-                $CI->load->helper('security');
-
-                return do_hash(uniqid(mt_rand(), true), 'sha1');
+            case 'encrypt':
+            case 'sha1':
+                return SecurityHelper::hash(uniqid(mt_rand(), true), 'sha1');
                 break;
         }
     }
@@ -253,4 +249,71 @@ class StringHelper
         } while ($count);
         return $str;
     }
+
+    /**
+     * Is ASCII?
+     *
+     * Tests if a string is standard 7-bit ASCII or not
+     *
+     * @param string
+     * @return bool
+     */
+    public static function isAscii($str)
+    {
+        return (preg_match('/[^\x00-\x7F]/S', $str) == 0);
+    }
+
+    /**
+     * Convert to UTF-8
+     *
+     * Attempts to convert a string to UTF-8
+     *
+     * @param string
+     * @param string - input encoding
+     * @return string
+     */
+    public static function convertToUtf8($str, $encoding)
+    {
+        if (function_exists('iconv')) {
+            $str = @iconv($encoding, 'UTF-8', $str);
+        } else if (function_exists('mb_convert_encoding')) {
+            $str = @mb_convert_encoding($str, 'UTF-8', $encoding);
+        } else {
+            return false;
+        }
+
+        return $str;
+    }
+
+    /**
+     * Remove ASCII control characters
+     *
+     * Removes all ASCII control characters except horizontal tabs,
+     * line feeds, and carriage returns, as all others can cause
+     * problems in XML
+     *
+     * @param string
+     * @return string
+     */
+    public function safeAsciiForXml($str)
+    {
+        return StringHelper::removeInvisibleCharacters($str, false);
+    }
+
+    /**
+     * Clean UTF-8 strings
+     *
+     * Ensures strings are UTF-8
+     *
+     * @param string
+     * @return string
+     */
+    public static function cleanUtf8String($str)
+    {
+        if (self::isAscii($str) === false) {
+            $str = @iconv('UTF-8', 'UTF-8//IGNORE', $str);
+        }
+        return $str;
+    }
+
 }

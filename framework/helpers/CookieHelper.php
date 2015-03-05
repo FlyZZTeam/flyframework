@@ -39,8 +39,8 @@ class CookieHelper
     public static function getCookie($index = '', $xss_clean = false)
     {
         $prefix = '';
-        if (!isset($_COOKIE[$index]) && Fly::getConfig('cookie_prefix') != '') {
-            $prefix = Fly::getConfig('cookie_prefix');
+        if (!isset($_COOKIE[$index]) && Fly::app()->getRequest()->cookiePrefix != '') {
+            $prefix = Fly::app()->getRequest()->cookiePrefix;
         }
 
         return Fly::app()->Request->getCookie($prefix.$index, $xss_clean);

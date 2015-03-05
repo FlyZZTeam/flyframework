@@ -45,6 +45,8 @@ class IndexController extends BaseController
 
     public function actionIndex()
     {
+        echo Fly::app()->charset;
+        exit;
 
         if (preg_match("/(callback:\w+(\[.*?\])?)/", "callback:ssssss[10]", $match)) {
             $rules = (array('1' => $match[1]));

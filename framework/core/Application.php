@@ -58,6 +58,10 @@ abstract class Application extends Module
      * @var bool The application is ended.
      */
     private $_ended = false;
+    /**
+     * @var bool The application and the environment or the utf8 support
+     */
+    private $_enableUtf8 = false;
 
     /**
      * Constructor.
@@ -379,7 +383,22 @@ abstract class Application extends Module
         if (function_exists("set_time_limit") == true && @ini_get("safe_mode") == 0) {
             @set_time_limit(300);
         }
-        $this->getUnicode();
+
+        $charset = strtoupper($this->charset);
+        if (
+            preg_match('/./u', 'é') === 1 // PCRE must support UTF-8
+            && function_exists('iconv') // iconv must be installed
+            && ini_get('mbstring.func_overload') != 1 // Multibyte string function overloading cannot be enabled
+            && $charset == 'UTF-8' // Application charset must be UTF-8
+        ) {
+            Fly::log('debug', "UTF-8 Support Enabled");
+            $this->_enableUtf8 = true;
+            if (extension_loaded('mbstring')) {
+                mb_internal_encoding('UTF-8');
+            }
+        } else {
+            Fly::log('debug', "UTF-8 Support Disabled");
+        }
     }
 
     /**
@@ -413,6 +432,15 @@ abstract class Application extends Module
         $benchmark = $this->getBenchmark();
         $benchmark->mark('APPLICATION_START');
         $benchmark->mark('BASE_CLASS_INITIALIZATION_START');
+    }
+
+    /**
+     * Return whether to support the utf8 application.
+     * @return bool
+     */
+    public function getEnableUtf8()
+    {
+        return $this->_enableUtf8;
     }
 
     /**
@@ -480,7 +508,7 @@ abstract class Application extends Module
      */
     public function getUri()
     {
-        return $this->getComponent('Uri');
+        return $this->getComponent('uri');
     }
 
     /**
@@ -535,7 +563,7 @@ abstract class Application extends Module
      */
     public function getRequest()
     {
-        return $this->getComponent('HttpRequest');
+        return $this->getComponent('httpRequest');
     }
 
     /**
@@ -544,7 +572,7 @@ abstract class Application extends Module
      */
     public function getValidator()
     {
-        return $this->getComponent('Validator');
+        return $this->getComponent('validator');
     }
 
     /**
@@ -1035,6 +1063,12 @@ abstract class Application extends Module
             ),
             'validator' => array(
                 'class' => 'Validator',
+            ),
+            'httpRequest' => array(
+                'class' => 'HttpRequest',
+            ),
+            'uri' => array(
+                'class' => 'Uri',
             ),
         );
         $this->setComponents($components);
