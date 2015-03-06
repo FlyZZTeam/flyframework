@@ -24,15 +24,15 @@ class Security
      * @var int Expiration time for Cross Site Request Forgery Protection Cookie
      * Defaults to two hours (in seconds)
      */
-    protected $_csrf_expire = 7200;
+    protected $_csrfExpire = 7200;
     /**
      * @var string Token name for Cross Site Request Forgery Protection Cookie
      */
-    protected $_csrf_token_name = 'ci_csrf_token';
+    protected $_csrfTokenName = 'fly_csrf_token';
     /**
      * @var string Cookie name for Cross Site Request Forgery Protection Cookie
      */
-    protected $_csrf_cookie_name = 'ci_csrf_token';
+    protected $_csrfCookieName = 'fly_csrf_token';
     /**
      * @var array List of never allowed strings
      */
@@ -66,17 +66,17 @@ class Security
     public function __construct()
     {
         // Is CSRF protection enabled?
-        if (Fly::getConfig('csrf_protection') === true) {
+        if (Fly::getConfig('enableCsrfProtection') === true) {
             // CSRF config
-            foreach (array('csrf_expire', 'csrf_token_name', 'csrf_cookie_name') as $key) {
+            foreach (array('csrfExpire', 'csrfTokenName', 'csrfCookieName') as $key) {
                 if (false !== ($val = Fly::getConfig($key))) {
                     $this->{'_'.$key} = $val;
                 }
             }
 
             // Append application specific cookie prefix
-            if (Fly::getConfig('cookie_prefix')) {
-                $this->_csrf_cookie_name = Fly::getConfig('cookie_prefix').$this->_csrf_cookie_name;
+            if (Fly::app()->getRequest()->cookiePrefix) {
+                $this->_csrfCookieName = Fly::app()->getRequest()->cookiePrefix.$this->_csrfCookieName;
             }
 
             // Set the CSRF hash
@@ -98,21 +98,21 @@ class Security
         }
 
         // Do the tokens exist in both the _POST and _COOKIE arrays?
-        if (!isset($_POST[$this->_csrf_token_name], $_COOKIE[$this->_csrf_cookie_name])) {
+        if (!isset($_POST[$this->_csrfTokenName], $_COOKIE[$this->_csrfCookieName])) {
             $this->showCsrfError();
         }
 
         // Do the tokens match?
-        if ($_POST[$this->_csrf_token_name] != $_COOKIE[$this->_csrf_cookie_name]) {
+        if ($_POST[$this->_csrfTokenName] != $_COOKIE[$this->_csrfCookieName]) {
             $this->showCsrfError();
         }
 
         // We kill this since we're done and we don't want to
         // polute the _POST array
-        unset($_POST[$this->_csrf_token_name]);
+        unset($_POST[$this->_csrfTokenName]);
 
         // Nothing should last forever
-        unset($_COOKIE[$this->_csrf_cookie_name]);
+        unset($_COOKIE[$this->_csrfCookieName]);
         $this->_csrf_set_hash();
         $this->setCsrfCookie();
 
@@ -127,14 +127,14 @@ class Security
      */
     public function setCsrfCookie()
     {
-        $expire = time() + $this->_csrf_expire;
-        $secure_cookie = (Fly::getConfig('cookie_secure') === true) ? 1 : 0;
+        $expire = time() + $this->_csrfExpire;
+        $secure_cookie = (Fly::app()->getRequest()->cookieSecure === true) ? 1 : 0;
 
         if ($secure_cookie && (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) === 'off')) {
             return false;
         }
 
-        setcookie($this->_csrf_cookie_name, $this->_csrf_hash, $expire, Fly::getConfig('cookie_path'), Fly::getConfig('cookie_domain'), $secure_cookie);
+        setcookie($this->_csrfCookieName, $this->_csrf_hash, $expire, Fly::app()->getRequest()->cookiePath, Fly::app()->getRequest()->cookieDomain, $secure_cookie);
 
         Fly::log('debug', "CRSF cookie Set");
 
@@ -165,7 +165,7 @@ class Security
      */
     public function getCsrfTokenName()
     {
-        return $this->_csrf_token_name;
+        return $this->_csrfTokenName;
     }
 
     /**
@@ -748,10 +748,10 @@ class Security
             // We don't necessarily want to regenerate it with
             // each page load since a page could contain embedded
             // sub-pages causing this feature to fail
-            if (isset($_COOKIE[$this->_csrf_cookie_name]) &&
-                preg_match('#^[0-9a-f]{32}$#iS', $_COOKIE[$this->_csrf_cookie_name]) === 1
+            if (isset($_COOKIE[$this->_csrfCookieName]) &&
+                preg_match('#^[0-9a-f]{32}$#iS', $_COOKIE[$this->_csrfCookieName]) === 1
             ) {
-                return $this->_csrf_hash = $_COOKIE[$this->_csrf_cookie_name];
+                return $this->_csrf_hash = $_COOKIE[$this->_csrfCookieName];
             }
 
             return $this->_csrf_hash = md5(uniqid(rand(), true));

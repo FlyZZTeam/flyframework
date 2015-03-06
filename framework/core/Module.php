@@ -414,7 +414,6 @@ abstract class Module extends Component
 
             if (!is_array($config) || !isset($config['enabled']) || $config['enabled']) {
                 Fly::trace("Loading \"$id\" application component", 'system.Module');
-
                 $component = Fly::createComponent($config);
                 if (!$component) {
                     return null;

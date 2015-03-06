@@ -467,12 +467,8 @@ class FlyBase
      */
     public static function log($level = 'error', $msg, $category = 'application', $php_error = false)
     {
-        if (self::getConfig('log_threshold') == 0) {
-            return;
-        }
-
         if (self::$_logger === null) {
-            self::$_logger = new Log();
+            self::$_logger = new Logger();
         }
         self::$_logger->write($level, $msg, $category, $php_error);
     }
@@ -498,7 +494,7 @@ class FlyBase
         if (self::$_logger !== null) {
             return self::$_logger;
         } else {
-            return self::$_logger = new Log();
+            return self::$_logger = new Logger();
         }
     }
 
@@ -560,7 +556,7 @@ class FlyBase
         'HttpRequest' => '/core/HttpRequest.php',
         'Controller' => '/core/Controller.php',
         'Router' => '/core/Router.php',
-        'Log' => '/core/Log.php',
+        'Logger' => '/core/Logger.php',
         'Lang' => '/core/Lang.php',
         'Output' => '/core/Output.php',
         'Validator' => '/validators/Validator.php',
@@ -583,7 +579,6 @@ class FlyBase
         'HttpSession' => '/libraries/session/HttpSession.php',
         'DBHttpSession' => '/libraries/session/DBHttpSession.php',
         'HttpSessionIterator' => '/libraries/session/HttpSessionIterator.php',
-        'Utf8' => '/libraries/Utf8.php',
         'Calendar' => '/libraries/Calendar.php',
         'Email' => '/libraries/Email.php',
         'Encrypt' => '/libraries/Encrypt.php',

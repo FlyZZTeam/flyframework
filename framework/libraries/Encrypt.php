@@ -50,7 +50,7 @@ class Encrypt
             if ($this->encryptionKey != '') {
                 return $this->encryptionKey;
             }
-            $key = Fly::getConfig('encryption_key');
+            $key = Fly::getConfig('encryptionKey');
             if ($key == false) {
                 throw new FlyException(Fly::t('fly', 'In order to use the encryption class requires that you set an encryption key in your config file.'));
             }

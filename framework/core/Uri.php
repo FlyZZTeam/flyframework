@@ -26,6 +26,31 @@ class Uri extends Component
     public $showScriptName = true;
 
     public $appendParams = true;
+    /**
+     * Allowed URL Characters
+     * This lets you specify with a regular expression which characters are permitted
+     * within your URLs.  When someone tries to submit a URL with disallowed
+     * characters they will get a warning message.
+     * As a security measure you are STRONGLY encouraged to restrict URLs to
+     * as few characters as possible.  By default only these are allowed: a-z 0-9~%.:_-
+     *
+     * Leave blank to allow all characters -- but only if you are insane.
+     * DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
+     */
+    public $permittedUriChars = 'a-z 0-9~%.:_\-';
+    /**
+     * URI PROTOCOL
+     * This item determines which server global should be used to retrieve the
+     * URI string.  The default setting of 'AUTO' works for most servers.
+     * If your links do not seem to work, try one of the other delicious flavors:
+     *      'AUTO' Default - auto detects
+     *      'PATH_INFO' Uses the PATH_INFO
+     *      'QUERY_STRING' Uses the QUERY_STRING
+     *      'REQUEST_URI' Uses the REQUEST_URI
+     *      'ORIG_PATH_INFO' Uses the ORIG_PATH_INFO
+     * @var string
+     */
+    public $uriProtocol = 'AUTO';
 
     /**
      * @var array List of cached uri segments
@@ -53,7 +78,7 @@ class Uri extends Component
      */
     public function __construct()
     {
-        $enableQueryStrings = Fly::app()->getConfig('enable_query_strings');
+        $enableQueryStrings = Fly::getConfig('enableQueryStrings');
         if ($enableQueryStrings) {
             $this->_urlFormat = self::URL_FORMAT_GET;
         }
@@ -66,7 +91,7 @@ class Uri extends Component
      */
     public function fetchUriString()
     {
-        if (strtoupper(Fly::app()->getConfig('uri_protocol')) == 'AUTO') {
+        if (strtoupper($this->uriProtocol) == 'AUTO') {
             // Is the request coming from the command line?
             if (php_sapi_name() == 'cli' || defined('STDIN')) {
                 $this->setUriString($this->parseCliArgs());
@@ -105,7 +130,7 @@ class Uri extends Component
             return;
         }
 
-        $uri = strtoupper(Fly::app()->getConfig('uri_protocol'));
+        $uri = strtoupper($this->uriProtocol);
 
         if ($uri == 'REQUEST_URI') {
             $this->setUriString($this->detectUri());
@@ -196,16 +221,16 @@ class Uri extends Component
      */
     public function filterUri($str)
     {
-        if ($str != '' && Fly::app()->getConfig('permitted_uri_chars') != '' &&
-            Fly::app()->getConfig('enable_query_strings') == false
+        if ($str != '' && $this->permittedUriChars != '' &&
+            Fly::getConfig('enableQueryStrings') == false
         ) {
             // preg_quote() in PHP 5.3 escapes -, so the str_replace() and addition of - to preg_quote() is to maintain backwards
-            // compatibility as many are unaware of how characters in the permitted_uri_chars will be parsed as a regex pattern
+            // compatibility as many are unaware of how characters in the permittedUriChars will be parsed as a regex pattern
 
             if (!preg_match("|^[".str_replace(array(
                     '\\-',
                     '\-'
-                ), '-', preg_quote(Fly::app()->getConfig('permitted_uri_chars'), '-'))."]+$|i", $str)
+                ), '-', preg_quote($this->permittedUriChars, '-'))."]+$|i", $str)
             ) {
                 throw new HttpException(400, Fly::t('fly', 'The URI you submitted has disallowed characters.'));
             }
@@ -643,9 +668,9 @@ class Uri extends Component
             if ($route !== '') {
                 $subRoutes = explode('/', $route);
                 $count = count($subRoutes);
-                $ct = Fly::app()->getConfig('alias_controller');
-                $dt = Fly::app()->getConfig('alias_module');
-                $ft = Fly::app()->getConfig('alias_action');
+                $ct = Fly::getConfig('aliasController');
+                $dt = Fly::getConfig('aliasModule');
+                $ft = Fly::getConfig('aliasAction');
                 $query = '';
                 if ($count === 1) {
                     $query = $ct.'='.$subRoutes[0];

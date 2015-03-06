@@ -71,10 +71,10 @@ class Router
         // since URI segments are more search-engine friendly, but they can optionally be used.
         // If this feature is enabled, we will gather the directory/class/method a little differently
         $segments = array();
-        $enableQueryStrings = Fly::app()->getConfig('enable_query_strings');
-        $ct = Fly::app()->getConfig('alias_controller');
-        $dt = Fly::app()->getConfig('alias_module');
-        $ft = Fly::app()->getConfig('alias_action');
+        $enableQueryStrings = Fly::getConfig('enableQueryStrings');
+        $ct = Fly::getConfig('aliasController');
+        $dt = Fly::getConfig('aliasModule');
+        $ft = Fly::getConfig('aliasAction');
 
         if ($enableQueryStrings === true && isset($_GET[$ct])) {
 
@@ -431,17 +431,17 @@ class Router
             return;
         }
 
-        if (isset($routing['alias_module'])) {
-            $this->setModule($routing['alias_module']);
+        if (isset($routing['aliasModule'])) {
+            $this->setModule($routing['aliasModule']);
         }
 
-        if (isset($routing['alias_controller']) && $routing['alias_controller'] != '') {
-            $this->setClass($routing['alias_controller']);
+        if (isset($routing['aliasController']) && $routing['aliasController'] != '') {
+            $this->setClass($routing['aliasController']);
         }
 
-        if (isset($routing['alias_action'])) {
-            $routing['alias_action'] = ($routing['alias_action'] == '') ? 'index' : $routing['alias_action'];
-            $this->setMethod($routing['alias_action']);
+        if (isset($routing['aliasAction'])) {
+            $routing['aliasAction'] = ($routing['aliasAction'] == '') ? 'index' : $routing['aliasAction'];
+            $this->setMethod($routing['aliasAction']);
         }
     }
 

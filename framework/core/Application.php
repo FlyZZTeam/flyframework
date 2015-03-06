@@ -494,15 +494,6 @@ abstract class Application extends Module
     }
 
     /**
-     * Return UTF-8 component
-     * @return mixed
-     */
-    public function getUnicode()
-    {
-        return $this->getComponent('Utf8');
-    }
-
-    /**
      * Return Uri component
      * @return mixed
      */

@@ -35,7 +35,7 @@ class FormHelper
         $form .= '>';
 
         // Add CSRF field if enabled, but leave it out for GET requests and requests to external websites
-        if (Fly::getConfig('csrf_protection') === true && !(strpos($action, Fly::app()->Request->getBaseUrl(true)) === false || strpos($form, 'method="get"'))) {
+        if (Fly::getConfig('enableCsrfProtection') === true && !(strpos($action, Fly::app()->Request->getBaseUrl(true)) === false || strpos($form, 'method="get"'))) {
             $hidden[Fly::app()->Security->getCsrfTokenName()] = Fly::app()->Security->getCsrfHash();
         }
 

@@ -43,7 +43,7 @@ class Hooks
     {
         // If hooks are not enabled in the config file
         // there is nothing else to do
-        if (Fly::app()->getConfig('enable_hooks') == false) {
+        if (Fly::app()->getConfig('enableHooks') == false) {
             return;
         }
 

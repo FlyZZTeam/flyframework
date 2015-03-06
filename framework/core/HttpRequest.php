@@ -100,7 +100,7 @@ class HttpRequest extends Component
     {
         Fly::log('debug', "HttpRequest Class Initialized");
 
-        $this->_enable_csrf = (Fly::getConfig('csrf_protection') === true);
+        $this->_enable_csrf = (Fly::getConfig('enableCsrfProtection') === true);
 
         $this->security = FLY::app()->Security;
 

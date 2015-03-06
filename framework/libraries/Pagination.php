@@ -171,7 +171,7 @@ class Pagination
 
         // Is pagination being used over GET or POST?  If get, add a per_page query
         // string. If post, add a trailing slash to the base URL if needed
-        if (Fly::app()->getConfig('enable_query_strings') === true || $this->pageQueryString === true) {
+        if (Fly::getConfig('enableQueryStrings') === true || $this->pageQueryString === true) {
             $this->baseUrl = rtrim($this->baseUrl).'&amp;'.$this->queryStringSegment.'=';
         } else {
             $this->baseUrl = rtrim($this->baseUrl, '/').'/';
