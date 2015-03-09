@@ -6,7 +6,7 @@
  * there is an available translation if you intend to use something other
  * than english.
  */
-$config['language']	= 'en_us';
+$config['language'] = 'en_us';
 
 /**
  * Default Character Set
@@ -43,9 +43,9 @@ $config['enableHooks'] = true;
  */
 $config['enableQueryStrings'] = true;
 
-$config['aliasController']	= 'c';
-$config['aliasAction']		= 'a';
-$config['aliasModule']	    = 'm';
+$config['aliasController'] = 'c';
+$config['aliasAction'] = 'a';
+$config['aliasModule'] = 'm';
 
 /**
  * Cache Directory Path
@@ -89,7 +89,7 @@ $config['csrfExpire'] = 7200;
  * For a live site you'll usually only enable Errors (1) to be logged otherwise
  * your log files will fill up very fast.
  */
-$config['logThreshold'] = '';
+$config['logThreshold'] = '4';
 
 /**
  * Error Logging Directory Path
@@ -111,7 +111,7 @@ $config['logDateFormat'] = 'Y-m-d H:i:s';
  * can rewrite the tags on-the-fly, enabling you to utilize that syntax
  * in your view files.  Options are TRUE or FALSE (boolean)
  */
-$config['rewrite_short_tags'] = FALSE;
+$config['rewrite_short_tags'] = false;
 
 /*
 $config['hooks'] = array(
@@ -128,7 +128,6 @@ $config['hooks'] = array(
  */
 $config['timezone'] = 'PRC';
 
-
 $config['import'] = array(
     'application.components.*',
     'application.models.*',
@@ -140,8 +139,7 @@ $config['aliases'] = array(
     'test' => './application/models/TestValidator',
 );
 
-$config['behaviors'] = array(
-    //'TestBehavior' => 'TestBehavior',
+$config['behaviors'] = array(//'TestBehavior' => 'TestBehavior',
 );
 
 /**
@@ -184,7 +182,6 @@ $config['components'] = array(
          */
         'uriProtocol' => 'AUTO',
     ),
-
     'httpRequest' => array(
         /*
          * Set a prefix if you need to avoid collisions.
@@ -254,7 +251,15 @@ $config['components'] = array(
         'adapter' => 'file',
         'components' => array(
             'CacheFile' => array('cachePath' => './application/cache/'),
-'CacheMemcached'=>array('servers' => array(array('hostname' => '127.0.0.1', 'port'=>11211, 'weight'=>1))),
+            'CacheMemcached' => array(
+                'servers' => array(
+                    array(
+                        'hostname' => '127.0.0.1',
+                        'port' => 11211,
+                        'weight' => 1
+                    )
+                )
+            ),
         ),
     ),
 );

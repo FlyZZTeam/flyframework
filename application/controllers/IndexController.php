@@ -45,6 +45,7 @@ class IndexController extends BaseController
 
     public function actionIndex()
     {
+
         echo Fly::app()->charset;
         exit;
 

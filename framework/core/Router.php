@@ -102,7 +102,7 @@ class Router
 
         // Set the default controller so we can display it in the event
         // the URI doesn't correlated to a valid controller.
-        $this->default_controller = (!isset($this->routes['default_controller']) || $this->routes['default_controller'] == '') ? false : $this->routes['default_controller'];
+        $this->default_controller = (!isset($this->routes['defaultController']) || $this->routes['defaultController'] == '') ? false : $this->routes['defaultController'];
 
         // Were there any query string segments?  If so, we'll validate them and bail out since we're done.
         if (count($segments) > 0) {
@@ -259,8 +259,8 @@ class Router
                 $fileName = Fly::app()->getControllerName($newSegments[0]).EXT;
                 $filePath .= DIRECTORY_SEPARATOR.$fileName;
                 if (!file_exists($filePath)) {
-                    if (!empty($this->routes['404_override'])) {
-                        $x = explode('/', $this->routes['404_override']);
+                    if (!empty($this->routes['error404'])) {
+                        $x = explode('/', $this->routes['error404']);
                         $this->setModule('');
                         $this->setClass($x[0]);
                         $this->setMethod(isset($x[1]) ? $x[1] : 'index');
@@ -297,8 +297,8 @@ class Router
 
         // If we've gotten this far it means that the URI does not correlate to a valid
         // controller class.  We will now see if there is an override
-        if (!empty($this->routes['404_override'])) {
-            $x = explode('/', $this->routes['404_override']);
+        if (!empty($this->routes['error404'])) {
+            $x = explode('/', $this->routes['error404']);
 
             $this->setClass($x[0]);
             $this->setMethod(isset($x[1]) ? $x[1] : 'index');

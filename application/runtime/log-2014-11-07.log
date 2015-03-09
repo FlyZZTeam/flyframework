@@ -1,6 +1,0 @@
-[DEBUG] [application] - 2014-11-07 09:38:49 --> Application Class Initialized
-[DEBUG] [application] - 2014-11-07 09:38:49 --> Utf8 Class Initialized
-[DEBUG] [application] - 2014-11-07 09:38:50 --> UTF-8 Support Enabled
-[DEBUG] [application] - 2014-11-07 09:38:50 --> Hooks Class Initialized
-[DEBUG] [application] - 2014-11-07 09:38:51 --> Config file loaded: /Users/geet/www/fly/framework/application/config/mimes.php
-[DEBUG] [application] - 2014-11-07 09:38:51 --> Output Class Initialized

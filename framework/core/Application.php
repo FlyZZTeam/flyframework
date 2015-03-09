@@ -80,7 +80,6 @@ abstract class Application extends Module
 
         //System error and FlyException handler
         $this->initSystemHandlers();
-        $this->startTimer();
         if (is_string($config)) {
             $config = require($config);
         }
@@ -89,17 +88,13 @@ abstract class Application extends Module
             $config['timezone'] = 'PRC';
         }
 
-        if (isset($config['id']) && is_string($config['id']) && $config['id'] !== '') {
-            $this->_id = trim($config['id']);
-        }
-
         //System timezone
         $this->setTimeZone($config['timezone']);
 
         // Set application dir
-        if (isset($config['base_path'])) {
-            $this->setBasePath($config['base_path']);
-            unset($config['base_path']);
+        if (isset($config['basePath'])) {
+            $this->setBasePath($config['basePath']);
+            unset($config['basePath']);
         } else {
             $this->setBasePath('application');
         }
@@ -117,8 +112,8 @@ abstract class Application extends Module
         } else {
             require($configDir.'constants.php');
         }
-
         Fly::log('debug', 'Application Class Initialized');
+        $this->startTimer();
 
         $this->attachBehaviors($this->behaviors);
 
@@ -208,7 +203,11 @@ abstract class Application extends Module
      */
     public function getId()
     {
-        return $this->_id;
+        if ($this->_id !== null) {
+            return $this->_id;
+        } else {
+            return $this->_id = sprintf('%x', crc32($this->getBasePath().$this->name));
+        }
     }
 
     /**

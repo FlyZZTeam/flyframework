@@ -610,6 +610,7 @@ class FlyBase
         'TypographyHelper' => '/helpers/TypographyHelper.php',
         'UrlHelper' => '/helpers/UrlHelper.php',
         'XmlHelper' => '/helpers/XmlHelper.php',
+        'CaptchaHelper' => '/helpers/CaptchaHelper.php',
 
         'DB' => '/database/DB.php',
         'DBActiveRecord' => '/database/DBActiveRecord.php',

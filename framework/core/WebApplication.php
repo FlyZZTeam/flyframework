@@ -97,7 +97,7 @@ class WebApplication extends Application
      */
     public function getSession()
     {
-        //return $this->getComponent('session');
+        return $this->getComponent('session');
     }
 
     /**
@@ -129,7 +129,7 @@ class WebApplication extends Application
 
                 if (!method_exists($controller, $this->getActionName($action))) {
 
-                    $rule = $this->Router->getRoutes('404_override');
+                    $rule = $this->Router->getRoutes('error404');
                     // Check and see if we are using a 404 override and use it.
                     if (!empty($rule)) {
                         $x = explode('/', $rule);
@@ -517,9 +517,27 @@ class WebApplication extends Application
      */
     protected function init()
     {
-        /*
+
         parent::init();
         // preload 'request' so that it has chance to respond to onBeginRequest event.
-        $this->getRequest();*/
+        $this->getRequest();
+    }
+
+    /**
+     * Registers the core application components.
+     * This method overrides the parent implementation by registering additional core components.
+     * @see setComponents
+     */
+    protected function registerCoreComponents()
+    {
+        parent::registerCoreComponents();
+
+        $components=array(
+            'session'=>array(
+                'class'=>'HttpSession',
+            ),
+        );
+
+        $this->setComponents($components);
     }
 }

@@ -119,14 +119,12 @@ class Logger
         }
 
         $level = strtoupper($level);
-
         if (!isset($this->_levels[$level]) || ($this->_levels[$level] > $this->_threshold)) {
             return false;
         }
 
         $filepath = $this->_logPath.DIRECTORY_SEPARATOR.'log-'.date('Y-m-d').'.log';
         $message = '';
-
         if (!$fp = @fopen($filepath, FOPEN_WRITE_CREATE)) {
             return false;
         }
