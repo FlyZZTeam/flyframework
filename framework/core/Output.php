@@ -9,7 +9,7 @@
 /**
  * Responsible for sending final output to browser
  */
-class Output
+class Output extends Component
 {
 
     /**
@@ -44,6 +44,25 @@ class Output
      * @var bool Whether or not to parse variables like {elapsed_time} and {memory_usage}
      */
     protected $parseExecVars = true;
+    /**
+     * Output Compression
+     * Enables Gzip output compression for faster page loads.  When enabled,
+     * the output class will test whether your server supports Gzip.
+     * Even if it does, however, not all browsers support compression
+     * so enable only if you are reasonably sure your visitors can handle it.
+     *
+     * VERY IMPORTANT:  If you are getting a blank page when compression is enabled it
+     * means you are prematurely outputting something to your browser. It could
+     * even be a line of whitespace at the end of one of your scripts.  For
+     * compression to work, nothing can be sent before the output buffer is called
+     * by the output class.  Do not 'echo' any values with compression enabled.
+     */
+    public $compressOutput = false;
+    /**
+     * @var string The output cache path.
+     */
+    public $cachePath = '';
+
 
     /**
      * Constructor
@@ -323,7 +342,7 @@ class Output
         // --------------------------------------------------------------------
 
         // Is compression requested?
-        if (Fly::getConfig('compress_output') === true && $this->_zlibOc == false) {
+        if ($this->compressOutput === true && $this->_zlibOc == false) {
             if (extension_loaded('zlib')) {
                 if (isset($_SERVER['HTTP_ACCEPT_ENCODING']) && strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== false) {
                     ob_start('ob_gzhandler');
@@ -394,7 +413,7 @@ class Output
      */
     public function writeCache($output)
     {
-        $path = Fly::getConfig('cache_path');
+        $path = $this->cachePath;
 
         $cache_path = ($path == '') ? Fly::app()->getBasePath().'/cache/' : $path;
 
@@ -433,7 +452,8 @@ class Output
      */
     public function displayCache()
     {
-        $cache_path = (Fly::getConfig('cache_path') == '') ? Fly::app()->getBasePath().'/cache/' : Fly::getConfig('cache_path');
+
+        $cache_path = ($this->cachePath == '') ? Fly::app()->getBasePath().'/cache/' : $this->cachePath;
 
         // Build the file path.  The file name is an MD5 hash of the full URI
         $uri = Fly::app()->Request->getUrl();

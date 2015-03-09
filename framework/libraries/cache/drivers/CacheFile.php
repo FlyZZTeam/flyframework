@@ -23,7 +23,7 @@ class CacheFile extends Driver
         if (is_array($config) && isset($config['cachePath'])) {
             $this->_cachePath = trim($config['cachePath'], '/').'/';
         } else {
-            $path = Fly::getConfig('cache_path');
+            $path = Fly::getConfig('cachePath');
             $this->_cachePath = ($path == '') ? Fly::app()->getBasePath().'/cache/' : trim($path, '/').'/';;
         }
     }

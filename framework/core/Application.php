@@ -545,7 +545,7 @@ abstract class Application extends Module
      */
     public function getOutput()
     {
-        return $this->getComponent('Output');
+        return $this->getComponent('output');
     }
 
     /**
@@ -1061,6 +1061,9 @@ abstract class Application extends Module
             'uri' => array(
                 'class' => 'Uri',
             ),
+            'output' => array(
+                'class' => 'Output',
+            )
         );
         $this->setComponents($components);
     }
