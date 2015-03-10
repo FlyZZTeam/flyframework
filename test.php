@@ -30,6 +30,5 @@ if (ENVIRONMENT == 'development') {
 }
 
 require('./framework/Fly.php');
-require('./application/modules/admin/AdminWebApplication.php');
-$config = require('./application/config/config.php');
-Fly::createModuleApplication('admin', $config, true)->run();
+$a = require('./application/config/config.php');
+Fly::createWebApplication($a)->run();

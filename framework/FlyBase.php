@@ -60,28 +60,50 @@ class FlyBase
         return '1.0';
     }
 
-    public static function createApplicationById($id, $config = null, $type = 'WebApplication')
+    /**
+     * Create module application.
+     * @param $id
+     * @param null $config
+     * @param string $type
+     * @return Application
+     */
+    public static function createModuleApplication($id, $config = null, $useOwnClass = false, $type = 'WebApplication')
     {
         $id = trim($id);
         if (!is_string($id) || $id === '') {
-            exit('The application id is invalid.');
+            throw new FlyException(Fly::t('fly', 'Invalid module application id.'));
         }
 
-        $class = ucfirst($id).$type;
+
+        $class = $type;
+        if ($useOwnClass) {
+            $class = ucfirst($id).$type;
+        }
         if (!class_exists($class)) {
-            exit('Application of entrance class does not exist.');
+            throw new FlyException(Fly::t('fly', 'Class {className} not found', array('{className}' => $class)));
         }
 
-        $config['id'] = $id;
+        $config['moduleAppId'] = $id;
         $app = self::createApplication($class, $config);
         return $app;
     }
 
+    /**
+     * Returns the WebApplication.
+     * @param null $config
+     * @return WebApplication
+     */
     public static function createWebApplication($config = null)
     {
         return self::createApplication('WebApplication', $config);
     }
 
+    /**
+     * Returns the Application.
+     * @param $class
+     * @param null $config
+     * @return Application
+     */
     public static function createApplication($class, $config = null)
     {
         return new $class($config);
@@ -405,6 +427,17 @@ class FlyBase
             return self::$_instances[$class];
         }
         return null;
+    }
+
+    /**
+     * Returns the model
+     * @param string $class The class name. e.g:xxModel,models.xxModel.
+     * @param array $config The init config.
+     * @return Model
+     */
+    public static function m($class, $config = array())
+    {
+        return self::loadClass($class, $config);
     }
 
     /**

@@ -6,12 +6,12 @@
  * Time: 上午10:40
  */
 
-class ApprModule extends WebModule
+class BlogModule extends WebModule
 {
 
     public function init()
     {
-
+        $this->layout = 'main';
     }
 
     public function beforeControllerAction($c, $a)

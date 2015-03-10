@@ -46,6 +46,10 @@ abstract class Application extends Module
      */
     private $_id;
     /**
+     * @var string The identifier for the module application.
+     */
+    private $_moduleAppId;
+    /**
      * @var string The language that the user is using and the application should be targeted to.
      * Defaults to the {@link sourceLanguage source language}.
      */
@@ -203,7 +207,28 @@ abstract class Application extends Module
      */
     public function getId()
     {
-        return $this->_id;
+        if ($this->_id !== null)
+            return $this->_id;
+        else
+            return $this->_id = sprintf('%x', crc32($this->getBasePath().$this->name));
+    }
+
+    /**
+     * Set module application id.
+     * @param $id
+     */
+    public function setModuleAppId($id)
+    {
+        $this->_moduleAppId = $id;
+    }
+
+    /**
+     * Returns module application id.
+     * @return string
+     */
+    public function getModuleAppId()
+    {
+        return $this->_moduleAppId;
     }
 
     /**
@@ -704,13 +729,13 @@ abstract class Application extends Module
             return $this->_modulePath;
         } else {
             $this->_modulePath = $this->getBasePath().DIRECTORY_SEPARATOR.'modules';
-            if ($this->_id && $this->_id !== '') {
-                $this->_modulePath .= DIRECTORY_SEPARATOR.$this->_id;
+            if ($this->_moduleAppId && $this->_moduleAppId !== '') {
+                $this->_modulePath .= DIRECTORY_SEPARATOR.$this->_moduleAppId;
                 if (!is_dir($this->_modulePath)) {
                     throw new FlyException(Fly::t('fly', 'The module path "{path}" is not a valid directory.',
                         array('{path}' => $this->_modulePath)));
                 }
-                Fly::setPathOfAlias($this->_id, $this->_modulePath);
+                Fly::setPathOfAlias($this->_moduleAppId, $this->_modulePath);
             }
             return $this->_modulePath;
         }
@@ -727,13 +752,13 @@ abstract class Application extends Module
             throw new FlyException(Fly::t('fly', 'The module path "{path}" is not a valid directory.',
                 array('{path}' => $value)));
         }
-        if ($this->_id && $this->_id !== '') {
-            $this->_modulePath .= DIRECTORY_SEPARATOR.$this->_id;
+        if ($this->_moduleAppId && $this->_moduleAppId !== '') {
+            $this->_modulePath .= DIRECTORY_SEPARATOR.$this->_moduleAppId;
             if (!is_dir($this->_modulePath)) {
                 throw new FlyException(Fly::t('fly', 'The module path "{path}" is not a valid directory.',
                     array('{path}' => $this->_modulePath)));
             }
-            Fly::setPathOfAlias($this->_id, $this->_modulePath);
+            Fly::setPathOfAlias($this->_moduleAppId, $this->_modulePath);
         }
     }
 

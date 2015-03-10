@@ -32,7 +32,7 @@ class WebModule extends Module
     public $defaultController = 'default';
     /**
      * @var mixed the layout that is shared by the controllers inside this module.
-     * If a controller has explicitly declared its own {@link CController::layout layout},
+     * If a controller has explicitly declared its own {@link Controller::layout layout},
      * this property will be ignored.
      * If this is null (default), the application's layout or the parent module's layout (if available)
      * will be used. If this is false, then no layout will be used.
