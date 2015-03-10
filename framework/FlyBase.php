@@ -445,8 +445,8 @@ class FlyBase
      */
     public static function t($category, $message, $params = array())
     {
-        Fly::app()->Lang->load($category);
-        $message = Fly::app()->Lang->line($message);
+        Fly::app()->getLocale()->load($category);
+        $message = Fly::app()->getLocale()->line($message);
         if (empty($params)) {
             return $message;
         }
@@ -487,7 +487,7 @@ class FlyBase
     }
 
     /**
-     * @return Log message logger
+     * @return Logger message logger
      */
     public static function getLogger()
     {
@@ -500,11 +500,67 @@ class FlyBase
 
     /**
      * Sets the log object.
-     * @param Log $logger the log object.
+     * @param Logger $logger the log object.
      */
     public static function setLogger($logger)
     {
         self::$_logger = $logger;
+    }
+
+    /**
+     * Returns HttpRequest
+     * You must be in the application initialization is complete in order to use this method.
+     * @return HttpRequest
+     * @throws FlyException
+     */
+    public static function request()
+    {
+        if (!Fly::app()) {
+            throw new FlyException(Fly::t('fly', 'The application has not been initialized, you must be in the application initialization is complete in order to use this method.'));
+        }
+        return Fly::app()->getRequest();
+    }
+
+    /**
+     * Returns DB instance
+     * @param string $id The active db.
+     * @param string $params The db config.
+     * @param null $activeRecordOverride use AR?
+     * @return DBDriver|DBActiveRecord
+     * @throws FlyException
+     */
+    public static function db($id = 'default', $params = '', $activeRecordOverride = null)
+    {
+        if (!Fly::app()) {
+            throw new FlyException(Fly::t('fly', 'The application has not been initialized, you must be in the application initialization is complete in order to use this method.'));
+        }
+        return Fly::app()->getDB($id, $params, $activeRecordOverride);
+    }
+
+    /**
+     * Returns Uri
+     * @return Uri
+     * @throws FlyException
+     */
+    public static function uri()
+    {
+        if (!Fly::app()) {
+            throw new FlyException(Fly::t('fly', 'The application has not been initialized, you must be in the application initialization is complete in order to use this method.'));
+        }
+        return Fly::app()->getUri();
+    }
+
+    /**
+     * Returns Router
+     * @return Router
+     * @throws FlyException
+     */
+    public static function router()
+    {
+        if (!Fly::app()) {
+            throw new FlyException(Fly::t('fly', 'The application has not been initialized, you must be in the application initialization is complete in order to use this method.'));
+        }
+        return Fly::app()->getRouter();
     }
 
     /**
@@ -557,7 +613,7 @@ class FlyBase
         'Controller' => '/core/Controller.php',
         'Router' => '/core/Router.php',
         'Logger' => '/core/Logger.php',
-        'Lang' => '/core/Lang.php',
+        'Locale' => '/core/Locale.php',
         'Output' => '/core/Output.php',
         'Validator' => '/validators/Validator.php',
         'InlineValidator' => '/validators/InlineValidator.php',

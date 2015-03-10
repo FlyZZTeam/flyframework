@@ -203,11 +203,7 @@ abstract class Application extends Module
      */
     public function getId()
     {
-        if ($this->_id !== null) {
-            return $this->_id;
-        } else {
-            return $this->_id = sprintf('%x', crc32($this->getBasePath().$this->name));
-        }
+        return $this->_id;
     }
 
     /**
@@ -533,9 +529,9 @@ abstract class Application extends Module
      * i18n does not currently support
      * @return mixed
      */
-    public function getLang()
+    public function getLocale()
     {
-        return $this->getComponent('Lang');
+        return $this->getComponent('Locale');
     }
 
     /**
@@ -579,7 +575,7 @@ abstract class Application extends Module
      * @param string $id
      * @param string $params
      * @param null $activeRecordOverride
-     * @return mixed
+     * @return DBDriver|DBActiveRecord
      */
     public function getDB($id = 'default', $params = '', $activeRecordOverride = null)
     {

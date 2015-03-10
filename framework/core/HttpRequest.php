@@ -334,7 +334,7 @@ class HttpRequest extends Component
 
         if (!is_numeric($expire)) {
             if ($this->cookieExpire >= 0) {
-                $expire = $this->cookieExpire;
+                $expire = time() + $this->cookieExpire;
             } else {
                 $expire = time() - 86500;
             }
@@ -345,7 +345,6 @@ class HttpRequest extends Component
                 $expire = time() - 86500;
             }
         }
-
         setcookie($prefix.$name, $value, $expire, $path, $domain, $secure);
     }
 

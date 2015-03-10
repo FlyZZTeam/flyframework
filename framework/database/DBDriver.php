@@ -405,6 +405,16 @@ class DBDriver
     }
 
     /**
+     * Returns the table name
+     * @param $name
+     * @return mixed
+     */
+    public function getTableName($name)
+    {
+        return $this->protectIdentifiers($name, true);
+    }
+
+    /**
      * Load the result drivers
      *
      * @return string the name of the result class

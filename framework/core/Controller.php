@@ -212,7 +212,6 @@ class Controller extends Component
         if (($module = $this->getModule()) !== null) {
             $moduleViewPath = $module->getViewPath();
         }
-
         return $this->resolveViewFile($viewName, $this->getViewPath(), $basePath, $moduleViewPath);
     }
 

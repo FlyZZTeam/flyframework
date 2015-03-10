@@ -36,11 +36,11 @@
 
 $db['active_record'] = true;
 
-$db['default']['hostname'] = 'localhost'; //'mysql:host=127.0.0.1;dbname=flytest';
-$db['default']['username'] = 'postgres';
+$db['default']['hostname'] = 'mysql:host=127.0.0.1;dbname=flytest;charset=utf8';
+$db['default']['username'] = 'root';
 $db['default']['password'] = '123456';
-$db['default']['database'] = 'flytest';
-$db['default']['dbdriver'] = 'postgre';
+$db['default']['database'] = 'flytestdb';
+$db['default']['dbdriver'] = 'pdo';
 $db['default']['dbprefix'] = 'fly_';
 $db['default']['pconnect'] = false;
 $db['default']['db_debug'] = true;

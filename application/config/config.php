@@ -1,6 +1,11 @@
 <?php
 
 /**
+ *
+ */
+//$config['basePath'] = '';
+
+/**
  * Default Language
  * This determines which set of language files should be used. Make sure
  * there is an available translation if you intend to use something other
@@ -41,7 +46,7 @@ $config['enableHooks'] = true;
  * this feature is enabled, since CodeIgniter is designed primarily to
  * use segment based URLs.
  */
-$config['enableQueryStrings'] = true;
+$config['enableQueryStrings'] = false;
 
 $config['aliasController'] = 'c';
 $config['aliasAction'] = 'a';
@@ -222,7 +227,7 @@ $config['components'] = array(
         'proxyIps' => '',
     ),
     'errorHandler' => array(
-        'errorAction' => 'index/do',
+        //'errorAction' => '',
     ),
     'output' => array(
         /**
@@ -246,6 +251,17 @@ $config['components'] = array(
          */
         'cachePath' => '',
     ),
+    'session' => array(
+        'class' => 'DBHttpSession',
+        'sessionTableName' => 'fly_session',
+        //$lifetime, $path, $domain, $secure
+        'cookieParams' => array(
+            'lifetime' => 7200,
+            'path' => '/',
+            'domain' => '',
+            'secure' => '',
+        )
+    ),
     'Cache' => array(
         'class' => 'Cache',
         'adapter' => 'file',
@@ -262,6 +278,14 @@ $config['components'] = array(
             ),
         ),
     ),
+);
+
+/**
+ * Custom params
+ */
+$config['params'] = array(
+    'siteName' => 'Test FlyFramework',
+    'email' => 'zz@flyzz.net',
 );
 
 return $config;

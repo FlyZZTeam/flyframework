@@ -106,7 +106,7 @@ class DateHelper
      */
     public static function timespan($seconds = 1, $time = '')
     {
-        Fly::app()->Lang->load('date');
+        Fly::app()->getLocale()->load('date');
 
         if (!is_numeric($seconds)) {
             $seconds = 1;
@@ -126,7 +126,7 @@ class DateHelper
         $years = floor($seconds / 31536000);
 
         if ($years > 0) {
-            $str .= $years.' '.Fly::app()->Lang->line((($years > 1) ? 'date_years' : 'date_year')).', ';
+            $str .= $years.' '.Fly::app()->getLocale()->line((($years > 1) ? 'date_years' : 'date_year')).', ';
         }
 
         $seconds -= $years * 31536000;
@@ -134,7 +134,7 @@ class DateHelper
 
         if ($years > 0 || $months > 0) {
             if ($months > 0) {
-                $str .= $months.' '.Fly::app()->Lang->line((($months > 1) ? 'date_months' : 'date_month')).', ';
+                $str .= $months.' '.Fly::app()->getLocale()->line((($months > 1) ? 'date_months' : 'date_month')).', ';
             }
             $seconds -= $months * 2628000;
         }
@@ -143,7 +143,7 @@ class DateHelper
 
         if ($years > 0 || $months > 0 || $weeks > 0) {
             if ($weeks > 0) {
-                $str .= $weeks.' '.Fly::app()->Lang->line((($weeks > 1) ? 'date_weeks' : 'date_week')).', ';
+                $str .= $weeks.' '.Fly::app()->getLocale()->line((($weeks > 1) ? 'date_weeks' : 'date_week')).', ';
             }
             $seconds -= $weeks * 604800;
         }
@@ -152,7 +152,7 @@ class DateHelper
 
         if ($months > 0 || $weeks > 0 || $days > 0) {
             if ($days > 0) {
-                $str .= $days.' '.Fly::app()->Lang->line((($days > 1) ? 'date_days' : 'date_day')).', ';
+                $str .= $days.' '.Fly::app()->getLocale()->line((($days > 1) ? 'date_days' : 'date_day')).', ';
             }
 
             $seconds -= $days * 86400;
@@ -162,7 +162,7 @@ class DateHelper
 
         if ($days > 0 || $hours > 0) {
             if ($hours > 0) {
-                $str .= $hours.' '.Fly::app()->Lang->line((($hours > 1) ? 'date_hours' : 'date_hour')).', ';
+                $str .= $hours.' '.Fly::app()->getLocale()->line((($hours > 1) ? 'date_hours' : 'date_hour')).', ';
             }
 
             $seconds -= $hours * 3600;
@@ -172,14 +172,14 @@ class DateHelper
 
         if ($days > 0 || $hours > 0 || $minutes > 0) {
             if ($minutes > 0) {
-                $str .= $minutes.' '.Fly::app()->Lang->line((($minutes > 1) ? 'date_minutes' : 'date_minute')).', ';
+                $str .= $minutes.' '.Fly::app()->getLocale()->line((($minutes > 1) ? 'date_minutes' : 'date_minute')).', ';
             }
 
             $seconds -= $minutes * 60;
         }
 
         if ($str == '') {
-            $str .= $seconds.' '.Fly::app()->Lang->line((($seconds > 1) ? 'date_seconds' : 'date_second')).', ';
+            $str .= $seconds.' '.Fly::app()->getLocale()->line((($seconds > 1) ? 'date_seconds' : 'date_second')).', ';
         }
 
         return substr(trim($str), 0, -1);
@@ -382,7 +382,7 @@ class DateHelper
      */
     public static function timezoneMenu($default = 'UTC', $class = "", $name = 'timezones')
     {
-        Fly::app()->Lang->load('date');
+        Fly::app()->getLocale()->load('date');
 
         if ($default == 'GMT')
             $default = 'UTC';
@@ -397,7 +397,7 @@ class DateHelper
 
         foreach (self::timezones() as $key => $val) {
             $selected = ($default == $key) ? " selected='selected'" : '';
-            $menu .= "<option value='{$key}'{$selected}>".Fly::app()->Lang->line($key)."</option>\n";
+            $menu .= "<option value='{$key}'{$selected}>".Fly::app()->getLocale()->line($key)."</option>\n";
         }
 
         $menu .= "</select>";

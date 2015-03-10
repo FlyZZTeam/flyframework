@@ -31,7 +31,7 @@ class Calendar
      */
     public function __construct($config = array())
     {
-        Fly::app()->Lang->load('calendar');
+        Fly::app()->getLocale()->load('calendar');
         $this->localTime = time();
 
         if (count($config) > 0) {
@@ -265,11 +265,11 @@ class Calendar
 
         $month = $month_names[$month];
 
-        if (Fly::app()->Lang->line($month) === false) {
+        if (Fly::app()->getLocale()->line($month) === false) {
             return ucfirst(str_replace('cal_', '', $month));
         }
 
-        return Fly::app()->Lang->line($month);
+        return Fly::app()->getLocale()->line($month);
     }
 
     /**
@@ -296,7 +296,7 @@ class Calendar
 
         $days = array();
         foreach ($day_names as $val) {
-            $days[] = (Fly::app()->Lang->line('cal_'.$val) === false) ? ucfirst($val) : Fly::app()->Lang->line('cal_'.$val);
+            $days[] = (Fly::app()->getLocale()->line('cal_'.$val) === false) ? ucfirst($val) : Fly::app()->getLocale()->line('cal_'.$val);
         }
 
         return $days;

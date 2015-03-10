@@ -1624,9 +1624,9 @@ class Email
      */
     protected function _setErrorMessage($msg, $val = '')
     {
-        Fly::app()->Lang->load('email');
+        Fly::app()->getLocale()->load('email');
 
-        if (substr($msg, 0, 5) != 'lang:' || false === ($line = Fly::app()->Lang->line(substr($msg, 5)))) {
+        if (substr($msg, 0, 5) != 'lang:' || false === ($line = Fly::app()->getLocale()->line(substr($msg, 5)))) {
             $this->_debugMsg[] = str_replace('%s', $val, $msg)."<br />";
         } else {
             $this->_debugMsg[] = str_replace('%s', $val, $line)."<br />";

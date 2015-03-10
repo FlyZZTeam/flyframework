@@ -20,22 +20,22 @@ class NumberHelper
 
     public static function byteFormat($num, $precision = 1)
     {
-        Fly::app()->Lang->load('number');
+        Fly::app()->getLocale()->load('number');
 
         if ($num >= 1000000000000) {
             $num = round($num / 1099511627776, $precision);
-            $unit = Fly::app()->Lang->line('terabyte_abbr');
+            $unit = Fly::app()->getLocale()->line('terabyte_abbr');
         } else if ($num >= 1000000000) {
             $num = round($num / 1073741824, $precision);
-            $unit = Fly::app()->Lang->line('gigabyte_abbr');
+            $unit = Fly::app()->getLocale()->line('gigabyte_abbr');
         } else if ($num >= 1000000) {
             $num = round($num / 1048576, $precision);
-            $unit = Fly::app()->Lang->line('megabyte_abbr');
+            $unit = Fly::app()->getLocale()->line('megabyte_abbr');
         } else if ($num >= 1000) {
             $num = round($num / 1024, $precision);
-            $unit = Fly::app()->Lang->line('kilobyte_abbr');
+            $unit = Fly::app()->getLocale()->line('kilobyte_abbr');
         } else {
-            $unit = Fly::app()->Lang->line('bytes');
+            $unit = Fly::app()->getLocale()->line('bytes');
             return number_format($num).' '.$unit;
         }
 

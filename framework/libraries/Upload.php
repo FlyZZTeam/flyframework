@@ -758,16 +758,16 @@ class Upload
      */
     public function setError($msg)
     {
-        Fly::app()->Lang->load('upload');
+        Fly::app()->getLocale()->load('upload');
 
         if (is_array($msg)) {
             foreach ($msg as $val) {
-                $msg = (Fly::app()->Lang->line($val) == false) ? $val : Fly::app()->Lang->line($val);
+                $msg = (Fly::app()->getLocale()->line($val) == false) ? $val : Fly::app()->getLocale()->line($val);
                 $this->errorMsg[] = $msg;
                 Fly::log('error', $msg);
             }
         } else {
-            $msg = (Fly::app()->Lang->line($msg) == false) ? $msg : Fly::app()->Lang->line($msg);
+            $msg = (Fly::app()->getLocale()->line($msg) == false) ? $msg : Fly::app()->getLocale()->line($msg);
             $this->errorMsg[] = $msg;
             Fly::log('error', $msg);
         }

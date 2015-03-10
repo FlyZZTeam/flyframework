@@ -62,9 +62,9 @@ abstract class Module extends Component
             $config = require($config);
         }
 
-        if (isset($config['base_path'])) {
-            $this->setBasePath($config['base_path']);
-            unset($config['base_path']);
+        if (isset($config['basePath'])) {
+            $this->setBasePath($config['basePath']);
+            unset($config['basePath']);
         }
 
         Fly::setPathOfAlias($id, $this->getBasePath());

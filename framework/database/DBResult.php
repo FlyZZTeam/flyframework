@@ -361,7 +361,7 @@ class DBResult
         return true;
     }
 
-    public function bindColumn($column, $param, $type)
+    public function bindColumn($column, &$param, $type = null)
     {
         return false;
     }

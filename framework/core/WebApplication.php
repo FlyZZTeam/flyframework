@@ -93,7 +93,7 @@ class WebApplication extends Application
     }
 
     /**
-     * @return CHttpSession the session component
+     * @return HttpSession the session component
      */
     public function getSession()
     {
@@ -204,9 +204,7 @@ class WebApplication extends Application
             $filePath = $this->getModuleControllerPath($subPath).DIRECTORY_SEPARATOR.$fileName;
         } else {
             if ($subPath && $subPath !== '') {
-
                 $moduleFilePath = $this->getModuleControllerPath($subPath).DIRECTORY_SEPARATOR.$fileName;
-
                 if (file_exists($moduleFilePath)) {
                     $moduleName = $this->getModuleName($subPath);
                     Fly::import($subPath.'.'.$moduleName);

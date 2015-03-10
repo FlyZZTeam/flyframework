@@ -512,7 +512,7 @@ class Ftp
      */
     private function _error($line)
     {
-        Fly::app()->Lang->load('ftp');
-        throw new FlyException(Fly::app()->Lang->line($line));
+        Fly::app()->getLocale()->load('ftp');
+        throw new FlyException(Fly::app()->getLocale()->line($line));
     }
 }

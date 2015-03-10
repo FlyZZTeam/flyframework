@@ -16,7 +16,7 @@
  * The following is the table structure:
  *
  * <pre>
- * CREATE TABLE YiiSession
+ * CREATE TABLE FlySession
  * (
  *     id CHAR(32) PRIMARY KEY,
  *     expire INTEGER,

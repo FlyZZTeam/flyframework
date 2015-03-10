@@ -681,7 +681,6 @@ class XmlRpcMessage extends XmlRpc
             echo "---DATA---\n".htmlspecialchars($data)."\n---END DATA---\n\n";
 
             echo "---PARSED---\n";
-            var_dump($this->xh[$parser]['value']);
             echo "\n---END PARSED---</pre>";
         }
 
