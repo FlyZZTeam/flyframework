@@ -120,7 +120,6 @@ abstract class Application extends Module
         $this->startTimer();
 
         $this->attachBehaviors($this->behaviors);
-
         $this->preloadComponents();
         $this->initPHP();
         $this->initHooks();

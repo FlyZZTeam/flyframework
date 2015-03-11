@@ -63,14 +63,12 @@ class Output extends Component
      */
     public $cachePath = '';
 
-
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->_zlibOc = @ini_get('zlib.output_compression');
-
         Fly::loadConfig('config.mimes', true, true);
         $this->mimeTypes = Fly::getConfig('mimes');
 

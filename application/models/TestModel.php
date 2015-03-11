@@ -5,7 +5,6 @@
  * Date: 15/2/15
  * Time: 下午9:32
  */
-
 class TestModel extends Model
 {
     public $username = 'ddd';
@@ -15,9 +14,13 @@ class TestModel extends Model
     {
         $r = array(
             'edit' => array(
-            array('username,password', 'validator:application.models.TestValidator', 'message' => '{attribute} not empty'),
-            //array('password', 'callback:checkUser', 'message' => '{attribute} not empty'),
-            //array('date', 'required', 'message' => 'date not empty'),
+                array(
+                    'username,password',
+                    'validator:application.models.TestValidator',
+                    'message' => '{attribute} not empty'
+                ),
+                //array('password', 'callback:checkUser', 'message' => '{attribute} not empty'),
+                //array('date', 'required', 'message' => 'date not empty'),
             ),
         );
         if ($group && isset($r[$group])) {
@@ -28,7 +31,7 @@ class TestModel extends Model
 
     public function attributeLabels()
     {
-        return array('username'=>'UserName');
+        return array('username' => 'UserName');
     }
 
     public function checkUser2($a, $param)

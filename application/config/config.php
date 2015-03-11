@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * The application path.
  */
 //$config['basePath'] = '';
 
@@ -46,7 +46,7 @@ $config['enableHooks'] = true;
  * this feature is enabled, since CodeIgniter is designed primarily to
  * use segment based URLs.
  */
-$config['enableQueryStrings'] = false;
+$config['enableQueryStrings'] = true;
 
 $config['aliasController'] = 'c';
 $config['aliasAction'] = 'a';
@@ -66,6 +66,31 @@ $config['cachePath'] = './application/cache/';
  */
 $config['encryptionKey'] = '';
 
+/*
+ * Set a prefix if you need to avoid collisions.
+ */
+$config['cookiePrefix'] = '';
+
+/**
+ * Set to .your-domain.com for site-wide cookies.
+ */
+$config['cookieDomain'] = '';
+
+/**
+ * Typically will be a forward slash.
+ */
+$config['cookiePath'] = '/';
+
+/**
+ * Cookies will only be set if a secure HTTPS connection exists.
+ */
+$config['cookieSecure'] = false;
+
+/**
+ * Cookie time expired.
+ */
+$config['cookieExpire'] = 7200;
+
 /**
  * Cross Site Request Forgery
  * Enables a CSRF cookie token to be set. When set to TRUE, token will be
@@ -75,7 +100,7 @@ $config['encryptionKey'] = '';
  * 'csrfCookieName' = The cookie name
  * 'csrfExpire' = The number in seconds the token should expire.
  */
-$config['enableCsrfProtection'] = false;
+$config['enableCsrfProtection'] = true;
 $config['csrfTokenName'] = 'csrf_test_name';
 $config['csrfCookieName'] = 'csrf_cookie_name';
 $config['csrfExpire'] = 7200;
@@ -144,7 +169,7 @@ $config['aliases'] = array(
     'test' => './application/models/TestValidator',
 );
 
-$config['behaviors'] = array(//'TestBehavior' => 'TestBehavior',
+$config['behaviors'] = array( //'TestBehavior' => 'TestBehavior',
 );
 
 /**
@@ -188,26 +213,6 @@ $config['components'] = array(
         'uriProtocol' => 'AUTO',
     ),
     'httpRequest' => array(
-        /*
-         * Set a prefix if you need to avoid collisions.
-         */
-        'cookiePrefix' => '',
-        /**
-         * Set to .your-domain.com for site-wide cookies.
-         */
-        'cookieDomain' => '',
-        /**
-         * Typically will be a forward slash.
-         */
-        'cookiePath' => '/',
-        /**
-         * Cookies will only be set if a secure HTTPS connection exists.
-         */
-        'cookieSecure' => false,
-        /**
-         * Cookie time expired.
-         */
-        'cookieExpire' => 7200,
         /**
          * By default Fly enables access to the $_GET array.
          * If for some reason you would like to disable it, set 'allowGetArray' to FALSE.
@@ -226,8 +231,7 @@ $config['components'] = array(
          */
         'proxyIps' => '',
     ),
-    'errorHandler' => array(
-        //'errorAction' => '',
+    'errorHandler' => array(//'errorAction' => '',
     ),
     'output' => array(
         /**

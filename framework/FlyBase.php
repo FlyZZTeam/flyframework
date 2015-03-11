@@ -74,7 +74,6 @@ class FlyBase
             throw new FlyException(Fly::t('fly', 'Invalid module application id.'));
         }
 
-
         $class = $type;
         if ($useOwnClass) {
             $class = ucfirst($id).$type;
@@ -655,7 +654,6 @@ class FlyBase
         'Behavior' => '/core/Behavior.php',
         'Model' => '/core/Model.php',
         'ModelEvent' => '/core/ModelEvent.php',
-
         'Profiler' => '/libraries/Profiler.php',
         'Zip' => '/libraries/Zip.php',
         'UnitTest' => '/libraries/UnitTest.php',
@@ -683,7 +681,6 @@ class FlyBase
         'XmlRpc' => '/libraries/XmlRpc.php',
         'XmlRpcServer' => '/libraries/XmlRpcServer.php',
         'Jquery' => '/libraries/javascript/Jquery.php',
-
         'ArrayHelper' => '/helpers/ArrayHelper.php',
         'CookieHelper' => '/helpers/CookieHelper.php',
         'DateHelper' => '/helpers/DateHelper.php',
@@ -699,7 +696,6 @@ class FlyBase
         'UrlHelper' => '/helpers/UrlHelper.php',
         'XmlHelper' => '/helpers/XmlHelper.php',
         'CaptchaHelper' => '/helpers/CaptchaHelper.php',
-
         'DB' => '/database/DB.php',
         'DBActiveRecord' => '/database/DBActiveRecord.php',
         'DBCache' => '/database/DBCache.php',

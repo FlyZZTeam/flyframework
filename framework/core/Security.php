@@ -75,8 +75,8 @@ class Security
             }
 
             // Append application specific cookie prefix
-            if (Fly::app()->getRequest()->cookiePrefix) {
-                $this->_csrfCookieName = Fly::app()->getRequest()->cookiePrefix.$this->_csrfCookieName;
+            if (Fly::getConfig('cookiePrefix')) {
+                $this->_csrfCookieName = Fly::getConfig('cookiePrefix').$this->_csrfCookieName;
             }
 
             // Set the CSRF hash
@@ -128,13 +128,13 @@ class Security
     public function setCsrfCookie()
     {
         $expire = time() + $this->_csrfExpire;
-        $secure_cookie = (Fly::app()->getRequest()->cookieSecure === true) ? 1 : 0;
+        $secure_cookie = (Fly::getConfig('cookieSecure') === true) ? 1 : 0;
 
         if ($secure_cookie && (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) === 'off')) {
             return false;
         }
 
-        setcookie($this->_csrfCookieName, $this->_csrf_hash, $expire, Fly::app()->getRequest()->cookiePath, Fly::app()->getRequest()->cookieDomain, $secure_cookie);
+        setcookie($this->_csrfCookieName, $this->_csrf_hash, $expire, Fly::getConfig('cookiePath'), Fly::getConfig('cookieDomain'), $secure_cookie);
 
         Fly::log('debug', "CRSF cookie Set");
 

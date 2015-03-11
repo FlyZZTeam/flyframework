@@ -70,8 +70,6 @@ class HttpRequest extends Component
      */
     protected $headers = array();
 
-    private $security;
-
     /**
      * @var int Custom port
      */
@@ -99,10 +97,13 @@ class HttpRequest extends Component
     public function __construct()
     {
         Fly::log('debug', "HttpRequest Class Initialized");
-
         $this->_enable_csrf = (Fly::getConfig('enableCsrfProtection') === true);
 
-        $this->security = FLY::app()->Security;
+        $this->cookieExpire = Fly::getConfig('cookieExpire');
+        $this->cookiePrefix = Fly::getConfig('cookiePrefix');
+        $this->cookieDomain = Fly::getConfig('cookieDomain');
+        $this->cookiePath = Fly::getConfig('cookiePath');
+        $this->cookieSecure = Fly::getConfig('cookieSecure');
 
         // Sanitize global arrays
         $this->_sanitize_globals();
@@ -125,7 +126,7 @@ class HttpRequest extends Component
         }
 
         if ($xss_clean === true) {
-            return $this->security->cleanXss($array[$index]);
+            return Fly::app()->getSecurity()->cleanXss($array[$index]);
         }
 
         return $array[$index];
@@ -836,7 +837,7 @@ class HttpRequest extends Component
 
         // CSRF Protection check on HTTP requests
         if ($this->_enable_csrf == true && !$this->isCliRequest()) {
-            $this->security->csrfVerify();
+            Fly::app()->getSecurity()->csrfVerify();
         }
 
         Fly::log('debug', "Global POST and COOKIE data sanitized");
@@ -880,7 +881,7 @@ class HttpRequest extends Component
 
         // Should we filter the input data?
         if ($this->enableXssFilter === true) {
-            $str = $this->security->cleanXss($str);
+            $str = Fly::app()->getSecurity()->cleanXss($str);
         }
 
         // Standardize newlines if needed
@@ -973,7 +974,7 @@ class HttpRequest extends Component
         }
 
         if ($xss_clean === true) {
-            return $this->security->cleanXss($this->headers[$index]);
+            return Fly::app()->getSecurity()->cleanXss($this->headers[$index]);
         }
 
         return $this->headers[$index];

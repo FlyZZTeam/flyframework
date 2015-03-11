@@ -71,7 +71,6 @@ class Hooks
         if (!$this->enabled || !isset($this->hooks[$which])) {
             return false;
         }
-
         if (isset($this->hooks[$which][0]) && is_array($this->hooks[$which][0])) {
             foreach ($this->hooks[$which] as $val) {
                 $this->_run_hook($val);

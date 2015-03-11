@@ -258,6 +258,7 @@ class UrlHelper
     else document.write(unescape(l[i]));}
     //]]>
 
+
         </script><?php
 
         $buffer = ob_get_contents();

@@ -197,7 +197,6 @@ class IndexController extends BaseController
          * param3:是否进行Xss过滤,可以使用pg='s><html>';测试
          */
         echo Fly::request()->get('pg', 1, true);
-
     }
 
     /**
@@ -415,7 +414,7 @@ class IndexController extends BaseController
 
         //遍历
         $query = Fly::db()->query("select * from {$tableName}");
-        while($row = $query->fetchAssoc()) {
+        while ($row = $query->fetchAssoc()) {
             echo $row['username'];
             echo "<br>";
         }
@@ -454,7 +453,7 @@ class IndexController extends BaseController
         $data = Fly::db()->select('username')->where('uid', 1)->orWhere('uid', 2)->get('user')->resultArray();
         var_dump($data);
         echo "<br><br>";
-        $data = Fly::db()->select('username')->whereIn('uid', array(1,2))->get('user')->resultArray();
+        $data = Fly::db()->select('username')->whereIn('uid', array(1, 2))->get('user')->resultArray();
         var_dump($data);
 
         echo "<br><br>";
@@ -470,7 +469,6 @@ class IndexController extends BaseController
         //like("zhj%")
         $data = Fly::db()->select('*')->like('username', 'zhj', 'after')->get('user')->resultArray();
         var_dump($data);
-
 
         echo "<br><br>";
 
@@ -553,7 +551,6 @@ class IndexController extends BaseController
             exit;
         }
         $this->render('index', array());
-
     }
 
     public function actionIndex4()
@@ -569,7 +566,6 @@ class IndexController extends BaseController
         }
 
         exit;
-
 
         //Fly::app()->db->query("select * from ssss");
         //include("sssss.php");
@@ -592,29 +588,29 @@ class IndexController extends BaseController
         //echo "xxx";
         //exit;
         //try {
-            throw new Exceptions(Fly::t('fly','page not'));
+        throw new Exceptions(Fly::t('fly', 'page not'));
         //} catch(Exception $e) {
-            //var_dump($e);
-            //echo "Hello !";
+        //var_dump($e);
+        //echo "Hello !";
         //}
         exit;
-       // try {
-            $this->xx('sss');
+        // try {
+        $this->xx('sss');
         //} catch (Exception $e) {
-           // echo "ok";
-       // }
+        // echo "ok";
+        // }
         exit;
         $c = Fly::app()->Cache;
         //var_dump($c);
         $c->save('username', array('zj', 'hz'));
         var_dump($c->get('username'));
-	  echo "<br><br>";
-	var_dump($c->getMetaData('username'));
-	echo "<br><br>";
-	var_dump($c->cacheInfo());
-	$c->clean();
-	var_dump($c->get('username'));
-$c->File->save("zhou","zhou123");
+        echo "<br><br>";
+        var_dump($c->getMetaData('username'));
+        echo "<br><br>";
+        var_dump($c->cacheInfo());
+        $c->clean();
+        var_dump($c->get('username'));
+        $c->File->save("zhou", "zhou123");
         /*
         var_dump($c->File->getMetaData('username'));
         echo "<br><br>";
@@ -743,10 +739,18 @@ $c->File->save("zhou","zhou123");
         $data = $db->select('nickname')->from('user_info')->where('uid', 1)->orWhere('uid', 2)->get()->resultArray();
         var_dump($data);
         echo "<br>In<br>";
-        $data = $db->select('nickname')->from('user_info')->whereIn('uid', array(1,3))->orWhere('uid', 2)->get()->resultArray();
+        $data = $db->select('nickname')->from('user_info')->whereIn('uid', array(
+            1,
+            3
+        ))->orWhere('uid', 2)->get()->resultArray();
         var_dump($data);
         echo "<br>Not In<br>";
-        $data = $db->select('nickname')->from('user_info')->whereNotIn('uid', array(1,3,4,5))->orWhere('uid', 2)->get()->resultArray();
+        $data = $db->select('nickname')->from('user_info')->whereNotIn('uid', array(
+            1,
+            3,
+            4,
+            5
+        ))->orWhere('uid', 2)->get()->resultArray();
         var_dump($data);
         echo "<br>Like<br>";
         $data = $db->select('nickname')->from('user_info')->like('nickname', 'zhj', 'before')->get()->resultArray();
@@ -777,7 +781,7 @@ $c->File->save("zhou","zhou123");
         $data = $db->select('*')->from('user_info')->orderBy('uid', "DESC")->get()->resultArray();
         var_dump($data);
         echo "<br>Limit<br>";
-        $data = $db->select('*')->from('user_info')->orderBy('uid', "DESC")->limit(1,3)->get()->resultArray();
+        $data = $db->select('*')->from('user_info')->orderBy('uid', "DESC")->limit(1, 3)->get()->resultArray();
         var_dump($data);
         echo "<br>Count All result<br>";
         $data = $db->countAllResults('user_info');
@@ -785,7 +789,7 @@ $c->File->save("zhou","zhou123");
 
         echo "<br><br>AR insert update---------------------------------<br><br>";
 
-        $db->insert('user_info', array('uid'=>'100', 'nickname' => 'zhj345', 'qq' => '505'));
+        $db->insert('user_info', array('uid' => '100', 'nickname' => 'zhj345', 'qq' => '505'));
         echo "AffRows:".$db->affectedRows();
         $db->delete('user_info', array('uid' => '100'));
         $db->update('user_info', array('nickname' => 'hiegoer234'), array('uid' => 1));
@@ -860,8 +864,6 @@ $c->File->save("zhou","zhou123");
         $data = $db->getFieldData('user');
         var_dump($data);
 
-
-
         echo "<br><br>Escape---------------------------------<br><br>";
         $data = "''sss%_sd这个";
         echo "escape:<br>";
@@ -870,7 +872,6 @@ $c->File->save("zhou","zhou123");
         echo $db->escapeString($data);
         echo "<br>escapeLikeString:<br>";
         echo $db->escapeLikeString($data);
-
         //escape
 
     }
@@ -885,49 +886,50 @@ $c->File->save("zhou","zhou123");
         if ($dbUtil->createDataBase('flymall')) {
             echo "Data Base Create Success.";
         }*/
-/*
-        echo "<br>";
-        if ($dbUtil->dropDataBase('flymall')) {
-            echo "Drop database Success.";
-        }
-*//*
-        if ($dbUtil->createDataBase('flymall')) {
-            Fly::app()->db->selectDb('flymall');
-        }
-*/
-/*
-        $fields = array(
-            'blog_id' => array(
-                'type' => 'serial',
-                //'constraint' => 5,
-                //'unsigned' => TRUE,
-                //'notnull' => true,
-                //'auto_increment' => TRUE
-            ),
-            'blog_title' => array(
-                'type' => 'character',
-                'constraint' => '100',
-            ),
-            'blog_author' => array(
-                'type' =>'character',
-                'constraint' => '100',
-                'default' => 'King of Town',
-            ),
-            'blog_description' => array(
-                'type' => 'TEXT',
-                'null' => TRUE,
-            ),
-        );
-        $dbUtil->addField($fields);
-        $dbUtil->addKey('blog_id', true);
-        $dbUtil->createTable('blog');
+        /*
+                echo "<br>";
+                if ($dbUtil->dropDataBase('flymall')) {
+                    echo "Drop database Success.";
+                }
+        */
+        /*
+                if ($dbUtil->createDataBase('flymall')) {
+                    Fly::app()->db->selectDb('flymall');
+                }
+        */
+        /*
+                $fields = array(
+                    'blog_id' => array(
+                        'type' => 'serial',
+                        //'constraint' => 5,
+                        //'unsigned' => TRUE,
+                        //'notnull' => true,
+                        //'auto_increment' => TRUE
+                    ),
+                    'blog_title' => array(
+                        'type' => 'character',
+                        'constraint' => '100',
+                    ),
+                    'blog_author' => array(
+                        'type' =>'character',
+                        'constraint' => '100',
+                        'default' => 'King of Town',
+                    ),
+                    'blog_description' => array(
+                        'type' => 'TEXT',
+                        'null' => TRUE,
+                    ),
+                );
+                $dbUtil->addField($fields);
+                $dbUtil->addKey('blog_id', true);
+                $dbUtil->createTable('blog');
 
-        $dbUtil->renameTable('blog', 'newblog');
+                $dbUtil->renameTable('blog', 'newblog');
 
-        $fields = array(
-            'preferences' => array('type' => 'TEXT')
-        );
-        $dbUtil->addColumn('newblog', $fields);*/
+                $fields = array(
+                    'preferences' => array('type' => 'TEXT')
+                );
+                $dbUtil->addColumn('newblog', $fields);*/
         $dbUtil->dropColumn('newblog', 'blog_description');
 
         $fields = array(
@@ -937,7 +939,6 @@ $c->File->save("zhou","zhou123");
             ),
         );
         $dbUtil->modifyColumn('newblog', $fields);
-
     }
 
     public function debugDbUtil2()
@@ -998,15 +999,18 @@ $c->File->save("zhou","zhou123");
         exit;
         $p = $r->outputParameters();
 
-        $response = array(array('nickname'  => array('Smitty','string'),
-            'userid'    => array('99','string'),
-            'url'       => array('http://yoursite.com','string'),
-            'email'     => array('jsmith@yoursite.com','string'),
-            'lastname'  => array('Smith','string'),
-            'firstname' => array('John','string'),
-            'ss' => array($p[0], 'string'),
-        ),
-            'struct');
+        $response = array(
+            array(
+                'nickname' => array('Smitty', 'string'),
+                'userid' => array('99', 'string'),
+                'url' => array('http://yoursite.com', 'string'),
+                'email' => array('jsmith@yoursite.com', 'string'),
+                'lastname' => array('Smith', 'string'),
+                'firstname' => array('John', 'string'),
+                'ss' => array($p[0], 'string'),
+            ),
+            'struct'
+        );
         $xmlrpc = new XmlRpc();
         return $xmlrpc->sendResponse($response);
         //$this->render('index', array());

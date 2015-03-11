@@ -87,7 +87,6 @@ class WebApplication extends Application
                 Fly::app()->end();
             }
         }
-
         $route = $this->Router->getRouting();
         $this->runController($route);
     }
@@ -516,7 +515,6 @@ class WebApplication extends Application
      */
     protected function init()
     {
-
         parent::init();
         // preload 'request' so that it has chance to respond to onBeginRequest event.
         $this->getRequest();
@@ -531,9 +529,9 @@ class WebApplication extends Application
     {
         parent::registerCoreComponents();
 
-        $components=array(
-            'session'=>array(
-                'class'=>'HttpSession',
+        $components = array(
+            'session' => array(
+                'class' => 'HttpSession',
             ),
         );
 

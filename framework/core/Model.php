@@ -137,8 +137,7 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
             Fly::app()->getValidator()->run($this);
             $this->afterValidate();
             return !$this->hasErrors();
-        }
-        else
+        } else
             return false;
     }
 
@@ -165,7 +164,7 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
      */
     protected function beforeValidate()
     {
-        $event=new ModelEvent($this);
+        $event = new ModelEvent($this);
         $this->onBeforeValidate($event);
         return $event->isValid;
     }
@@ -296,7 +295,11 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
      */
     public function generateAttributeLabel($name)
     {
-        return ucwords(trim(strtolower(str_replace(array('-','_','.'),' ',preg_replace('/(?<![A-Z])[A-Z]/', ' \0', $name)))));
+        return ucwords(trim(strtolower(str_replace(array(
+            '-',
+            '_',
+            '.'
+        ), ' ', preg_replace('/(?<![A-Z])[A-Z]/', ' \0', $name)))));
     }
 
     /**
@@ -334,12 +337,12 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
      */
     public function setAttributes($values)
     {
-        if(!is_array($values))
+        if (!is_array($values))
             return;
         $attributes = array_flip($this->attributeNames());
-        foreach ($values as $name=>$value) {
+        foreach ($values as $name => $value) {
             if (isset($attributes[$name])) {
-                $this->$name=$value;
+                $this->$name = $value;
             }
         }
     }
@@ -349,12 +352,12 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
      * @param array $names list of attributes to be set null. If this parameter is not given,
      * all attributes as specified by {@link attributeNames} will have their values unset.
      */
-    public function unsetAttributes($names=null)
+    public function unsetAttributes($names = null)
     {
         if ($names === null) {
             $names = $this->attributeNames();
         }
-        foreach($names as $name) {
+        foreach ($names as $name) {
             $this->$name = null;
         }
     }
@@ -370,8 +373,10 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
     public function onUnsafeAttribute($name, $value)
     {
         if (FLY_DEBUG) {
-            Fly::log(Fly::t('yii','Failed to set unsafe attribute "{attribute}" of "{class}".',array('{attribute}'=>$name, '{class}'=>get_class($this))), 'error');
-
+            Fly::log(Fly::t('yii', 'Failed to set unsafe attribute "{attribute}" of "{class}".', array(
+                '{attribute}' => $name,
+                '{class}' => get_class($this)
+            )), 'error');
         }
     }
 
@@ -414,7 +419,7 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
      * @param integer $offset the offset to set element
      * @param mixed $item the element value
      */
-    public function offsetSet($offset,$item)
+    public function offsetSet($offset, $item)
     {
         $this->$offset = $item;
     }
