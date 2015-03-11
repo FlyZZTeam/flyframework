@@ -418,7 +418,7 @@ class FlyBase
         } else {
             $className = $class;
         }
-        if (class_exists($className)) {
+        if (class_exists($className, false)) {
             if (empty($config)) {
                 self::$_instances[$class] = new $className;
             } else {

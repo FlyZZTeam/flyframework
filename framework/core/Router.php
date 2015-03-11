@@ -43,7 +43,7 @@ class Router
     /**
      * @var string Default controller (and method if specific)
      */
-    var $default_controller;
+    var $default_controller = 'index';
 
     /**
      * Constructor

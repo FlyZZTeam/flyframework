@@ -143,7 +143,7 @@ class WebApplication extends Application
                             $this->showPageNotFound();
                         }
                         include_once($filePath);
-                        if (!class_exists($class)) {
+                        if (!class_exists($class, false)) {
                             $this->showPageNotFound();
                         }
                         $this->_controller = $controller = new $class($x[0], $this);
@@ -245,7 +245,7 @@ class WebApplication extends Application
 
         $oldClass = $class;
         $class = $this->getControllerName($class);
-        if (!class_exists($class)) {
+        if (!class_exists($class, false)) {
             $this->showPageNotFound();
         }
 
@@ -259,6 +259,7 @@ class WebApplication extends Application
          * Mark a start point so we can benchmark the controller
          */
         $this->getBenchmark()->mark('CONTROLLER_START');
+
         $this->_controller = new $class($oldClass, $module);
 
         /**
@@ -360,7 +361,7 @@ class WebApplication extends Application
     public function getModuleControllerPaths($path)
     {
         $searchPaths = array();
-        $moduleAppName = $this->getId();
+        $moduleAppName = $this->getModuleAppId();
         if (!$moduleAppName || $moduleAppName === '') {
             $searchPaths[] = $this->getDirectoryControllerPath($path);
         }
