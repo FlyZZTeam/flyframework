@@ -154,7 +154,7 @@ class Hooks
         // -----------------------------------
 
         if ($class !== false) {
-            if (class_exists($class, false)) {
+            if (class_exists($class)) {
                 $HOOK = new $class();
                 $HOOK->$function($params);
             }

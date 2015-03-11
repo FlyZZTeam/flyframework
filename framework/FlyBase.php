@@ -410,7 +410,6 @@ class FlyBase
         if (isset(self::$_instances[$class])) {
             return self::$_instances[$class];
         }
-
         Fly::import($class);
         $ary = explode('.', $class);
         if (count($ary) > 1) {
@@ -418,7 +417,7 @@ class FlyBase
         } else {
             $className = $class;
         }
-        if (class_exists($className, false)) {
+        if (class_exists($className)) {
             if (empty($config)) {
                 self::$_instances[$class] = new $className;
             } else {

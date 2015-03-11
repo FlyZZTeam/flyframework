@@ -143,7 +143,7 @@ class WebApplication extends Application
                             $this->showPageNotFound();
                         }
                         include_once($filePath);
-                        if (!class_exists($class, false)) {
+                        if (!class_exists($class)) {
                             $this->showPageNotFound();
                         }
                         $this->_controller = $controller = new $class($x[0], $this);
@@ -245,7 +245,7 @@ class WebApplication extends Application
 
         $oldClass = $class;
         $class = $this->getControllerName($class);
-        if (!class_exists($class, false)) {
+        if (!class_exists($class)) {
             $this->showPageNotFound();
         }
 
