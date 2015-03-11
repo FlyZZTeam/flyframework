@@ -13,6 +13,10 @@
  *
  * 基础解释:
  *      Fly::app():WebApplication的实例，application运行时涉及的class，function，变量，配置等都用Fly::app()管理。
+ *
+ *
+ * 注意:
+ * 本例中涉及的数据库为application/data/flytestdb.sql
  */
 class TestController extends BaseController
 {
