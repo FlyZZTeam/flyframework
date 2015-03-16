@@ -307,36 +307,47 @@ abstract class Application extends Module
         }
         $hasLoaded = false;
         $isFound = false;
-        $aliasAry = array();
-        $subAlias = explode('.', $alias);
-        $count = count($subAlias);
-        $file = $subAlias[$count - 1];
-        if (defined('ENVIRONMENT')) {
-            $subAlias[$count] = $file;
-            $subAlias[$count - 1] = ENVIRONMENT;
-            $aliasAry[] = implode('.', $subAlias);
-        }
-        $aliasAry[] = $alias;
+        $path = Fly::getPathOfAlias($alias);
+        if (file_exists($path)) {
+            $isFound = true;
+            $paths = explode('.', $alias);
+            $file = $paths[count($paths) - 1];
+        } else {
+            $aliasAry = array();
+            $subAlias = explode('.', $alias);
+            $count = count($subAlias);
+            $file = $subAlias[$count - 1];
+            if (defined('ENVIRONMENT')) {
+                $subAlias[$count] = $file;
+                $subAlias[$count - 1] = ENVIRONMENT;
+                $aliasAry[] = implode('.', $subAlias);
+            }
+            $aliasAry[] = $alias;
 
-        $searchRootAlias = array('application', 'webroot');
+            $searchRootAlias = array('application', 'webroot');
 
-        foreach ($searchRootAlias as $root) {
-            foreach ($aliasAry as $val) {
-                $path = Fly::getPathOfAlias($root.'.'.$val).EXT;
-                if (in_array($path, $loadedConfigs, true)) {
-                    $hasLoaded = true;
-                    continue;
+            foreach ($searchRootAlias as $root) {
+                foreach ($aliasAry as $val) {
+                    $path = Fly::getPathOfAlias($root.'.'.$val).EXT;
+                    if (in_array($path, $loadedConfigs, true)) {
+                        $hasLoaded = true;
+                        continue;
+                    }
+                    if (file_exists($path)) {
+                        $isFound = true;
+                        break;
+                    }
                 }
-                if (file_exists($path)) {
-                    $isFound = true;
+
+                if ($isFound == false) {
+                    continue;
+                } else {
                     break;
                 }
             }
+        }
 
-            if ($isFound == false) {
-                continue;
-            }
-
+        if ($isFound) {
             $config = include($path);
 
             if (!isset($config) || !is_array($config)) {
@@ -361,7 +372,6 @@ abstract class Application extends Module
 
             $hasLoaded = true;
             Fly::log('debug', 'Config file loaded: '.$path);
-            break;
         }
 
         if ($hasLoaded === false) {

@@ -288,7 +288,6 @@ class Controller extends Component
         } else {
             $viewFile = $viewPath.DIRECTORY_SEPARATOR.$viewName;
         }
-
         if (is_file($viewFile.$extension)) {
             return Fly::app()->findLocalizedFile($viewFile.$extension);
         }
