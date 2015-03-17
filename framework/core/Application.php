@@ -92,9 +92,6 @@ abstract class Application extends Module
             $config['timezone'] = 'PRC';
         }
 
-        //System timezone
-        $this->setTimeZone($config['timezone']);
-
         // Set application dir
         if (isset($config['basePath'])) {
             $this->setBasePath($config['basePath']);
