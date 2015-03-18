@@ -299,7 +299,7 @@ class DBDriver
         $time_start = list($sm, $ss) = explode(' ', microtime());
 
         // Run the Query
-        if (false === ($this->result_id = $this->_realQuery($sql))) {
+        if (false === ($this->result_id = $this->_realQuery($sql)) || $this->getErrorNumber() > 0) {
             if ($this->save_queries == true) {
                 $this->query_times[] = 0;
             }

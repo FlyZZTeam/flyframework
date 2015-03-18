@@ -764,7 +764,6 @@ class DBActiveRecord extends DBDriver
                 $this->ar_set[$this->_protectIdentifiers($k, false, $escape)] = $this->escape($v);
             }
         }
-
         return $this;
     }
 

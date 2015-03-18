@@ -38,6 +38,7 @@ class DBPdoDriver extends DBComponent
         if (strpos($this->hostname, 'mysql') !== false) {
             $this->_like_escape_str = '';
             $this->_like_escape_chr = '';
+            $this->_escape_char = '`';
 
             //Prior to this version, the charset can't be set in the dsn
             if (Fly::isPhp('5.3.6')) {
