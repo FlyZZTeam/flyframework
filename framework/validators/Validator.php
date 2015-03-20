@@ -208,16 +208,16 @@ class Validator extends Component
      */
     public function run($context = null)
     {
+        /*
         if (count($this->attributes) == 0) {
             return false;
-        }
+        }*/
 
         // Does the _field_data array containing the validation rules exist?
         // If not, we look to see if they were assigned via a config file
         if (count($this->_rules) == 0) {
             return true;
         }
-
         foreach ($this->_rules as $row) {
             $type = $row[1];
             if (preg_match("/^validator:([\w\W]+)/", $type)) {
@@ -296,6 +296,8 @@ class Validator extends Component
             } else {
                 $attributeData[] = $data;
             }
+        } else {
+            $this->addError($row[0], Fly::t('fly', 'Data item "{attribute}" does not exist.', array('{attribute}' => $row[0])));
         }
         $attributeLabel = '';
         if (isset($this->attributeLabels[$row[0]])) {
