@@ -89,7 +89,7 @@ class CacheFile extends Driver
      */
     public function delete($id)
     {
-        return unlink($this->_cachePath.$id);
+        return @unlink($this->_cachePath.$id);
     }
 
     /**
