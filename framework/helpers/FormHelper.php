@@ -169,7 +169,7 @@ class FormHelper
     {
         $defaults = array('name' => ((!is_array($data)) ? $data : ''), 'cols' => '40', 'rows' => '10');
 
-        if (!is_array($data) && !isset($data['value'])) {
+        if (!is_array($data) || !isset($data['value'])) {
             $val = $value;
         } else {
             $val = $data['value'];
@@ -459,144 +459,120 @@ class FormHelper
     /**
      * Form Value
      *
-     * Grabs a value from the POST array for the specified field so you can
-     * re-populate an input field or textarea.  If Form Validation
-     * is active it retrieves the info from the validation class
-     *
      * @param string
      * @return mixed
      */
-    public static function setValue($field = '', $default = '')
+    public static function setValue($data, $field, $default = '')
     {
-        if (false === ($validation =& self::getValidation())) {
-            if (!isset($_POST[$field])) {
-                return $default;
+        $value = $default;
+        if ($field === null || $field === '') {
+            return $value;
+        }
+        if (is_object($data)) {
+            if (isset($data->$field)) {
+                $value = $data->$field;
             }
-            return self::prep($_POST[$field], $field);
+        } else if (is_array($data)) {
+            if (isset($data[$field])) {
+                $value = $data[$field];
+            }
         }
 
-        return self::prep($validation->setValue($field, $default), $field);
+        return self::prep($value, $field);
     }
 
     /**
      * Set Select
      *
-     * Let's you set the selected value of a <select> menu via data in the POST array.
-     * If Form Validation is active it retrieves the info from the validation class
-     *
      * @param string
      * @param string
      * @param bool
      * @return string
      */
-    public static function setSelect($field = '', $value = '', $default = false)
+    public static function setSelect($data, $field = '', $value = '', $default = false)
     {
-        $validation =& self::getValidation();
-
-        if ($validation === false) {
-            if (!isset($_POST[$field])) {
-                if (count($_POST) === 0 && $default == true) {
-                    return ' selected="selected"';
-                }
-                return '';
+        if (!isset($data[$field])) {
+            if (count($data) === 0 && $default == true) {
+                return ' selected="selected"';
             }
-
-            $field = $_POST[$field];
-
-            if (is_array($field)) {
-                if (!in_array($value, $field)) {
-                    return '';
-                }
-            } else {
-                if (($field == '' || $value == '') || ($field != $value)) {
-                    return '';
-                }
-            }
-
-            return ' selected="selected"';
+            return '';
         }
 
-        return $validation->setSelect($field, $value, $default);
+        $field = $data[$field];
+
+        if (is_array($field)) {
+            if (!in_array($value, $field)) {
+                return '';
+            }
+        } else {
+            if (($field == '' || $value == '') || ($field != $value)) {
+                return '';
+            }
+        }
+
+        return ' selected="selected"';
     }
 
     /**
      * Set Checkbox
      *
-     * Let's you set the selected value of a checkbox via the value in the POST array.
-     * If Form Validation is active it retrieves the info from the validation class
-     *
      * @param string
      * @param string
      * @param bool
      * @return string
      */
-    public static function setCheckbox($field = '', $value = '', $default = false)
+    public static function setCheckbox($data, $field = '', $value = '', $default = false)
     {
-        $validation =& self::getValidation();
-
-        if ($validation === false) {
-            if (!isset($_POST[$field])) {
-                if (count($_POST) === 0 && $default == true) {
-                    return ' checked="checked"';
-                }
-                return '';
+        if (!isset($data[$field])) {
+            if (count($data) === 0 && $default == true) {
+                return ' checked="checked"';
             }
-
-            $field = $_POST[$field];
-
-            if (is_array($field)) {
-                if (!in_array($value, $field)) {
-                    return '';
-                }
-            } else {
-                if (($field == '' || $value == '') || ($field != $value)) {
-                    return '';
-                }
-            }
-            return ' checked="checked"';
+            return '';
         }
 
-        return $validation->setCheckbox($field, $value, $default);
+        $field = $data[$field];
+
+        if (is_array($field)) {
+            if (!in_array($value, $field)) {
+                return '';
+            }
+        } else {
+            if (($field == '' || $value == '') || ($field != $value)) {
+                return '';
+            }
+        }
+        return ' checked="checked"';
     }
 
     /**
      * Set Radio
      *
-     * Let's you set the selected value of a radio field via info in the POST array.
-     * If Form Validation is active it retrieves the info from the validation class
-     *
      * @param string
      * @param string
      * @param bool
      * @return string
      */
-    public static function setRadio($field = '', $value = '', $default = false)
+    public static function setRadio($data, $field = '', $value = '', $default = false)
     {
-        $validation =& self::getValidation();
-
-        if ($validation === false) {
-            if (!isset($_POST[$field])) {
-                if (count($_POST) === 0 && $default == true) {
-                    return ' checked="checked"';
-                }
-                return '';
+        if (!isset($data[$field])) {
+            if (count($data) === 0 && $default == true) {
+                return ' checked="checked"';
             }
-
-            $field = $_POST[$field];
-
-            if (is_array($field)) {
-                if (!in_array($value, $field)) {
-                    return '';
-                }
-            } else {
-                if (($field == '' || $value == '') || ($field != $value)) {
-                    return '';
-                }
-            }
-            return ' checked="checked"';
+            return '';
         }
 
-        return $validation->setRadio($field, $value, $default);
+        $field = $data[$field];
+
+        if (is_array($field)) {
+            if (!in_array($value, $field)) {
+                return '';
+            }
+        } else {
+            if (($field == '' || $value == '') || ($field != $value)) {
+                return '';
+            }
+        }
+        return ' checked="checked"';
     }
 
     /**
@@ -610,32 +586,21 @@ class FormHelper
      * @param string
      * @return string
      */
-    public static function error($field = '', $prefix = '', $suffix = '')
+    public static function error($field = '')
     {
-        if (false === ($validation =& self::getValidation())) {
-            return '';
-        }
-
-        return $validation->error($field, $prefix, $suffix);
+        return Fly::app()->getValidator()->getError($field);
     }
 
     /**
      * Validation Error String
      *
-     * Returns all the errors associated with a form submission.  This is a helper
-     * function for the form validation class.
-     *
      * @param string
      * @param string
      * @return string
      */
-    public static function validationErrors($prefix = '', $suffix = '')
+    public static function validationErrors()
     {
-        if (false === ($validation =& self::getValidation())) {
-            return '';
-        }
-
-        return $validation->errorString($prefix, $suffix);
+        return Fly::app()->getValidator()->getErrorString();
     }
 
     /**
@@ -716,19 +681,5 @@ class FormHelper
             }
             return $atts;
         }
-    }
-
-    /**
-     * Validation Object
-     *
-     * Determines what the form validation class was instantiated as, fetches
-     * the object and returns it.
-     *
-     * @return mixed
-     */
-    public static function &getValidation()
-    {
-        $return = Fly::app()->getValidation();
-        return $return;
     }
 }
