@@ -254,6 +254,19 @@ class Model extends Component implements IteratorAggregate, ArrayAccess
         return Fly::app()->getValidator()->getError($attribute);
     }
 
+    public function getCurrentError()
+    {
+        $info = false;
+        $errors = $this->getErrors();
+        if (is_array($errors)) {
+            $errors = current($errors);
+            if (is_array($errors)) {
+                $info = current($errors);
+            }
+        }
+        return $info;
+    }
+
     /**
      * Adds a new error to the specified attribute.
      * @param string $attribute attribute name
