@@ -151,13 +151,7 @@ class Validator extends Component
     public function addErrors($errors)
     {
         foreach ($errors as $attribute => $error) {
-            if (is_array($error)) {
-                foreach ($error as $e) {
-                    $this->addError($attribute, $e);
-                }
-            } else {
-                $this->addError($attribute, $error);
-            }
+            $this->addError($attribute, $error);
         }
     }
 
@@ -185,15 +179,19 @@ class Validator extends Component
      */
     public function getErrorString()
     {
-        // No errrors, validation passes!
+        // No errors, validation passes!
         if (count($this->_errors) === 0) {
             return '';
         }
+
         // Generate the error string
         $str = '';
-        foreach ($this->_errors as $val) {
-            if ($val != '') {
-                $str .= implode('<br>', $val).'<br>';
+        foreach ($this->_errors as $error) {
+            foreach ($error as $val) {
+                if (isset($val['message']) && $val['message'] != '') {
+                    $code = isset($val['code']) ? $val['code'] : 0;
+                    $str .= 'ErrorCoe:'.$code.'<br>'.'ErrorMessage:'.$val['message'].'<br><br>';
+                }
             }
         }
         return $str;
@@ -208,13 +206,6 @@ class Validator extends Component
      */
     public function run($context = null)
     {
-        /*
-        if (count($this->attributes) == 0) {
-            return false;
-        }*/
-
-        // Does the _field_data array containing the validation rules exist?
-        // If not, we look to see if they were assigned via a config file
         if (count($this->_rules) == 0) {
             return true;
         }
@@ -288,113 +279,137 @@ class Validator extends Component
     protected function _executeInLineEngine($row, $context = null)
     {
         $rules = explode('|', $row[1]);
-        $attributeData = array();
-        if (isset($this->attributes[$row[0]])) {
-            $data = $this->attributes[$row[0]];
-            if (is_array($data)) {
-                $attributeData = $data;
-            } else {
-                $attributeData[] = $data;
-            }
-        } else {
-            $this->addError($row[0], Fly::t('fly', 'Data item "{attribute}" does not exist.', array('{attribute}' => $row[0])));
-        }
-        $attributeLabel = '';
-        if (isset($this->attributeLabels[$row[0]])) {
-            $attributeLabel = $this->attributeLabels[$row[0]];
-        }
 
-        foreach ($attributeData as $item) {
-            // If the field is blank, but NOT required, no further tests are necessary
-            $callback = false;
-            $postdata = $item;
-            if (!in_array('required', $rules) && is_null($postdata)) {
-                // Before we bail out, does the rule contain a callback?
-                if (preg_match("/(callback:\w+(\[.*?\])?)/", implode(' ', $rules), $match)) {
-                    $callback = true;
-                    $rules = (array('1' => $match[1]));
+        $attributes = array();
+        if (is_string($row[0])) {
+            $attributes = preg_split('/[\s,]+/', $row[0], -1, PREG_SPLIT_NO_EMPTY);
+        }
+        foreach ($attributes as $attr) {
+            $attributeData = array();
+            if (isset($this->attributes[$attr])) {
+                $data = $this->attributes[$attr];
+                if (is_array($data)) {
+                    $attributeData = $data;
                 } else {
+                    $attributeData[] = $data;
+                }
+            } else {
+                $attributeData[] = null;
+            }
+
+            /*
+            $attributeLabel = '';
+            if (isset($this->attributeLabels[$attr])) {
+                $attributeLabel = $this->attributeLabels[$attr];
+            }*/
+
+            foreach ($attributeData as $item) {
+                // If the field is blank, but NOT required, no further tests are necessary
+                $callback = false;
+                $postdata = $item;
+                if (!in_array('required', $rules) && is_null($postdata)) {
+                    // Before we bail out, does the rule contain a callback?
+                    if (preg_match("/(callback:\w+(\[.*?\])?)/", implode(' ', $rules), $match)) {
+                        $callback = true;
+                        $rules = (array('1' => $match[1]));
+                    } else {
+                        return;
+                    }
+                }
+
+                // Isset Test. Typically this rule will only apply to checkboxes.
+                if (is_null($postdata) AND $callback == false) {
+                    if (in_array('isset', $rules, true) OR in_array('required', $rules)) {
+                        // Set the message type
+                        $type = (in_array('required', $rules)) ? 'required' : 'isset';
+                        $message = isset($row['message']) ? $row['message'] : '';
+                        $code = isset($row['code']) ? $row['code'] : 0;
+                        $message = $this->createErrorMessage($type, $attr, $code, $message);
+                        $this->addError($row[0], $message);
+                    }
+
                     return;
                 }
-            }
 
-            // Isset Test. Typically this rule will only apply to checkboxes.
-            if (is_null($postdata) AND $callback == false) {
-                if (in_array('isset', $rules, true) OR in_array('required', $rules)) {
-                    // Set the message type
-                    $type = (in_array('required', $rules)) ? 'required' : 'isset';
+                foreach ($rules As $rule) {
 
-                    $message = $this->createErrorMessage($type, $row[0]);
-
-                    $this->addError($row[0], $message);
-                }
-
-                return;
-            }
-
-            foreach ($rules As $rule) {
-
-                // Is the rule a callback?
-                $callback = false;
-                if (substr($rule, 0, 9) == 'callback:') {
-                    $rule = substr($rule, 9);
-                    $callback = true;
-                }
-
-                // Strip the parameter (if exists) from the rule
-                // Rules can contain a parameter: max_length[5]
-                $param = false;
-                if (preg_match("/(.*?)\[(.*)\]/", $rule, $match)) {
-                    $rule = $match[1];
-                    $param = $match[2];
-                }
-
-                // Call the function that corresponds to the rule
-                if ($callback === true) {
-                    $object = null;
-                    if (method_exists($context, $rule)) {
-                        $object = $context;
-                    } else if (method_exists(Fly::app()->Controller, $rule)) {
-                        $object = Fly::app()->Controller;
-                    } else {
-                        Fly::log('debug', "Unable to find callback validation rule: ".$rule);
-                        continue;
+                    // Is the rule a callback?
+                    $callback = false;
+                    if (substr($rule, 0, 9) == 'callback:') {
+                        $rule = substr($rule, 9);
+                        $callback = true;
                     }
-                    $result = $object->$rule($postdata, $param);
-                    // If the field isn't required and we just processed a callback we'll move on...
-                    if (!in_array('required', $rules, true) AND $result !== false) {
-                        continue;
+
+                    // Strip the parameter (if exists) from the rule
+                    // Rules can contain a parameter: max_length[5]
+                    $param = false;
+                    if (preg_match("/(.*?)\[(.*)\]/", $rule, $match)) {
+                        $rule = $match[1];
+                        $param = $match[2];
                     }
-                } else {
-                    if (!method_exists($this, $rule)) {
-                        // If our own wrapper function doesn't exist we see if a native PHP function does.
-                        // Users can use any native PHP function call that has one param.
-                        if (function_exists($rule)) {
-                            $result = $rule($postdata);
+
+                    // Call the function that corresponds to the rule
+                    if ($callback === true) {
+                        $object = null;
+                        if (method_exists($context, $rule)) {
+                            $object = $context;
+                        } else if (method_exists(Fly::app()->Controller, $rule)) {
+                            $object = Fly::app()->Controller;
                         } else {
-                            Fly::log('debug', "Unable to find validation rule: ".$rule);
+                            Fly::log('debug', "Unable to find callback validation rule: ".$rule);
+                            continue;
                         }
+                        $ret = $object->$rule($postdata, $row, $param);
+                        if (is_array($ret) || $ret === false) {
+                            $resultInfo = $ret;
+                            $result = false;
+                        } else {
+                            $result = true;
 
-                        continue;
-                    }
-                    $result = $this->$rule($postdata, $param);
-                }
-
-                // Did the rule test negatively?  If so, grab the error.
-                if ($result === false) {
-                    $newParams = array();
-                    if ($param && is_array($param)) {
-                        $count = 1;
-                        foreach ($param as $val) {
-                            $newParams['{param'.$count.'}'] = isset($this->attributeLabels[$val]) ? $this->attributeLabels[$val] : $val;
-                            $count++;
                         }
+                    } else {
+                        if (!method_exists($this, $rule)) {
+                            // If our own wrapper function doesn't exist we see if a native PHP function does.
+                            // Users can use any native PHP function call that has one param.
+                            if (function_exists($rule)) {
+                                $result = $rule($postdata);
+                            } else {
+                                Fly::log('debug', "Unable to find validation rule: ".$rule);
+                            }
+                        }
+                        $result = $this->$rule($postdata, $param);
+                        $resultInfo = false;
                     }
-                    $message = isset($row['message']) ? $row['message'] : '';
-                    $message = $this->createErrorMessage($rule, $row[0], $message, $newParams);
-                    $this->addError($row[0], $message);
-                    if ($this->skipOnError) {
-                        return;
+
+                    // Did the rule test negatively?  If so, grab the error.
+                    if ($result === false) {
+                        $newParams = array();
+                        if ($resultInfo && is_array($resultInfo)) {
+                            $newParams = isset($resultInfo[2]) ? $resultInfo[2] : array();
+                            $message = $resultInfo[1];
+                            $code = $resultInfo[0];
+                        } else {
+                            $params = array();
+                            if (is_string($param)) {
+                                $params[] = $param;
+                            } else if (is_array($param)) {
+                                $params = $param;
+                            }
+
+                            $count = 1;
+                            foreach ($params as $val) {
+                                $newParams['{param'.$count.'}'] = isset($this->attributeLabels[$val]) ? $this->attributeLabels[$val] : $val;
+                                $count++;
+                            }
+
+                            $message = isset($row['message']) ? $row['message'] : '';
+                            $code = isset($row['code']) ? $row['code'] : 0;
+                        }
+                        $message = $this->createErrorMessage($rule, $attr, $code, $message, $newParams);
+                        $this->addError($row[0], $message);
+                        if ($this->skipOnError) {
+                            return;
+                        }
                     }
                 }
             }
@@ -447,7 +462,7 @@ class Validator extends Component
      * @param $message string
      * @param array $params array
      */
-    protected function createErrorMessage($rule, $attribute = '', $message = '', $params = array())
+    protected function createErrorMessage($rule, $attribute = '', $code = 0, $message = '', $params = array())
     {
         $params['{attribute}'] = $attribute;
         if (isset($this->attributeLabels[$attribute])) {
@@ -465,10 +480,32 @@ class Validator extends Component
                 $line = $this->_errorMessages[$rule];
             }
         } else {
-            $line = $message;
+            if (is_array($message)) {
+                if (isset($message[$rule])) {
+                    if (is_array($message[$rule])) {
+                        $line = $message[$rule][1];
+                        $code = $message[$rule][0];
+                    } else {
+                        $line = $message[$rule];
+                    }
+                } else {
+                    $line = '';
+                }
+            } else {
+                $line = $message;
+            }
         }
         $message = strtr($line, $params);
-        return $message;
+
+        if (is_array($code)) {
+            if (isset($code[$rule])) {
+                $code = $code[$rule];
+            } else {
+                $code = '';
+            }
+        }
+
+        return array('code' => $code, 'message' => $message);
     }
 
     /**
@@ -487,7 +524,7 @@ class Validator extends Component
         $result = $this->validateValue($val);
         if (!empty($result)) {
             $className = str_replace('validator', '', get_class());
-            $message = $this->createErrorMessage($className, $attribute, $result[0], $result[1]);
+            $message = $this->createErrorMessage($className, $attribute, $result[0], $result[1], $result[2]);
             $this->addError($attribute, $message);
         }
     }

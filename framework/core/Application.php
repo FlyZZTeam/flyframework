@@ -92,6 +92,9 @@ abstract class Application extends Module
             $config['timezone'] = 'PRC';
         }
 
+        //System timezone
+        $this->setTimeZone($config['timezone']);
+
         // Set application dir
         if (isset($config['basePath'])) {
             $this->setBasePath($config['basePath']);
@@ -640,7 +643,7 @@ abstract class Application extends Module
      */
     public function getCache()
     {
-        return $this->getComponent('Cache');
+        return $this->getComponent('cache');
     }
 
     /**
@@ -1089,7 +1092,10 @@ abstract class Application extends Module
             ),
             'output' => array(
                 'class' => 'Output',
-            )
+            ),
+            'cache' => array(
+                'class' => 'Cache',
+            ),
         );
         $this->setComponents($components);
     }

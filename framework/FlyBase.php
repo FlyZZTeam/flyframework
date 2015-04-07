@@ -595,6 +595,19 @@ class FlyBase
     }
 
     /**
+     * Returns Cache
+     * @return Cache
+     * @throws FlyException
+     */
+    public static function cache()
+    {
+        if (!Fly::app()) {
+            throw new FlyException(Fly::t('fly', 'The application has not been initialized, you must be in the application initialization is complete in order to use this method.'));
+        }
+        return Fly::app()->getCache();
+    }
+
+    /**
      * Returns a string that can be displayed on your Web page showing Powered-by-Fly information
      * @return string a string that can be displayed on your Web page showing Powered-by-Fly information
      */
