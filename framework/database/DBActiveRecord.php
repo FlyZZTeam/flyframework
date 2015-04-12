@@ -812,7 +812,6 @@ class DBActiveRecord extends DBDriver
         }
 
         $sql = $this->_compileSelect($this->_count_string.$this->_protectIdentifiers('NUMROWS'));
-
         $query = $this->query($sql);
         $this->_resetSelect();
 

@@ -46,7 +46,7 @@ class CacheFile extends Driver
         }
 
         $data = FileHelper::readFile($this->_cachePath.$id);
-        $data = unserialize($data);
+        $data = @unserialize(base64_decode($data));
 
         if (time() > $data['time'] + $data['ttl']) {
             unlink($this->_cachePath.$id);
@@ -73,7 +73,7 @@ class CacheFile extends Driver
             'data' => $data
         );
 
-        if (FileHelper::writeFile($this->_cachePath.$id, serialize($contents))) {
+        if (FileHelper::writeFile($this->_cachePath.$id, base64_encode(serialize($contents)))) {
             @chmod($this->_cachePath.$id, 0777);
             return true;
         }

@@ -429,7 +429,7 @@ class Controller extends Component
         if ($return) {
             return $text;
         } else {
-            echo $text;
+            $this->displayOutput($text);
         }
     }
 
@@ -465,7 +465,7 @@ class Controller extends Component
             if ($return) {
                 return $output;
             } else {
-                echo $output;
+                $this->displayOutput($output);
             }
         } else {
             throw new FlyException(Fly::t('fly', '{controller} cannot find the requested view "{view}".',

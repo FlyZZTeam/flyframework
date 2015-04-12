@@ -348,6 +348,7 @@ class Validator extends Component
                         $param = $match[2];
                     }
 
+                    $resultInfo = false;
                     // Call the function that corresponds to the rule
                     if ($callback === true) {
                         $object = null;
@@ -378,32 +379,29 @@ class Validator extends Component
                             }
                         }
                         $result = $this->$rule($postdata, $param);
-                        $resultInfo = false;
                     }
 
                     // Did the rule test negatively?  If so, grab the error.
                     if ($result === false) {
-                        $newParams = array();
+                        $newParams = $params = array();
                         if ($resultInfo && is_array($resultInfo)) {
-                            $newParams = isset($resultInfo[2]) ? $resultInfo[2] : array();
+                            $params = isset($resultInfo[2]) ? $resultInfo[2] : array();
                             $message = $resultInfo[1];
                             $code = $resultInfo[0];
                         } else {
-                            $params = array();
                             if (is_string($param)) {
                                 $params[] = $param;
                             } else if (is_array($param)) {
                                 $params = $param;
                             }
 
-                            $count = 1;
-                            foreach ($params as $val) {
-                                $newParams['{param'.$count.'}'] = isset($this->attributeLabels[$val]) ? $this->attributeLabels[$val] : $val;
-                                $count++;
-                            }
-
                             $message = isset($row['message']) ? $row['message'] : '';
                             $code = isset($row['code']) ? $row['code'] : 0;
+                        }
+                        $count = 1;
+                        foreach ($params as $val) {
+                            $newParams['{param'.$count.'}'] = isset($this->attributeLabels[$val]) ? $this->attributeLabels[$val] : $val;
+                            $count++;
                         }
                         $message = $this->createErrorMessage($rule, $attr, $code, $message, $newParams);
                         $this->addError($row[0], $message);
