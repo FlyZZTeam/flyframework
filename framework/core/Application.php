@@ -565,7 +565,7 @@ abstract class Application extends Module
      */
     public function getLocale()
     {
-        return $this->getComponent('Locale');
+        return $this->getComponent('Localized');
     }
 
     /**

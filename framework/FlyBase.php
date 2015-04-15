@@ -657,7 +657,7 @@ class FlyBase
         'Controller' => '/core/Controller.php',
         'Router' => '/core/Router.php',
         'Logger' => '/core/Logger.php',
-        'Locale' => '/core/Locale.php',
+        'Localized' => '/core/Localized.php',
         'Output' => '/core/Output.php',
         'Validator' => '/validators/Validator.php',
         'InlineValidator' => '/validators/InlineValidator.php',

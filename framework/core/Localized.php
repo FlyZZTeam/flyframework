@@ -9,7 +9,7 @@
 /**
  * Localization class
  */
-class Locale
+class Localized
 {
 
     /**
